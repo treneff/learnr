@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Inheritance
 @Table(name = "user")
 public abstract class User {
 
@@ -45,6 +46,9 @@ public abstract class User {
         this.dob = dob;
         this.bio = bio;
         this.course = course;
+    }
+
+    public User() {
     }
 
     public Long getId() {
