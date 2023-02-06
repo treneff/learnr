@@ -5,6 +5,7 @@ import com.learnr.Learnr.interfaces.Completable;
 import javax.persistence.*;
 
 @Entity
+@Inheritance
 @Table(name = "content")
 public abstract class Content implements Completable {
 
@@ -24,6 +25,9 @@ public abstract class Content implements Completable {
         this.title = title;
         this.detail = detail;
         this.completed = false;
+    }
+
+    public Content() {
     }
 
     public String getTitle() {

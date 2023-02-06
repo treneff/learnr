@@ -23,12 +23,12 @@ public class Course {
 
     @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<User> users;
+    private List<CourseUser> courseUsers;
 
     public Course(String title) {
         this.title = title;
         this.contentBlocks = new ArrayList<>();
-        this.users = new ArrayList<>();
+        this.courseUsers = new ArrayList<>();
     }
 
     public Course() {
@@ -58,11 +58,11 @@ public class Course {
         this.contentBlocks = contentBlocks;
     }
 
-    public List<User> getUsers() {
-        return this.users;
+    public List<CourseUser> getUsers() {
+        return this.courseUsers;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUsers(List<CourseUser> courseUsers) {
+        this.courseUsers = courseUsers;
     }
 }

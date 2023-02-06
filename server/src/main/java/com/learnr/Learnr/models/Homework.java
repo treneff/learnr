@@ -4,9 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "homeworks")
+//@Table(name = "homeworks")
 public class Homework extends Content {
     public Homework(String title, String detail) {
         super(title, detail);
+    }
+
+    public Homework() {
     }
 }

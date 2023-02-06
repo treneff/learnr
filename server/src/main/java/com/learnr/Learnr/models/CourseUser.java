@@ -3,12 +3,11 @@ package com.learnr.Learnr.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Inheritance
-@Table(name = "user")
-public abstract class User {
+@Table(name = "course_user")
+public abstract class CourseUser {
 
 
     @Id
@@ -34,11 +33,11 @@ public abstract class User {
     private String bio;
 
     @ManyToOne
-    @JoinColumn(name = "course", nullable = false)
+    @JoinColumn(name = "course_id", nullable = false)
     @JsonManagedReference
     private Course course;
 
-    public User(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
+    public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -48,7 +47,7 @@ public abstract class User {
         this.course = course;
     }
 
-    public User() {
+    public CourseUser() {
     }
 
     public Long getId() {

@@ -3,10 +3,11 @@ package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "content-block")
+@Table(name = "content_block")
 public class ContentBlock {
 
     @Id
@@ -37,9 +38,18 @@ public class ContentBlock {
         this.week = week;
         this.day = day;
         this.course = course;
+        this.content = new ArrayList<>();
     }
 
     public ContentBlock() {
+    }
+
+    public List<Content> getContent() {
+        return content;
+    }
+
+    public void setContent(List<Content> content) {
+        this.content = content;
     }
 
     public Long getId() {
@@ -81,4 +91,6 @@ public class ContentBlock {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+
 }

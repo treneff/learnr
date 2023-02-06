@@ -4,9 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "labs")
+//@Table(name = "labs")
 public class Lab extends Content{
     public Lab(String title, String detail) {
         super(title, detail);
+    }
+
+    public Lab() {
     }
 }
