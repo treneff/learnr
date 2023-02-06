@@ -44,4 +44,8 @@ public abstract class Content implements Completable {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    public void completeTask(){
+        setCompleted(true);
+    }
 }
