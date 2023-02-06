@@ -18,13 +18,13 @@ public abstract class User {
     private String firstName;
 
     @Column(name = "last_name")
-    private int lastName;
+    private String lastName;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "phone")
-    private int phone;
+    private Long phone;
 
     @Column(name = "DOB")
     private String dob;
@@ -37,7 +37,7 @@ public abstract class User {
     @JsonManagedReference
     private Course course;
 
-    public User(String firstName, int lastName, String email, int phone, String dob, String bio, Course course) {
+    public User(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -63,11 +63,11 @@ public abstract class User {
         this.firstName = firstName;
     }
 
-    public int getLastName() {
+    public String getLastName() {
         return this.lastName;
     }
 
-    public void setLastName(int lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -79,11 +79,11 @@ public abstract class User {
         this.email = email;
     }
 
-    public int getPhone() {
+    public Long getPhone() {
         return this.phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
