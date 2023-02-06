@@ -1,6 +1,8 @@
 package com.learnr.Learnr.components;
 
 import com.learnr.Learnr.models.Course;
+import com.learnr.Learnr.models.CourseNotes;
+import com.learnr.Learnr.models.Homework;
 import com.learnr.Learnr.models.Student;
 import com.learnr.Learnr.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,28 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
         Course softwareDev = new Course("Professional software development");
-        Student poppy = new Student("Poppy","Dalglish", "dp@gmail.com", 07774564534L, "12/12/1993", "I am a student",  softwareDev);
+        Student poppy = new Student("Poppy", "Dalglish", "dp@gmail.com", 07774564534L, "12/12/1993", "I am a student", softwareDev);
 
+        CourseNotes command_line_basics = new CourseNotes("Command Line Basics", "This will be the content of Command Line Basics");
+        courseNotesRepository.save(command_line_basics);
+        CourseNotes effective_text_editing = new CourseNotes("Effective Text Editing", "This will be the content of Command Line Basics");
+        courseNotesRepository.save(effective_text_editing);
+        CourseNotes git_and_github = new CourseNotes("Git and Github", "This will be the content of Git and Github");
+        courseNotesRepository.save(git_and_github);
+        CourseNotes what_is_programming = new CourseNotes("What is programming", "This will be the content of what is programming");
+        courseNotesRepository.save(what_is_programming);
+        Homework submit_to_github = new Homework("Submit Something to Github", "This will be the content of the Github Homework");
+        homeworkRepository.save(submit_to_github)
+        Homework lists_and_dictionaries = new Homework("Lists and Dictionaries Homework", "This will be the content of the Github Homework");
+        homeworkRepository.save(lists_and_dictionaries)
+        Teacher mar = new Teacher("Mar", "Beveridge", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", softwareDev, "Instructor");
+        teacherRepository.save(mar);
+        Student john = new Student("John","Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student",  softwareDev);
+        studentRepository.save(john);
+        Teacher bob = new Teacher("Bob", "Bobson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I am smart person", softwareDev, "King Instructor");
+        teacherRepository.save(bob);
+        Student mikhayla = new Student("Mikhayla","Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student",  softwareDev);
+        studentRepository.save(mikhayla);
+        Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun",91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", softwareDev, "Small Instructor");
+        teacherRepository.save(dick);
     }
-
-}
