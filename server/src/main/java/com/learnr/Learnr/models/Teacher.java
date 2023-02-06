@@ -1,7 +1,11 @@
 package com.learnr.Learnr.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "teachers")
 public class Teacher extends User{
     @Column(name = "job_title")
     private String jobTitle;

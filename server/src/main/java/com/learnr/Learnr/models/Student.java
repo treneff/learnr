@@ -1,5 +1,10 @@
 package com.learnr.Learnr.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "students")
 public class Student extends User{
 
     public Student(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {

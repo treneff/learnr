@@ -2,10 +2,15 @@ package com.learnr.Learnr.models;
 
 import com.learnr.Learnr.interfaces.Completable;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "content")
 public abstract class Content implements Completable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "title")
     private String title;
 
@@ -47,5 +52,13 @@ public abstract class Content implements Completable {
 
     public void completeTask(){
         setCompleted(true);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
