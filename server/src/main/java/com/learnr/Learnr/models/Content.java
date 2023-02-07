@@ -1,9 +1,11 @@
 package com.learnr.Learnr.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.learnr.Learnr.interfaces.Completable;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Inheritance
@@ -24,6 +26,9 @@ public abstract class Content implements Completable {
     @JsonManagedReference
     private Day day;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    private List<Completion> completions;
 
     public Content(String title, String detail, Day day) {
         this.title = title;
