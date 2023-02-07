@@ -1,4 +1,5 @@
 import SideMenu from '../SideMenu';
+import styled from 'styled-components';
 
 const Header = () => {
     //     contains account menu on the right
