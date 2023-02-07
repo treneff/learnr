@@ -8,7 +8,7 @@ import Registration from '../components/Registration'
 import FirestoreTest from '../components/FirestoreTest';
 const Main: React.FC = () => {
     return (
-        <section>
+        <main>
             <Routes>
                 <Route path='/' element={<Login/>} />
                 <Route path='/testing'  element={<FirestoreTest />} />
@@ -17,7 +17,7 @@ const Main: React.FC = () => {
                 <Route path='/cohort' element={<Cohort />} />
                 <Route path='/registration' element={<Registration />} />
             </Routes>
-        </section>
+        </main>
     );
 };
 
