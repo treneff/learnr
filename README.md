@@ -1,0 +1,1 @@
+A full stack Learning management system build by a Jamie McGlone, Ewan Connor and George Trenev with React, Typescript, Java Spring Boot, PostgreSQL, Firebase Authentication 
