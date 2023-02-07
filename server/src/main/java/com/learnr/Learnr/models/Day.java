@@ -1,14 +1,15 @@
 package com.learnr.Learnr.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "content_block")
-public class ContentBlock {
+@Table(name = "day")
+public class Day {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,30 +19,30 @@ public class ContentBlock {
     private String title;
 
     @Column(name = "week")
-    private int week;
+    private int weekNumber;
 
     @Column(name = "day")
-    private int day;
+    private int dayNumber;
 
+    //Working as intended
     @ManyToOne
-    @JoinColumn(name = "course", nullable = false)
+    @JoinColumn(name = "course_id", nullable = false)
     @JsonManagedReference
     private Course course;
 
-
-    @OneToMany
-    @JsonManagedReference
+    @JsonBackReference
+    @OneToMany (mappedBy = "day", fetch = FetchType.LAZY)
     private List<Content> content;
 
-    public ContentBlock(String title, int week, int day, Course course) {
+    public Day(String title, int weekNumber, int dayNumber, Course course) {
         this.title = title;
-        this.week = week;
-        this.day = day;
+        this.weekNumber = weekNumber;
+        this.dayNumber = dayNumber;
         this.course = course;
         this.content = new ArrayList<>();
     }
 
-    public ContentBlock() {
+    public Day() {
     }
 
     public List<Content> getContent() {
@@ -68,20 +69,20 @@ public class ContentBlock {
         this.title = title;
     }
 
-    public int getWeek() {
-        return this.week;
+    public int getWeekNumber() {
+        return this.weekNumber;
     }
 
-    public void setWeek(int week) {
-        this.week = week;
+    public void setWeekNumber(int weekNumber) {
+        this.weekNumber = weekNumber;
     }
 
-    public int getDay() {
-        return this.day;
+    public int getDayNumber() {
+        return this.dayNumber;
     }
 
-    public void setDay(int day) {
-        this.day = day;
+    public void setDayNumber(int dayNumber) {
+        this.dayNumber = dayNumber;
     }
 
     public Course getCourse() {

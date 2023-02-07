@@ -1,5 +1,6 @@
 package com.learnr.Learnr.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.learnr.Learnr.interfaces.Completable;
 
 import javax.persistence.*;
@@ -18,13 +19,16 @@ public abstract class Content implements Completable {
     @Column(name = "detail")
     private String detail;
 
-    @Column(name = "completed")
-    private boolean completed;
+    @ManyToOne
+    @JoinColumn(name = "day_id", nullable = false)
+    @JsonManagedReference
+    private Day day;
 
-    public Content(String title, String detail) {
+
+    public Content(String title, String detail, Day day) {
         this.title = title;
         this.detail = detail;
-        this.completed = false;
+        this.day = day;
     }
 
     public Content() {
@@ -46,23 +50,19 @@ public abstract class Content implements Completable {
         this.detail = detail;
     }
 
-    public boolean isCompleted() {
-        return this.completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    public void completeTask(){
-        setCompleted(true);
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
     }
 }

@@ -17,9 +17,11 @@ public class Course {
     @Column(name = "title")
     private String title;
 
+
+//Working as intended
     @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<ContentBlock> contentBlocks;
+    private List<Day> days;
 
     @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
@@ -27,7 +29,7 @@ public class Course {
 
     public Course(String title) {
         this.title = title;
-        this.contentBlocks = new ArrayList<>();
+        this.days = new ArrayList<>();
         this.courseUsers = new ArrayList<>();
     }
 
@@ -50,12 +52,12 @@ public class Course {
         this.id = id;
     }
 
-    public List<ContentBlock> getDays() {
-        return this.contentBlocks;
+    public List<Day> getDays() {
+        return this.days;
     }
 
-    public void setDays(List<ContentBlock> days) {
-        this.contentBlocks = contentBlocks;
+    public void setDays(List<Day> days) {
+        this.days = this.days;
     }
 
     public List<CourseUser> getUsers() {

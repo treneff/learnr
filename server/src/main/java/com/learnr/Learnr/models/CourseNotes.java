@@ -7,10 +7,15 @@ import javax.persistence.Table;
 //@Table(name = "course-notes")
 public class CourseNotes extends Content {
 
-    public CourseNotes(String title, String detail) {
-        super(title, detail);
+    public CourseNotes(String title, String detail, Day day) {
+        super(title, detail, day);
     }
 
     public CourseNotes() {
+    }
+
+    @Override
+    public void completeTask() {
+
     }
 }
