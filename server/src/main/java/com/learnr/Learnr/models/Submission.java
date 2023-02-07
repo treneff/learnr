@@ -1,17 +1,12 @@
 package com.learnr.Learnr.models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "completions")
-public class Completion {
+@Table(name = "submissions")
+public class Submission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +22,25 @@ public class Completion {
     @JsonManagedReference
     private Content content;
 
-    public Completion(Content content, Student student) {
+    @Column(name = "url")
+    private String url;
+
+    @Column(name = "difficulty_level")
+    private int difficultyLevel;
+
+    @Column(name = "comment")
+    private String comment;
+
+
+    public Submission(Content content, Student student, String url, int difficultyLevel, String comment) {
         this.student = student;
         this.content = content;
+        this.url = url;
+        this.difficultyLevel = difficultyLevel;
+        this.comment = comment;
     }
 
-    public Completion() {
+    public Submission() {
     }
 
     public Long getId() {
@@ -57,5 +65,29 @@ public class Completion {
 
     public void setContent(Content content) {
         this.content = content;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getDifficultyLevel() {
+        return this.difficultyLevel;
+    }
+
+    public void setDifficultyLevel(int difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    public String getComment() {
+        return this.comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

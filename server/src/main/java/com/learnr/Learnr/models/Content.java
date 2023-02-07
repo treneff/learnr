@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Inheritance
-@Table(name = "content")
+@Table(name = "contents")
 public abstract class Content implements Completable {
 
     @Id
@@ -29,6 +29,10 @@ public abstract class Content implements Completable {
     @JsonBackReference
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Completion> completions;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    private List<Submission> submissions;
 
     public Content(String title, String detail, Day day) {
         this.title = title;
@@ -69,5 +73,21 @@ public abstract class Content implements Completable {
 
     public void setDay(Day day) {
         this.day = day;
+    }
+
+    public List<Completion> getCompletions() {
+        return this.completions;
+    }
+
+    public void setCompletions(List<Completion> completions) {
+        this.completions = completions;
+    }
+
+    public List<Submission> getSubmissions() {
+        return this.submissions;
+    }
+
+    public void setSubmissions(List<Submission> submissions) {
+        this.submissions = submissions;
     }
 }

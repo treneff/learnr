@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-//@Table(name = "teachers")
 public class Teacher extends CourseUser {
     @Column(name = "job_title")
     private String jobTitle;

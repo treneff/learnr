@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance
-@Table(name = "course_user")
+@Table(name = "course_users")
 public abstract class CourseUser {
 
 

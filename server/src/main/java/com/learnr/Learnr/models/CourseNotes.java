@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name = "course-notes")
 public class CourseNotes extends Content {
 
     public CourseNotes(String title, String detail, Day day) {
