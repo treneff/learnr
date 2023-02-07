@@ -23,7 +23,7 @@ public abstract class Content implements Completable {
 
     @ManyToOne
     @JoinColumn(name = "day_id", nullable = false)
-    @JsonManagedReference
+    @JsonBackReference
     private Day day;
 
     @JsonBackReference

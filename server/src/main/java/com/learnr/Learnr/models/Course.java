@@ -20,7 +20,7 @@ public class Course {
 
 
 //Working as intended
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Day> days;
 

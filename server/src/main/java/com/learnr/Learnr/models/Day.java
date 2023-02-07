@@ -27,10 +27,10 @@ public class Day {
     //Working as intended
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
-    @JsonManagedReference
+    @JsonBackReference
     private Course course;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany (mappedBy = "day", fetch = FetchType.LAZY)
     private List<Content> content;
 
