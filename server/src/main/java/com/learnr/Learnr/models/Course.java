@@ -1,6 +1,7 @@
 package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Day> days;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<CourseUser> courseUsers;
 
@@ -60,11 +61,11 @@ public class Course {
         this.days = this.days;
     }
 
-    public List<CourseUser> getUsers() {
+    public List<CourseUser> getCourseUsers() {
         return this.courseUsers;
     }
 
-    public void setUsers(List<CourseUser> courseUsers) {
+    public void setCourseUsers(List<CourseUser> courseUsers) {
         this.courseUsers = courseUsers;
     }
 }

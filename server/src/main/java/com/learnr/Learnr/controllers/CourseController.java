@@ -21,6 +21,4 @@ public class CourseController {
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }
 
-
-
 }

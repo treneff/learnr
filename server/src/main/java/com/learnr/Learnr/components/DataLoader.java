@@ -13,7 +13,7 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     DayRepository dayRepository;
     @Autowired
-    CourseNotesRepository courseNotesRepository;
+    CourseNoteRepository courseNoteRepository;
     @Autowired
     CourseRepository courseRepository;
     @Autowired
@@ -24,6 +24,12 @@ public class DataLoader implements ApplicationRunner {
     StudentRepository studentRepository;
     @Autowired
     TeacherRepository teacherRepository;
+
+    @Autowired
+    CompletionRepository completionRepository;
+
+    @Autowired
+    SubmissionRepository submissionRepository;
 
 
     public DataLoader() {
@@ -48,14 +54,14 @@ public class DataLoader implements ApplicationRunner {
         dayRepository.save(javaClasses);
 
         //Course Notes
-        CourseNotes command_line_basics = new CourseNotes("Command Line Basics", "This will be the content of Command Line Basics", jsFunctions);
-        courseNotesRepository.save(command_line_basics);
-        CourseNotes effective_text_editing = new CourseNotes("Effective Text Editing", "This will be the content of Command Line Basics", jsFunctions);
-        courseNotesRepository.save(effective_text_editing);
-        CourseNotes git_and_github = new CourseNotes("Git and Github", "This will be the content of Git and Github", jsLoops);
-        courseNotesRepository.save(git_and_github);
-        CourseNotes what_is_programming = new CourseNotes("What is programming", "This will be the content of what is programming", pythonFunctions);
-        courseNotesRepository.save(what_is_programming);
+        CourseNote command_line_basics = new CourseNote("Command Line Basics", "This will be the content of Command Line Basics", jsFunctions);
+        courseNoteRepository.save(command_line_basics);
+        CourseNote effective_text_editing = new CourseNote("Effective Text Editing", "This will be the content of Command Line Basics", jsFunctions);
+        courseNoteRepository.save(effective_text_editing);
+        CourseNote git_and_github = new CourseNote("Git and Github", "This will be the content of Git and Github", jsLoops);
+        courseNoteRepository.save(git_and_github);
+        CourseNote what_is_programming = new CourseNote("What is programming", "This will be the content of what is programming", pythonFunctions);
+        courseNoteRepository.save(what_is_programming);
 
         //Homework
         Homework submit_to_github = new Homework("Submit Something to Github", "This will be the content of the Github Homework", javaClasses);
@@ -85,8 +91,13 @@ public class DataLoader implements ApplicationRunner {
         Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", softwareDev, "Small Instructor");
         teacherRepository.save(dick);
 
+        // Add Completions and Submissions
 
+        Completion completion1 = new Completion(pythonLab, poppy);
+        completionRepository.save(completion1);
 
+        Submission submission1 = new Submission(submit_to_github, poppy, "poppy.github.com", 5, "I dunno how to use github");
+        submissionRepository.save(submission1);
 
     }
 }

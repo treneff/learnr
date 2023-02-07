@@ -1,5 +1,6 @@
 package com.learnr.Learnr.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -34,7 +35,7 @@ public abstract class CourseUser {
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
-    @JsonManagedReference
+    @JsonBackReference
     private Course course;
 
     public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
