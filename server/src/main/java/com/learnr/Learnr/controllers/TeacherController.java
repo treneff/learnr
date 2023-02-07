@@ -16,17 +16,17 @@ public class TeacherController {
     TeacherRepository teacherRepository;
 
     @GetMapping(value = "/teachers")
-    public ResponseEntity<List<Teacher>> getAllPersons(){
+    public ResponseEntity<List<Teacher>> getAllTeachers(){
         return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/teachers/{id}")
-    public ResponseEntity getStudent(@PathVariable Long id){
+    public ResponseEntity getTeacherById(@PathVariable Long id){
         return new ResponseEntity<>(teacherRepository.findById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/teachers")
-    public ResponseEntity<Teacher> postPerson(@RequestBody Teacher teacher){
+    public ResponseEntity<Teacher> postTeacher(@RequestBody Teacher teacher){
         teacherRepository.save(teacher);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }

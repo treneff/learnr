@@ -16,17 +16,17 @@ public class StudentController {
         StudentRepository studentRepository;
 
         @GetMapping(value = "/students")
-        public ResponseEntity<List<Student>> getAllPersons(){
+        public ResponseEntity<List<Student>> getAllStudents(){
             return new ResponseEntity<>(studentRepository.findAll(), HttpStatus.OK);
         }
 
         @GetMapping(value = "/students/{id}")
-        public ResponseEntity getStudent(@PathVariable Long id){
+        public ResponseEntity getStudentById(@PathVariable Long id){
             return new ResponseEntity<>(studentRepository.findById(id), HttpStatus.OK);
         }
 
         @PostMapping(value = "/students")
-        public ResponseEntity<Student> postPerson(@RequestBody Student student){
+        public ResponseEntity<Student> postStudent(@RequestBody Student student){
             studentRepository.save(student);
             return new ResponseEntity<>(student, HttpStatus.CREATED);
         }

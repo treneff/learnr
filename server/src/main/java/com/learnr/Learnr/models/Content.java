@@ -1,11 +1,15 @@
 package com.learnr.Learnr.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.learnr.Learnr.interfaces.Completable;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "content")
+@Inheritance
+@Table(name = "contents")
 public abstract class Content implements Completable {
 
     @Id
@@ -17,13 +21,26 @@ public abstract class Content implements Completable {
     @Column(name = "detail")
     private String detail;
 
-    @Column(name = "completed")
-    private boolean completed;
+    @ManyToOne
+    @JoinColumn(name = "day_id", nullable = false)
+    @JsonBackReference
+    private Day day;
 
-    public Content(String title, String detail) {
+    @JsonBackReference
+    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    private List<Completion> completions;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    private List<Submission> submissions;
+
+    public Content(String title, String detail, Day day) {
         this.title = title;
         this.detail = detail;
-        this.completed = false;
+        this.day = day;
+    }
+
+    public Content() {
     }
 
     public String getTitle() {
@@ -42,23 +59,35 @@ public abstract class Content implements Completable {
         this.detail = detail;
     }
 
-    public boolean isCompleted() {
-        return this.completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    public void completeTask(){
-        setCompleted(true);
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
+
+    public List<Completion> getCompletions() {
+        return this.completions;
+    }
+
+    public void setCompletions(List<Completion> completions) {
+        this.completions = completions;
+    }
+
+    public List<Submission> getSubmissions() {
+        return this.submissions;
+    }
+
+    public void setSubmissions(List<Submission> submissions) {
+        this.submissions = submissions;
     }
 }

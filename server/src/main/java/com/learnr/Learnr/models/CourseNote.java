@@ -1,15 +1,15 @@
 package com.learnr.Learnr.models;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-public class Lab extends Content{
-    public Lab(String title, String detail, Day day) {
+public class CourseNote extends Content {
+
+    public CourseNote(String title, String detail, Day day) {
         super(title, detail, day);
     }
 
-    public Lab() {
+    public CourseNote() {
     }
 
     @Override

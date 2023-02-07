@@ -1,9 +1,9 @@
 package com.learnr.Learnr.repositories;
 
-import com.learnr.Learnr.models.ContentBlock;
+import com.learnr.Learnr.models.CourseNote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContentBlockRepository extends JpaRepository<ContentBlock, Long> {
+public interface CourseNoteRepository extends JpaRepository<CourseNote, Long> {
 }

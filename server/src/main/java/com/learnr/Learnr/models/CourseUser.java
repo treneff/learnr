@@ -1,13 +1,14 @@
 package com.learnr.Learnr.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "user")
-public abstract class User {
+@Inheritance
+@Table(name = "course_users")
+public abstract class CourseUser {
 
 
     @Id
@@ -33,11 +34,11 @@ public abstract class User {
     private String bio;
 
     @ManyToOne
-    @JoinColumn(name = "course", nullable = false)
-    @JsonManagedReference
+    @JoinColumn(name = "course_id", nullable = false)
+    @JsonBackReference
     private Course course;
 
-    public User(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
+    public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -45,6 +46,9 @@ public abstract class User {
         this.dob = dob;
         this.bio = bio;
         this.course = course;
+    }
+
+    public CourseUser() {
     }
 
     public Long getId() {

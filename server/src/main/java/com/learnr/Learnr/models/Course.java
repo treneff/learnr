@@ -1,6 +1,7 @@
 package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,18 +18,20 @@ public class Course {
     @Column(name = "title")
     private String title;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<ContentBlock> contentBlocks;
 
-    @JsonBackReference
+//Working as intended
+    @JsonManagedReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<User> users;
+    private List<Day> days;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    private List<CourseUser> courseUsers;
 
     public Course(String title) {
         this.title = title;
-        this.contentBlocks = new ArrayList<>();
-        this.users = new ArrayList<>();
+        this.days = new ArrayList<>();
+        this.courseUsers = new ArrayList<>();
     }
 
     public Course() {
@@ -50,19 +53,19 @@ public class Course {
         this.id = id;
     }
 
-    public List<ContentBlock> getDays() {
-        return this.contentBlocks;
+    public List<Day> getDays() {
+        return this.days;
     }
 
-    public void setDays(List<ContentBlock> days) {
-        this.contentBlocks = contentBlocks;
+    public void setDays(List<Day> days) {
+        this.days = this.days;
     }
 
-    public List<User> getUsers() {
-        return this.users;
+    public List<CourseUser> getCourseUsers() {
+        return this.courseUsers;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setCourseUsers(List<CourseUser> courseUsers) {
+        this.courseUsers = courseUsers;
     }
 }
