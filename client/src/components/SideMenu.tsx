@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const SideMenu = () => {
     return (
         <nav>
             <ul>
@@ -31,4 +31,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default SideMenu;
