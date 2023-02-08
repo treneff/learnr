@@ -34,6 +34,8 @@ const StyledBurger = styled.button<{open : boolean}>`
     cursor: pointer;
     outline: none;
     z-index: 1;
+    left: ${({open}) => (open ? "17vw" : "3vw")};
+
     div {
         position: relative;
         width: 2rem;
@@ -41,5 +43,22 @@ const StyledBurger = styled.button<{open : boolean}>`
         border-radius: 10px;
         background-color: ${({ open }) => 
             open ? colors.get("backgroundColor") : colors.get("tertiaryColor")};
+
+        transition: all 0.3s linear;
+        transform-origin: 1px;
+
+        :first-child {
+            transform: ${({open}) =>
+            (open ? "rotate(45deg)" : "rotate(0)")};
+        }
+        :nth-child(2) {
+            opacity:${({open}) => (open ? "0" : "1")};
+            transform: ${({open}) =>
+                (open ? "translateX(20px)": "translateX(0)")};
+        }
+        :nth-child(3) {
+            transform: ${({open}) => 
+                (open ? "rotate(-45deg)": "rotate(0)")};
+        }
     }
 `
