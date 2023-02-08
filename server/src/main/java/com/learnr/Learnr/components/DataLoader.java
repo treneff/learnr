@@ -177,8 +177,8 @@ public class DataLoader implements ApplicationRunner {
         Day W15D1 = new Day("Capstone Projects Week 1", 15, 1, softwareDev);
         dayRepository.save(W15D1);
 
-        Day W16D2 = new Day("Capstone Projects Week 2", 16, 1, softwareDev);
-        dayRepository.save(W16D2);
+        Day W16D1 = new Day("Capstone Projects Week 2", 16, 1, softwareDev);
+        dayRepository.save(W16D1);
 
         //CONTENT - ONLY WEEKS 1, 6, 12 Contain Real Titles
 
@@ -564,7 +564,7 @@ public class DataLoader implements ApplicationRunner {
         Lab building_rta_react_firebase = new Lab("Building Real-time Applications with React and Firebase", "Practice using animations in React", W9D4);
         labRepository.save(building_rta_react_firebase);
         CourseNote building_dynamic_forms_with_react = new CourseNote("Building Dynamic Forms with React", "Learn about server side rendering in React and how to use it", W9D4);
-        courseNoteRepository.save(react_best_practices);
+        courseNoteRepository.save(building_dynamic_forms_with_react);
 
         //Content Day W9D5
         CourseNote pda_javascript_python_project = new CourseNote("PDA JS Projects", "This will be the content of what is programming", W9D5);
@@ -577,6 +577,160 @@ public class DataLoader implements ApplicationRunner {
         //Content Day W10D1
         Homework js_projects = new Homework("JS Projects", "This will be the content of the Github Homework", W10D1);
         homeworkRepository.save(js_projects);
+
+
+        //MODULE 3 CONTENT
+
+        //Content Day W12D1
+        CourseNote java_basics = new CourseNote("Java Fundamentals", "This will be the content of Java Fundamentals", W12D1);
+        courseNoteRepository.save(java_basics);
+        CourseNote object_oriented_java = new CourseNote("Object-Oriented Java", "This will be the content of Advanced Java Techniques", W12D1);
+        courseNoteRepository.save(object_oriented_java);
+        CourseNote functional_java = new CourseNote("Functional Java", "This will be the content of Modern Java Practices", W12D1);
+        courseNoteRepository.save(functional_java);
+        Lab manipulating_java_structures = new Lab("Manipulating Java Structures", "Extensive Java Lab", W12D1);
+        labRepository.save(manipulating_java_structures);
+        Homework java_exceptions_handling = new Homework("Handling Java Exceptions", "This will be the content of the Java Homework", W12D1);
+        homeworkRepository.save(java_exceptions_handling);
+
+        //Content Day W12D2
+        CourseNote multithreaded_java = new CourseNote("Multithreaded Java", "This will be the content of Java Concurrency and Threads", W12D2);
+        courseNoteRepository.save(multithreaded_java);
+        CourseNote building_java_applications = new CourseNote("Building Java Applications", "This will be the content of Java Frameworks and Libraries", W12D2);
+        courseNoteRepository.save(building_java_applications);
+        Lab building_java_games = new Lab("Building Java Games", "Extensive Java Lab", W12D2);
+        labRepository.save(building_java_games);
+
+        //Content Day W12D3
+        Lab testing_java_applications = new Lab("Testing Java Applications", "Extensive Java Lab", W12D3);
+        labRepository.save(testing_java_applications);
+        CourseNote building_java_plugins = new CourseNote("Building Java Plugins", "This will be the content of Java Libraries and Plugins", W12D3);
+        courseNoteRepository.save(building_java_plugins);
+        CourseNote java_performance_optimization = new CourseNote("Java Performance Optimization", "This will be the content of Advanced Java Techniques", W12D3);
+        courseNoteRepository.save(java_performance_optimization);
+        Homework building_java_widgets = new Homework("Building Java Widgets", "This will be the content of the Java Homework", W12D3);
+        homeworkRepository.save(building_java_widgets);
+
+        //Content Day W12D4
+        CourseNote serverless_java_architecture = new CourseNote("Serverless Java Architecture", "This will be the content of Serverless Java", W12D4);
+        courseNoteRepository.save(serverless_java_architecture);
+        Lab building_java_APIs = new Lab("Building Java APIs", "Extensive Java Lab", W12D4);
+        labRepository.save(building_java_APIs);
+        CourseNote real_time_java_applications = new CourseNote("Building Real-time Java Applications", "This will be the content of Real Time", W12D4);
+        courseNoteRepository.save(real_time_java_applications);
+
+        //Content Day W12D5
+        CourseNote spring_cloud_architecture = new CourseNote("Spring Cloud Architecture", "This will be the content of Cloud-Native Applications with Spring Cloud", W12D5);
+        courseNoteRepository.save(spring_cloud_architecture);
+        CourseNote spring_security_best_practices = new CourseNote("Spring Security Best Practices", "This will be the content of Advanced Spring Security Techniques", W12D5);
+        courseNoteRepository.save(spring_security_best_practices);
+        Homework spring_boot_advanced_topics = new Homework("Spring Boot Advanced Topics", "This will be the content of the Advanced Spring Boot Homework", W12D5);
+        homeworkRepository.save(spring_boot_advanced_topics);
+        CourseNote w12d5_recap = new CourseNote("Weekly Recap - W12D5", "This will be the content of what is programming", W12D5);
+        courseNoteRepository.save(w12d5_recap);
+
+        //Content Day W13D1
+        CourseNote advanced_java_fundamentals = new CourseNote("Advanced Java Fundamentals", "This will be the content of Advanced Java Fundamentals", W13D1);
+        courseNoteRepository.save(advanced_java_fundamentals);
+        CourseNote design_patterns_in_java = new CourseNote("Design Patterns in Java", "This will be the content of Design Patterns in Java", W13D1);
+        courseNoteRepository.save(design_patterns_in_java);
+        CourseNote multithreading_in_java = new CourseNote("Multithreading in Java", "This will be the content of Multithreading in Java", W13D1);
+        courseNoteRepository.save(multithreading_in_java);
+        Lab concurrency_in_java = new Lab("Concurrency in Java", "Extensive Java Lab on Concurrency", W13D1);
+        labRepository.save(concurrency_in_java);
+        Homework exception_handling_in_java = new Homework("Exception Handling in Java", "This will be the content of Exception Handling in Java Homework", W13D1);
+        homeworkRepository.save(exception_handling_in_java);
+
+        //Content Day W13D2
+        CourseNote network_programming_in_java = new CourseNote("Network Programming in Java", "This will be the content of Network Programming in Java", W13D2);
+        courseNoteRepository.save(network_programming_in_java);
+        CourseNote databases_in_java = new CourseNote("Databases in Java", "This will be the content of Databases in Java", W13D2);
+        courseNoteRepository.save(databases_in_java);
+        Lab java_web_applications = new Lab("Building Java Web Applications", "Extensive Java Lab on Building Java Web Applications", W13D2);
+        labRepository.save(java_web_applications);
+
+        //Content Day W13D3
+        CourseNote advanced_java_concepts = new CourseNote("Advanced Java Concepts", "This will be the content of Advanced Java Techniques", W13D3);
+        courseNoteRepository.save(advanced_java_concepts);
+        CourseNote spring_framework = new CourseNote("Spring Framework", "This will be the content of Developing Applications with Spring", W13D3);
+        courseNoteRepository.save(spring_framework);
+        Lab spring_security = new Lab("Spring Security", "Extensive Spring Security Lab", W13D3);
+        labRepository.save(spring_security);
+        Homework spring_boot = new Homework("Spring Boot", "This will be the content of the Spring Boot Homework", W13D3);
+        homeworkRepository.save(spring_boot);
+
+        //Content Day W13D4
+        CourseNote spring_data_jpa = new CourseNote("Spring Data JPA", "This will be the content of Data Access with Spring Data JPA", W13D4);
+        courseNoteRepository.save(spring_data_jpa);
+        CourseNote spring_web_services = new CourseNote("Spring Web Services", "This will be the content of Building RESTful Web Services with Spring", W13D4);
+        courseNoteRepository.save(spring_web_services);
+        Lab building_spring_based_microservices = new Lab("Building Spring-based Microservices", "Extensive Spring Microservices Lab", W13D4);
+        labRepository.save(building_spring_based_microservices);
+
+        //Content Day W13D5
+        CourseNote cloud_native_spring_architecture = new CourseNote("Cloud-Native Spring Architecture", "This will be the content of Cloud-Native Architecture with Spring", W13D5);
+        courseNoteRepository.save(cloud_native_spring_architecture);
+        CourseNote deploying_spring_applications = new CourseNote("Deploying Spring Applications", "This will be the content of Deploying Spring Applications in Production", W13D5);
+        courseNoteRepository.save(deploying_spring_applications);
+        Homework additional_spring_boot_advanced_topics = new Homework("Additional Spring Boot Advanced Topics", "This will be the content of the Advanced Spring Boot Homework", W13D5);
+        homeworkRepository.save(additional_spring_boot_advanced_topics);
+        CourseNote w13d5_recap = new CourseNote("Weekly Recap - W13D5", "This will be the content of what is programming", W13D5);
+        courseNoteRepository.save(w13d5_recap);
+
+
+        //Content Day W14D1
+        CourseNote spring_core = new CourseNote("Spring Core Fundamentals", "This will be the content of Spring Core", W14D1);
+        courseNoteRepository.save(spring_core);
+        CourseNote spring_data_access = new CourseNote("Spring Data Access", "This will be the content of Spring Data Access and JPA", W14D1);
+        courseNoteRepository.save(spring_data_access);
+        CourseNote spring_web_mvc = new CourseNote("Spring Web MVC", "This will be the content of Spring Web MVC and RESTful Services", W14D1);
+        courseNoteRepository.save(spring_web_mvc);
+        Lab spring_mvc_lab = new Lab("Building a Spring MVC Application", "Extensive Spring MVC Lab", W14D1);
+        labRepository.save(spring_mvc_lab);
+        Homework spring_mvc_homework = new Homework("Spring MVC Homework", "This will be the content of the Spring MVC Homework", W14D1);
+        homeworkRepository.save(spring_mvc_homework);
+
+        //Content Day W14D2
+        CourseNote serverless_spring_architecture = new CourseNote("Serverless Spring Architecture", "This will be the content of Serverless Spring", W14D2);
+        courseNoteRepository.save(serverless_spring_architecture);
+        Lab building_spring_APIs = new Lab("Building Spring APIs", "Extensive Spring Lab", W14D2);
+        labRepository.save(building_spring_APIs);
+        Lab building_spring_boot_applications = new Lab("Building Spring Boot Applications", "Extensive Spring Boot Lab", W14D2);
+        labRepository.save(building_spring_boot_applications);
+
+        //Content Day W14D3
+        Lab testing_spring_applications = new Lab("Testing Spring Applications", "Extensive Spring Testing Lab", W14D3);
+        labRepository.save(testing_spring_applications);
+        CourseNote building_spring_plugins = new CourseNote("Building Spring Plugins", "This will be the content of Spring Plugins and Integration", W14D3);
+        courseNoteRepository.save(building_spring_plugins);
+        CourseNote spring_performance_optimization = new CourseNote("Spring Performance Optimization", "This will be the content of Advanced Spring Techniques", W14D3);
+        courseNoteRepository.save(spring_performance_optimization);
+        Homework building_spring_widgets = new Homework("Building Spring Widgets", "This will be the content of the Spring Homework", W14D3);
+        homeworkRepository.save(building_spring_widgets);
+
+        //Content Day W14D4
+        CourseNote java_best_practices = new CourseNote("Java Best Practices", "Learn about best practices in React programming", W14D4);
+        courseNoteRepository.save(java_best_practices);
+        Lab building_rta_java_firebase = new Lab("Building Real-time Applications with Java and Firebase", "Practice using animations in React", W14D4);
+        labRepository.save(building_rta_java_firebase);
+        CourseNote building_dynamic_forms_with_java = new CourseNote("Building Dynamic Forms with Java", "Learn about server side rendering in React and how to use it", W14D4);
+        courseNoteRepository.save(building_dynamic_forms_with_java);
+
+        //Content Day W14D5
+        CourseNote pda_java_project = new CourseNote("PDA JS Projects", "This will be the content of what is programming", W14D5);
+        courseNoteRepository.save(pda_java_project);
+        Homework submit_java_project_briefs = new Homework("Submit JS Project Briefs", "This will be the content of the Github Homework", W14D5);
+        homeworkRepository.save(submit_java_project_briefs);
+        CourseNote w14d5_recap = new CourseNote("Weekly Recap - Week 14", "This will be the content of what is programming", W14D5);
+        courseNoteRepository.save(w14d5_recap);
+
+        //Content Day W15D1
+        Homework java_projects = new Homework("Java Projects Week 1", "This will be the content of the Github Homework", W15D1);
+        homeworkRepository.save(java_projects);
+
+        //Content Day W16D1
+        Homework java_projects_week2 = new Homework("Java Projects Week 2", "This will be the content of the Github Homework", W16D1);
+        homeworkRepository.save(java_projects_week2);
 
 
 
