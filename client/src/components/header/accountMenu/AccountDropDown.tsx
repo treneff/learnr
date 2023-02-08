@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 type DropDownProps = {
     options: string[];
@@ -17,6 +18,7 @@ const DropDown = ({
 
     const onClickHandler = (option: string): void => {
         optionSelection(option);
+        
     };
 
     useEffect(() => {
@@ -25,16 +27,16 @@ const DropDown = ({
 
     return(
         <>
-            <DropDownBox className={showDropDown ? 'dropdown' : 'dropdown active'}>
+            <DropDownBox>
             {options.map(
                 (option: string, index: number)  => {
                     return (
-                        <DropDownItem key={index} onClick={(): void => {
-                            onClickHandler(option);
-                        }}
-                        >
-                            {option}
-                        </DropDownItem>
+                        <Link to={`/${option.toLowerCase()}`}>
+                            <DropDownItem key={index} onClick={(): void => {
+                            onClickHandler(option) }}>
+                                {option}
+                            </DropDownItem>
+                        </Link>
                     );
                 }
             )}
@@ -65,6 +67,8 @@ const DropDownItem = styled.p`
   padding: 0.375rem 0.88rem;
   border-bottom: 1px solid rgb(235, 235, 235);
   min-width: 140px;
+  color: var(--tertiary-color);
+  text-decoration: none;
   :hover{
     background-color: var(--tertiary-color);
     color: var(--background-color);
