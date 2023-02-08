@@ -1,7 +1,7 @@
-import SideMenu from './SideMenu/SideMenu';
+import SideMenu from './sideMenu/SideMenu';
 import styled from 'styled-components';
 import colors from '../../Global';
-import AccountMenu from './AccountMenu';
+import AccountMenu from './accountMenu/AccountMenu';
 
 const Header = () => {
     //     contains account menu on the right
