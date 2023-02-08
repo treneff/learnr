@@ -9,7 +9,61 @@ import {
 import styled from "styled-components";
 import colors from "../Global";
 
+
+const RegistrationForm = styled.form`
+position: relative;
+z-index: 1;
+background: #ffffff;
+max-width: 300px;
+margin: 0 auto 100px;
+padding: 30px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+text-align: center;
+`;
+
+const RegistrationFormInput = styled.input`
+outline: 0;
+background: #f2f2f2;
+width: 100%;
+border: 0;
+margin: 0 0 15px;
+padding: 15px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+box-sizing: border-box;
+font-size: 14px;
+`;
+
+const RegistrationFormButton = styled.button`
+outline: 0;
+background: #ef3b3a;
+width: 100%;
+border: 0;
+padding: 15px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+color: #ffffff;
+font-size: 14px;
+transition: all 0.3 ease;
+cursor: pointer;
+`;
+
+const RegistrationContainer = styled.div`
+position: relative;
+z-index: 1;
+max-width: 300px;
+margin: 0 auto;
+`;
+
 const Registration: React.FC = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmationPassword, setConfirmationPassword] = useState("");
@@ -52,85 +106,29 @@ const Registration: React.FC = () => {
     setConfirmationPassword("");
   };
 
-  const registerWithGoogle = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setRegistrationError("");
-    if (checkPassword() == true) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          if (auth.currentUser) {
-            sendEmailVerification(auth.currentUser)
-              .then(() => {
-                // setTimeActive(true);
-                navigate("/verify-email");
-              })
-              .catch((err: Error) => alert(err.message));
-          } else {
-            setRegistrationError("Error: User is not defined");
-          }
-        })
-        .catch((err: Error) => setRegistrationError(err.message));
-    }
-    setEmail("");
-    setPassword("");
-    setConfirmationPassword("");
-  };
-
-  const RegistrationContainer = styled.div`
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
-  `;
-
-  const RegistrationForm = styled.form`
-    position: relative;
-    z-index: 1;
-    background: #ffffff;
-    max-width: 300px;
-    margin: 0 auto 100px;
-    padding: 30px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    text-align: center;
-  `;
-
-  const RegistrationFormInput = styled.input`
-    outline: 0;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    box-sizing: border-box;
-    font-size: 14px;
-  `;
-
-  const RegistrationFormButton = styled.button`
-    outline: 0;
-    background: #ef3b3a;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: #ffffff;
-    font-size: 14px;
-    transition: all 0.3 ease;
-    cursor: pointer;
-  `;
-
-  
-
-
+//   const registerWithGoogle = (e: React.FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     setRegistrationError("");
+//     if (checkPassword() == true) {
+//       createUserWithEmailAndPassword(auth, email, password)
+//         .then(() => {
+//           if (auth.currentUser) {
+//             sendEmailVerification(auth.currentUser)
+//               .then(() => {
+//                 // setTimeActive(true);
+//                 navigate("/verify-email");
+//               })
+//               .catch((err: Error) => alert(err.message));
+//           } else {
+//             setRegistrationError("Error: User is not defined");
+//           }
+//         })
+//         .catch((err: Error) => setRegistrationError(err.message));
+//     }
+//     setEmail("");
+//     setPassword("");
+//     setConfirmationPassword("");
+//   };
 
 
   return (

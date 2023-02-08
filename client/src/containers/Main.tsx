@@ -7,11 +7,12 @@ import Cohort from '../components/Cohort';
 import Registration from '../components/Registration'
 import FirestoreTest from '../components/FirestoreTest';
 import SideMenu from '../components/SideMenu/SideMenu';
+import Login from '../components/Login'
 const Main: React.FC = () => {
     return (
         <main>
             <Routes>
-                {/* <Route path='/' element={<Login/>} /> */}
+                <Route path='/' element={<Login/>} />
                 <Route path="/burger" element={<SideMenu/>} />
                 <Route path='/testing'  element={<FirestoreTest />} />
                 <Route path='/profile' element={<Profile />} />
