@@ -6,20 +6,21 @@
     --tertiary-color: #102b3f;
 }
 /* global styles */
-.App{
-  width:100vw;
-  height:100vh;
-  background-color: var(--background-color);
-
+.App {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
 }
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 html {
     margin: 0;
 }
+
 ul,
 li {
     list-style: none;

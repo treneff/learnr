@@ -1,12 +1,19 @@
-const WeeklyDropDown = () => {
+import styled from 'styled-components';
+
+import WeekListItem from './WeekListItem';
+
+const WeeklyDropDown: React.FC = () => {
+    const WeeklyList = styled.ul`
+        width: 30vw;
+    `;
     return (
-        <ul>
-            <li>Day</li>
-            <li>Day</li>
-            <li>Day</li>
-            <li>Day</li>
-            <li>Day</li>
-        </ul>
+        <WeeklyList>
+            <WeekListItem />
+            <WeekListItem />
+            <WeekListItem />
+            <WeekListItem />
+            <WeekListItem />
+        </WeeklyList>
     );
 };
 
