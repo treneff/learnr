@@ -732,29 +732,43 @@ public class DataLoader implements ApplicationRunner {
         Homework java_projects_week2 = new Homework("Java Projects Week 2", "This will be the content of the Github Homework", W16D1);
         homeworkRepository.save(java_projects_week2);
 
-
-
+        //Students
+        Student Poppy = new Student("Poppy", "Dalglish", "dp@gmail.fun", 07774564534L, "12/12/1993", "I am a student", softwareDev);
+        studentRepository.save(Poppy);
+        Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student", softwareDev);
+        studentRepository.save(John);
+        Student Mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student", softwareDev);
+        studentRepository.save(Mikhayla);
+        Student Sarah = new Student("Sarah", "Smith", "sarahsmith@gmail.fun", 07776565434L, "01/05/1995", "I am a hardworking student who loves coding.", softwareDev);
+        studentRepository.save(Sarah);
+        Student Michael = new Student("Michael", "Brown", "mbrown@yahoo.fun", 07775674L, "02/08/1997", "I am a creative and enthusiastic student who loves challenges.", softwareDev);
+        studentRepository.save(Michael);
+        Student Emily = new Student("Emily", "Jones", "emilyjones@hotmail.fun", 077757434L, "04/07/1994", "I am a determined and goal-oriented student who is passionate about technology.", softwareDev);
+        studentRepository.save(Emily);
+        Student Daniel = new Student("Daniel", "Davis", "ddavis@gmail.fun", 74801923L, "06/12/1996", "I am a tech-savvy student who is always eager to learn new things.", softwareDev);
+        studentRepository.save(Daniel);
+        Student Lauren = new Student("Lauren", "Wilson", "lwilson@gmail.fun", 07775674534L, "08/03/1995", "I am a curious and dedicated student who enjoys problem-solving.", softwareDev);
+        studentRepository.save(Lauren);
+        Student Anna = new Student("Anna", "Smith", "anna.smith@gmail.fun", 07774574531L, "03/07/1997", "I am a curious learner always seeking new challenges", softwareDev);
+        studentRepository.save(Anna);
+        Student Jake = new Student("Jake", "Williams", "jake.williams@yahoo.fun", 07774574532L, "05/12/1995", "I am a tech enthusiast who is passionate about programming and solving problems", softwareDev);
+        studentRepository.save(Jake);
 
         //Teachers and Students
         Teacher mar = new Teacher("Mar", "Beveridge", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", softwareDev, "Instructor");
         teacherRepository.save(mar);
-        Student poppy = new Student("Poppy", "Dalglish", "dp@gmail.com", 07774564534L, "12/12/1993", "I am a student", softwareDev);
-        studentRepository.save(poppy);
-        Student john = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student", softwareDev);
-        studentRepository.save(john);
         Teacher bob = new Teacher("Bob", "Bobson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I am smart person", softwareDev, "King Instructor");
         teacherRepository.save(bob);
-        Student mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student", softwareDev);
-        studentRepository.save(mikhayla);
         Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", softwareDev, "Small Instructor");
         teacherRepository.save(dick);
 
+
         // Add Completions and Submissions
 
-        Completion completion1 = new Completion(list_and_dictionaries_lab, poppy);
+        Completion completion1 = new Completion(list_and_dictionaries_lab, Poppy);
         completionRepository.save(completion1);
 
-        Submission submission1 = new Submission(submit_to_github, poppy, "poppy.github.com", 5, "I dunno how to use github");
+        Submission submission1 = new Submission(submit_to_github, Poppy, "poppy.github.com", 5, "I dunno how to use github");
         submissionRepository.save(submission1);
 
     }
