@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Burger } from './Burger';
 import styled from 'styled-components';
-import colors from '../../../Global';
 
 const SideMenu = () => {
 
