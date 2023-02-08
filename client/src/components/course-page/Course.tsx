@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import CourseService from '../service/CourseService';
+import CourseService from '../../service/CourseService';
 import styled from 'styled-components';
 import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
