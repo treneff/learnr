@@ -7,10 +7,10 @@ import Header from './components/header/Header';
 const App: React.FC = () => {
     return (
         <Router>
-            <div className='App'>
+            <>
                 <Header />
                 <Main />
-            </div>
+            </>
         </Router>
     );
 }
