@@ -39,8 +39,7 @@ const StyledBurger = styled.button<{open : boolean}>`
         width: 2rem;
         height: 0.25rem;
         border-radius: 10px;
-        background-color: ${({ open }) => 
-            open ? colors.get("backgroundColor") : colors.get("tertiaryColor")};
+        background-color: var(--background-color);
 
         transition: all 0.3s linear;
         transform-origin: 1px;
