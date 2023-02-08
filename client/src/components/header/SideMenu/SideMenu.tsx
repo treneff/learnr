@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Burger } from './Burger';
 import styled from 'styled-components';
-import colors from '../../Global';
+import colors from '../../../Global';
 
 const SideMenu = () => {
 
@@ -12,12 +12,12 @@ const SideMenu = () => {
     return (
         <>
                 <StyledSideMenu open={open}>
-                    <StyledSideLink href='/' onClick={() => close()}>Home</StyledSideLink>
-                    <StyledSideLink href='/profile' onClick={() => close()}>Profile</StyledSideLink>
-                    <StyledSideLink href='/course' onClick={() => close()}>Course</StyledSideLink>
-                    <StyledSideLink href='/cohort' onClick={() => close()}>Cohort</StyledSideLink>
-                    <StyledSideLink href='/registration' onClick={() => close()}>Registration</StyledSideLink>
-                    <StyledSideLink href='/testing' onClick={() => close()}>Firestore Testing</StyledSideLink>
+                    <Link to="/" onClick={() => close()}><StyledSideLink>Home</StyledSideLink></Link>
+                    <Link to='/profile' onClick={() => close()}><StyledSideLink>Profile</StyledSideLink></Link>
+                    <Link to='/course' onClick={() => close()}><StyledSideLink>Course</StyledSideLink></Link>
+                    <Link to='/cohort' onClick={() => close()}><StyledSideLink>Cohort</StyledSideLink></Link>
+                    <Link to='/registration' onClick={() => close()}><StyledSideLink>Registration</StyledSideLink></Link>
+                    <Link to='/testing' onClick={() => close()}><StyledSideLink>Firestore Testing</StyledSideLink></Link>
                 </StyledSideMenu>
                 <Burger open={open} setOpen = {setOpen} />
         </>
@@ -32,7 +32,7 @@ const StyledSideMenu = styled.nav<{open: boolean}>`
     height: 100vh;
     width: 20vw;
     position: fixed;
-    background-color: ${colors.get("tertiaryColor")};
+    background-color: var(--tertiary-color);
     z-index: 1;
     padding: 10rem 0;
     flex-direction: column;
@@ -42,14 +42,14 @@ const StyledSideMenu = styled.nav<{open: boolean}>`
         open ? "translateX(0)" : "translateX(-100%)")};
 `;
 
-const StyledSideLink = styled.a`
+const StyledSideLink = styled.span`
     padding: 0 2rem;
     font-size: 2rem;
-    color: ${colors.get("backgroundColor")};
+    color: var(--background-color);
     text-decoration: none;
 
     :hover {
-        color: ${colors.get("secondaryColor")};
+        color: var(--secondary-color);
         cursor: pointer;
     }
-`
+`;
