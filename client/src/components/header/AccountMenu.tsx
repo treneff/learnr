@@ -42,7 +42,7 @@ const AccountMenu = () => {
     //a menu option to the login/registration screen
 
     return (
-    <div>
+    <AccountMenuContainer>
         <AccountMenuStyle>
             Hello This is the Account Menu
         </AccountMenuStyle>
@@ -51,10 +51,10 @@ const AccountMenu = () => {
         onClick={(): void => toggleDropDown()}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void => dismissHandler(e)}
         >
-
+        <div>{selectOption ? "Select: " + selectOption : "Select ..."}</div>
 
         </button>
-    </div>
+    </AccountMenuContainer>
 )};
 
 export default AccountMenu;
@@ -64,6 +64,10 @@ const AccountMenuStyle = styled.div`
     color: ${colors.get("backgroundColor")};
     font-size: 1.2rem;
 
+`
+
+const AccountMenuContainer = styled.div`
+    text-align: right;
 `
 
 
