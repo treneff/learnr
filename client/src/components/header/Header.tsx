@@ -1,4 +1,4 @@
-import SideMenu from '../SideMenu';
+import SideMenu from '../SideMenu/SideMenu';
 import styled from 'styled-components';
 
 const Header = () => {
