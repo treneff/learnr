@@ -10,7 +10,7 @@ const SideMenu = () => {
     const close = () => setOpen(false);
 
     return (
-        <div>
+        <>
                 <StyledSideMenu open={open}>
                     <StyledSideLink href='/' onClick={() => close()}>Home</StyledSideLink>
                     <StyledSideLink href='/profile' onClick={() => close()}>Profile</StyledSideLink>
@@ -20,7 +20,7 @@ const SideMenu = () => {
                     <StyledSideLink href='/testing' onClick={() => close()}>Firestore Testing</StyledSideLink>
                 </StyledSideMenu>
                 <Burger open={open} setOpen = {setOpen} />
-        </div>
+        </>
     );
 };
 

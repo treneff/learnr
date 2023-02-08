@@ -1,20 +1,21 @@
 import SideMenu from '../SideMenu/SideMenu';
 import styled from 'styled-components';
+import colors from '../../Global';
 
 const Header = () => {
-
-    const HeaderMain = styled.header`
-    
-    `
-
-    
     //     contains account menu on the right
     //     logo in the middle
     //     and sidemenu button opener on the left side
+
+    const HeaderBar = styled.header`
+        background-color: ${colors.get('tertiaryColor')};
+        height: 10vh;
+        width:100%;
+    `;
     return (
-        <header>
+        <HeaderBar>
             <SideMenu></SideMenu>
-        </header>
+        </HeaderBar>
     );
 };
 
