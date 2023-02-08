@@ -16,7 +16,7 @@ public class CourseController {
     CourseRepository courseRepository;
 
 
-    @GetMapping(value = "/courses")
+    @GetMapping(value = "/api/courses")
     public ResponseEntity<List<Course>> getAllCourses(){
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }

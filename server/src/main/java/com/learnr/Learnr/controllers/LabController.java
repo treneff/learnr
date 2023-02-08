@@ -15,17 +15,17 @@ public class LabController {
     @Autowired
     LabRepository labRepository;
 
-    @GetMapping(value = "/labs")
+    @GetMapping(value = "/api/labs")
     public ResponseEntity<List<Lab>> getAllLabs(){
         return new ResponseEntity<>(labRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/labs/{id}")
+    @GetMapping(value = "/api/labs/{id}")
     public ResponseEntity getLabById (@PathVariable Long id){
         return new ResponseEntity<>(labRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/labs")
+    @PostMapping(value = "/api/labs")
     public ResponseEntity<Lab> postLab(@RequestBody Lab lab){
         labRepository.save(lab);
         return new ResponseEntity<>(lab, HttpStatus.CREATED);
