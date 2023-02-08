@@ -8,26 +8,25 @@ const Header = () => {
     //     logo in the middle
     //     and sidemenu button opener on the left side
 
-    const HeaderBar = styled.header`
-        background-color: ${colors.get('tertiaryColor')};
-        height: 10vh;
-        width:100%;
-    `;
-
     return (
         <HeaderBar>
             <SideMenu></SideMenu>
             <Logo>Learnr</Logo>
-            <AccountMenu/>
+            <AccountMenu />
         </HeaderBar>
     );
 };
 
 export default Header;
 
+const HeaderBar = styled.header`
+    background-color: ${colors.get('tertiaryColor')};
+    height: 10vh;
+    width: 100%;
+`;
+
 const Logo = styled.h1`
-    color: ${colors.get("backgroundColor")};
+    color: ${colors.get('backgroundColor')};
     text-align: center;
     padding-top: 2vh;
-
-`
+`;
