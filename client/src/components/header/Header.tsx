@@ -1,7 +1,7 @@
-import SideMenu from './SideMenu/SideMenu';
+import SideMenu from './sideMenu/SideMenu';
 import styled from 'styled-components';
 import colors from '../../Global';
-import AccountMenu from './AccountMenu';
+import AccountMenu from './accountMenu/AccountMenu';
 
 const Header = () => {
     //     contains account menu on the right
@@ -26,7 +26,22 @@ const HeaderBar = styled.header`
 `;
 
 const Logo = styled.h1`
-    color: ${colors.get('backgroundColor')};
+    color: var(--background-color);
     text-align: center;
-    padding-top: 2vh;
-`;
+    align-items: center;
+    font-size: 3rem;
+    font-family: 'american typewriter', 'montserrat', 'impact';
+    letter-spacing: .5vw;
+    text-shadow: 2px 2px var(--primary-color);
+    animation: fadeIn 1s;
+
+    @keyframes fadeIn {
+       0% {opacity: 0;
+        font-size: 0rem; 
+        letter-spacing:0;
+        color: var(--tertiary-color)
+    }
+       100% {opacity: 1;} 
+    }
+`
+
