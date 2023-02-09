@@ -11,7 +11,7 @@ const UserViewPopUp: React.FC<PopUpProps> = ({content, handleClose}) => {
         <Overlay>
         <PopUp>
         <div>
-            <span onClick={handleClose}>X</span>
+            <CloseX onClick={handleClose}>X</CloseX>
             {content}
         </div>
         </PopUp>
@@ -47,3 +47,10 @@ const Overlay = styled.div`
   background-color: var(--tertiary-color);
   background-color: rgba(0, 0, 0, 0.75);
 `;
+
+const CloseX = styled.span`
+    content: 'x';
+    cursor: pointer;
+    position: relative;
+    color: var(--secondary-color);
+`
