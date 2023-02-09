@@ -15,17 +15,17 @@ public class TeacherController {
     @Autowired
     TeacherRepository teacherRepository;
 
-    @GetMapping(value = "/teachers")
+    @GetMapping(value = "/api/teachers")
     public ResponseEntity<List<Teacher>> getAllTeachers(){
         return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/teachers/{id}")
+    @GetMapping(value = "/api/teachers/{id}")
     public ResponseEntity getTeacherById(@PathVariable Long id){
         return new ResponseEntity<>(teacherRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/teachers")
+    @PostMapping(value = "/api/teachers")
     public ResponseEntity<Teacher> postTeacher(@RequestBody Teacher teacher){
         teacherRepository.save(teacher);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);

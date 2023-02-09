@@ -15,17 +15,17 @@ public class SubmissionController {
     @Autowired
     SubmissionRepository submissionRepository;
 
-    @GetMapping(value = "/submissions")
+    @GetMapping(value = "/api/submissions")
     public ResponseEntity<List<Submission>> getAllSubmissions(){
         return new ResponseEntity<>(submissionRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/submissions/{id}")
+    @GetMapping(value = "/api/submissions/{id}")
     public ResponseEntity getSubmissionById(@PathVariable Long id){
         return new ResponseEntity<>(submissionRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/submissions")
+    @PostMapping(value = "/api/submissions")
     public ResponseEntity<Submission> postSubmission(@RequestBody Submission submission){
         submissionRepository.save(submission);
         return new ResponseEntity<>(submission, HttpStatus.CREATED);

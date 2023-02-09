@@ -15,17 +15,17 @@ public class StudentController {
         @Autowired
         StudentRepository studentRepository;
 
-        @GetMapping(value = "/students")
+        @GetMapping(value = "/api/students")
         public ResponseEntity<List<Student>> getAllStudents(){
             return new ResponseEntity<>(studentRepository.findAll(), HttpStatus.OK);
         }
 
-        @GetMapping(value = "/students/{id}")
+        @GetMapping(value = "/api/students/{id}")
         public ResponseEntity getStudentById(@PathVariable Long id){
             return new ResponseEntity<>(studentRepository.findById(id), HttpStatus.OK);
         }
 
-        @PostMapping(value = "/students")
+        @PostMapping(value = "/api/students")
         public ResponseEntity<Student> postStudent(@RequestBody Student student){
             studentRepository.save(student);
             return new ResponseEntity<>(student, HttpStatus.CREATED);

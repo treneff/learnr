@@ -16,17 +16,17 @@ public class DayController {
     @Autowired
     DayRepository dayRepository;
 
-    @GetMapping(value = "/days")
+    @GetMapping(value = "/api/days")
     public ResponseEntity<List<Day>> getAllDays(){
         return new ResponseEntity<>(dayRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/days/{id}")
+    @GetMapping(value = "/api/days/{id}")
     public ResponseEntity getDayById(@PathVariable Long id){
         return new ResponseEntity<>(dayRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/days")
+    @PostMapping(value = "/api/days")
     public ResponseEntity<Day> postDay(@RequestBody Day day){
         dayRepository.save(day);
         return new ResponseEntity<>(day, HttpStatus.CREATED);

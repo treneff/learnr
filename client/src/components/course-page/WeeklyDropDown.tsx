@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import WeekListItem from './WeekListItem';
 
 const WeeklyDropDown: React.FC = () => {
-    const WeeklyList = styled.ul`
-        width: 30vw;
-    `;
     return (
         <WeeklyList>
             <WeekListItem />
@@ -18,3 +15,7 @@ const WeeklyDropDown: React.FC = () => {
 };
 
 export default WeeklyDropDown;
+
+const WeeklyList = styled.ul`
+    width: 30vw;
+`;
