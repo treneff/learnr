@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { redirect } from "react-router-dom";
 import styled from "styled-components";
 import DropDown from "./AccountDropDown";
 
@@ -12,8 +13,8 @@ const AccountMenu = () => {
 
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
     const [selectOption, setSelectOption] = useState<string>("");
-    const options = () => {
-        return ["Profile", "Course", "Logout"]};
+    // const options = () => {
+    //     return ["Profile", "Course", "Logout"]};
 
     const toggleDropDown = () => {
         setShowDropDown(!showDropDown);
@@ -53,7 +54,7 @@ const AccountMenu = () => {
         </div>
         {showDropDown && (
             <DropDown
-            options={options()}
+            // options={options()}
             showDropDown={false}
             toggleDropDown={(): void => toggleDropDown()}
             optionSelection={optionSelection}
@@ -68,13 +69,11 @@ export default AccountMenu;
 const AccountMenuStyle = styled.div`
     text-align: right;
     color: var(--background-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-right: .8vw;
 `
 
 const DropDownButton = styled.button`
-    width: 9vw;
-    height: 3vh;
     position: relative;
     color: var(--tertiary-color);
     background-color: var(--background-color);

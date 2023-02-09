@@ -1,24 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 
 type DropDownProps = {
-    options: string[];
+    // options: string[];
     showDropDown: boolean;
     toggleDropDown: Function;
     optionSelection: Function;
 };
 
 const DropDown = ({
-    options,
+    // options,
     optionSelection,
 }: DropDownProps) => {
+    const navigate = useNavigate();
 
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
-    const onClickHandler = (option: string): void => {
-        optionSelection(option);
-        
+    const onClickHandler = (url: string): void => {
+        optionSelection(url);   
     };
 
     useEffect(() => {
@@ -28,18 +28,9 @@ const DropDown = ({
     return(
         <>
             <DropDownBox>
-            {options.map(
-                (option: string, index: number)  => {
-                    return (
-                        <Link to={`/${option.toLowerCase()}`}>
-                            <DropDownItem key={index} onClick={(): void => {
-                            onClickHandler(option) }}>
-                                {option}
-                            </DropDownItem>
-                        </Link>
-                    );
-                }
-            )}
+                            <DropDownItem onClick={() => {navigate("/profile")}}>Profile</DropDownItem>
+                            <DropDownItem onClick={() => {navigate("/course")}}>Course</DropDownItem>
+                            <DropDownItem onClick={() => {navigate("/login")}}>Logout</DropDownItem>
             </DropDownBox>
         </>
 
@@ -58,7 +49,6 @@ const DropDownBox = styled.div`
   color: var(--tertiary-color);
   text-align: left;
   border-radius: 0.25rem;
-  width: 7vw;
   text-align: center;
 `
 
