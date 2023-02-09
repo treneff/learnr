@@ -7,11 +7,12 @@ type DropDownProps = {
     showDropDown: boolean;
     toggleDropDown: Function;
     optionSelection: Function;
+    logout: any;
 };
 
 const DropDown = ({
     // options,
-    optionSelection,
+    optionSelection, logout,
 }: DropDownProps) => {
     const navigate = useNavigate();
 
@@ -25,12 +26,13 @@ const DropDown = ({
         setShowDropDown(showDropDown);
     }, [showDropDown]);
 
+
     return(
         <>
             <DropDownBox>
                             <DropDownItem onClick={() => {navigate("/profile")}}>Profile</DropDownItem>
                             <DropDownItem onClick={() => {navigate("/course")}}>Course</DropDownItem>
-                            <DropDownItem onClick={() => {navigate("/")}}>Logout</DropDownItem>
+                            <DropDownItem onClick={logout}>Logout</DropDownItem>
             </DropDownBox>
         </>
 

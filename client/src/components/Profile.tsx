@@ -3,9 +3,13 @@ import { useAuthValue } from "../AuthContext";
 import { Navigate } from "react-router-dom";
 
 const Profile = () => {
-  const {currentUser} = useAuthValue();
+  const { currentUser } = useAuthValue();
   if (!currentUser) {
-    return <Navigate to='/login' replace/>
+    return <Navigate to="/" replace />;
+  }
+
+  if (!currentUser?.emailVerified) {
+    return <Navigate to="/" replace />;
   }
   // console.log(currentUser)
 

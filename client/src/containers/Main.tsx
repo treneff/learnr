@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // import Login from "../components/Login"
@@ -13,15 +12,16 @@ import { AuthProvider } from "../AuthContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import EmailVerification from "../components/EmailVerification";
+import AccountMenu from "../components/header/account-menu/AccountMenu";
 
 const Main: React.FC = () => {
-    
   interface User {
     [key: string]: any;
   }
 
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
-  const [verificationCountdownActive, setVerificationCountdownActive] = useState(false)
+  const [verificationCountdownActive, setVerificationCountdownActive] =
+    useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -31,10 +31,17 @@ const Main: React.FC = () => {
 
   return (
     <main>
-      <AuthProvider value={{ currentUser, verificationCountdownActive, setVerificationCountdownActive }}>
+      <AuthProvider
+        value={{
+          currentUser,
+          verificationCountdownActive,
+          setVerificationCountdownActive,
+        }}
+      >
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/burger" element={<SideMenu />} />
+          <Route path="/account-menu" element={<AccountMenu />} />
           <Route path="/testing" element={<FirestoreTest />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/course" element={<Course />} />
