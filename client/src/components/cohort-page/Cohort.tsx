@@ -6,6 +6,7 @@ import Teacher from './Teacher';
 import Student from './Student';
 
 const Cohort = () => {
+
     const [allStudents, setAllStudents] = useState([]);
     const [allTeachers, setAllTeachers] = useState([]);
 
@@ -39,17 +40,16 @@ const Cohort = () => {
 
 
     return (
-        <>
+        <CohortUsers>
         <Subheading>Teachers</Subheading>
             <TeacherContainer>
                 {allTeachers.map((teacher: TeacherType)=>{return <Teacher firstName={teacher.firstName} lastName={teacher.lastName} email={teacher.email} phone={teacher.phone} dob={teacher.dob} course={teacher.course} jobTitle={teacher.jobTitle} />})}
-                {/* <TeacherList teachers={allTeachers}></TeacherList> */}
             </TeacherContainer>
         <Subheading>Students</Subheading>
             <StudentContainer>
             {allStudents.map((student: StudentType)=>{return <Student firstName={student.firstName} lastName={student.lastName} email={student.email} phone={student.phone} dob={student.dob} bio={student.bio} course={student.course}/>})}  
             </StudentContainer>
-        </>
+        </CohortUsers>
     )
 };
 
@@ -73,4 +73,8 @@ const StudentContainer = styled.div`
     display: flex;
     font-family: 'american typewriter', 'montserrat', 'impact';
     overflow: auto;
+`
+
+const CohortUsers = styled.div`
+    overflow-y: scroll;
 `

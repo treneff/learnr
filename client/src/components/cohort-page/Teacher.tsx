@@ -10,18 +10,9 @@ interface TeacherProps {
     jobTitle: string,
 }
 
-// type TeacherType = {
-//     firstName: string;
-//     lastName: string;
-//     email: string;
-//     phone: Long;
-//     dob: string;
-//     course: Object;
-//     jobTitle: string;
-// }
 
 const Teacher: React.FC<TeacherProps> = ({firstName, lastName, email, jobTitle}) => {
-    console.log("Teacher Name: " + firstName);
+    
     return(
         <>
         <TeacherBox>
