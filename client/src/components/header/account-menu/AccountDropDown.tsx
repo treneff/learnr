@@ -30,7 +30,7 @@ const DropDown = ({
             <DropDownBox>
                             <DropDownItem onClick={() => {navigate("/profile")}}>Profile</DropDownItem>
                             <DropDownItem onClick={() => {navigate("/course")}}>Course</DropDownItem>
-                            <DropDownItem onClick={() => {navigate("/login")}}>Logout</DropDownItem>
+                            <DropDownItem onClick={() => {navigate("/")}}>Logout</DropDownItem>
             </DropDownBox>
         </>
 

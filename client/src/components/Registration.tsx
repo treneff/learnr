@@ -120,7 +120,7 @@ const Registration: React.FC = () => {
 
           <p id="haveAnAccount">
             Already have an account?
-            <Link to="/login"> Login </Link>
+            <Link to="/"> Login </Link>
           </p>
         </AuthorisationForm>
       </AuthorisationContainer>
