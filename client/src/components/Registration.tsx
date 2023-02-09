@@ -6,18 +6,18 @@ import {
   sendEmailVerification,
   signInWithPopup,
 } from "firebase/auth";
-// import { useAuthValue } from 'firebase/context';
+import { useAuthValue } from '../AuthContext';
 import styled from "styled-components";
 import colors from "../Global";
 
-const RegistrationContainer = styled.div`
+export const RegistrationContainer = styled.div`
   position: relative;
   z-index: 1;
   max-width: 18rem;
   margin: 2rem auto;
 `;
 
-const RegistrationForm = styled.form`
+export const RegistrationForm = styled.form`
    position: relative;
   z-index: 1;
   background: ${colors.get("backgroundColor")};;
@@ -101,7 +101,7 @@ const Registration: React.FC = () => {
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [error, setRegistrationError] = useState("");
   const navigate = useNavigate();
-  //   const {setTimeActive} = useAuthValue()
+  const {setTimeActive} = useAuthValue()
 
   const checkPassword = () => {
     let passwordValid = true;
@@ -178,7 +178,7 @@ const Registration: React.FC = () => {
             onChange={(e) => setConfirmationPassword(e.target.value)}
           />
 
-          {error && <div className="auth__error">{error}</div>}
+          {error && <div>{error}</div>}
 
           <button type="submit">Register</button>
 
