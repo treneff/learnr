@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { redirect } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 import styled from "styled-components";
 import DropDown from "./AccountDropDown";
+import { auth } from '../../../config/firebase';
+import { signOut } from 'firebase/auth';
+
 
 const AccountMenu = () => {
 
@@ -20,6 +23,8 @@ const AccountMenu = () => {
         setShowDropDown(!showDropDown);
     };
 
+    const navigate = useNavigate();
+
 
         // @param event
 
@@ -34,6 +39,15 @@ const AccountMenu = () => {
     const optionSelection = (option: string) : void => {
         setSelectOption(option);
     }
+
+    const logout = async (): Promise<void> => {
+        try {
+          await signOut(auth);
+          navigate("/")
+        } catch (err) {
+          console.error(err);
+        }
+      };    
 
 
 
@@ -58,6 +72,7 @@ const AccountMenu = () => {
             showDropDown={false}
             toggleDropDown={(): void => toggleDropDown()}
             optionSelection={optionSelection}
+            logout={logout}
             />
             )}
         </DropDownButton>
