@@ -77,4 +77,5 @@ const StudentContainer = styled.div`
 
 const CohortUsers = styled.div`
     overflow-y: scroll;
+    z-index: 0;
 `
