@@ -3,7 +3,10 @@ import { useAuthValue } from "../AuthContext";
 
 const Profile = () => {
   const {currentUser} = useAuthValue();
-  console.log(currentUser)
+  if (!currentUser) {
+    return null
+  }
+  // console.log(currentUser)
 
   return (
     <>
