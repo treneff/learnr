@@ -31,17 +31,19 @@ const Logo = styled.h1`
     align-items: center;
     font-size: 3rem;
     font-family: 'american typewriter', 'montserrat', 'impact';
-    letter-spacing: .5vw;
+    letter-spacing: 0.5vw;
     text-shadow: 2px 2px var(--primary-color);
     animation: fadeIn 1s;
 
     @keyframes fadeIn {
-       0% {opacity: 0;
-        font-size: 0rem; 
-        letter-spacing:0;
-        color: var(--tertiary-color)
+        0% {
+            opacity: 0;
+            font-size: 0rem;
+            letter-spacing: 0;
+            color: var(--tertiary-color);
+        }
+        100% {
+            opacity: 1;
+        }
     }
-       100% {opacity: 1;} 
-    }
-`
-
+`;
