@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 @RestController
 public class DayController {
 
     @Autowired
     DayRepository dayRepository;
-
     @GetMapping(value = "/api/days")
-    public ResponseEntity<List<Day>> getAllDays(){
+    public ResponseEntity<List<Day>> findDaysByWeek(
+            @RequestParam(name = "week", required = false) String week ) {
+        if (week != null){
+            return new ResponseEntity<>(dayRepository.findDaysByWeekNumber(parseInt(week)), HttpStatus.OK);
+        }
         return new ResponseEntity<>(dayRepository.findAll(), HttpStatus.OK);
     }
 
