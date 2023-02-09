@@ -14,17 +14,17 @@ public class CompletionController {
     @Autowired
     CompletionRepository completionRepository;
 
-    @GetMapping(value = "/completions")
+    @GetMapping(value = "/api/completions")
     public ResponseEntity<List<Completion>> getAllCompletions(){
         return new ResponseEntity<>(completionRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/completions/{id}")
+    @GetMapping(value = "/api/completions/{id}")
     public ResponseEntity getCompletionById(@PathVariable Long id){
         return new ResponseEntity<>(completionRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/completions")
+    @PostMapping(value = "/api/completions")
     public ResponseEntity<Completion> postCompletion(@RequestBody Completion completion){
         completionRepository.save(completion);
         return new ResponseEntity<>(completion, HttpStatus.CREATED);

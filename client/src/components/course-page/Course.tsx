@@ -1,19 +1,13 @@
+import { useEffect } from 'react';
+import CourseService from '../../service/CourseService';
 import styled from 'styled-components';
 import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
-    const CourseSection = styled.section`
-        border: 5px solid black;
-        height: 80vh;
-        overflow: hidden;
-        display:flex;
-        justify-content:center;
-    `;
-
-    const DailyContent = styled.div`
-        width: 50vw;
-    `
+    useEffect(() => {
+        CourseService.getCourses().then((courses) => console.log(courses));
+    });
 
     return (
         <>
@@ -31,3 +25,15 @@ const Course = () => {
 };
 
 export default Course;
+
+const CourseSection = styled.section`
+    border: 5px solid black;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+`;
+
+const DailyContent = styled.div`
+    width: 50vw;
+`;

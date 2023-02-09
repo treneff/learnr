@@ -15,17 +15,17 @@ public class HomeworkController {
     @Autowired
     HomeworkRepository homeworkRepository;
 
-    @GetMapping(value = "/homeworks")
+    @GetMapping(value = "/api/homeworks")
     public ResponseEntity<List<Homework>> getAllHomeworks(){
         return new ResponseEntity<>(homeworkRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/homeworks/{id}")
+    @GetMapping(value = "api/homeworks/{id}")
     public ResponseEntity getHomeworkById(@PathVariable Long id){
         return new ResponseEntity<>(homeworkRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/homeworks")
+    @PostMapping(value = "/api/homeworks")
     public ResponseEntity<Homework> postHomework(@RequestBody Homework homework){
         homeworkRepository.save(homework);
         return new ResponseEntity<>(homework, HttpStatus.CREATED);
