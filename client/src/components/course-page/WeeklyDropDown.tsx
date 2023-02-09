@@ -5,11 +5,11 @@ import WeekListItem from './WeekListItem';
 const WeeklyDropDown: React.FC = () => {
     return (
         <WeeklyList>
-            <WeekListItem />
-            <WeekListItem />
-            <WeekListItem />
-            <WeekListItem />
-            <WeekListItem />
+            <WeekListItem weekNumber = {1}/>
+            <WeekListItem weekNumber = {2}/>
+            <WeekListItem weekNumber = {3}/>
+            <WeekListItem weekNumber = {4}/>
+            <WeekListItem weekNumber = {5}/>
         </WeeklyList>
     );
 };

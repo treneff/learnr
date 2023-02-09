@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import WeeklyContent from './WeeklyContent';
 import styled from 'styled-components';
+interface WeekProps {
+    weekNumber: number;
+}
 
-const WeekListItem: React.FC = () => {
+const WeekListItem: React.FC<WeekProps> = ({ weekNumber }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [weekToDisplay, setWeekToDisplay] = useState<number>(0);
+    const weekListItemClickHandler = () => {
+        setIsOpen(!isOpen);
+        setWeekToDisplay(weekNumber)
+    };
+
 
     return (
-        <ListItem onClick={() => setIsOpen(!isOpen)}>
-            Week
-            <WeeklyContent isOpen={isOpen} />
+        <ListItem onClick={weekListItemClickHandler}>
+            Week: {weekNumber}
+            <WeeklyContent isOpen={isOpen} weekToDisplay={weekToDisplay} />
         </ListItem>
     );
 };

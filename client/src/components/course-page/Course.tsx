@@ -1,14 +1,10 @@
 import { useEffect } from 'react';
-import CourseService from '../../service/CourseService';
+import DayService from '../../service/DayService';
 import styled from 'styled-components';
 import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
-    useEffect(() => {
-        CourseService.getCourses().then((courses) => console.log(courses));
-    });
-
     return (
         <>
             <CourseModuleNav />

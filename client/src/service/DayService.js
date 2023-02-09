@@ -1,7 +1,7 @@
-const baseURL = `http://localhost:8080/api/days}`;
+const baseURL = `http://localhost:8080/api/days`;
 
 const DayService = {
-    getWeeks(week) {
+    getDaysByWeek(week) {
         return fetch(baseURL+`?week=${week}`).then((res) => res.json());
     },
     // addPlayer(player) {
