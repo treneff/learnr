@@ -50,15 +50,19 @@ const DropDownBox = styled.div`
   text-align: left;
   border-radius: 0.25rem;
   text-align: center;
+  align-items: flex-end;
+  margin-right: 0;
+  padding-right: 0;
 `
 
 const DropDownItem = styled.p`
   margin: 0;
   padding: 0.375rem 0.88rem;
   border-bottom: 1px solid rgb(235, 235, 235);
-  min-width: 140px;
   color: var(--tertiary-color);
   text-decoration: none;
+  text-align: left;
+  width: 6vw;
   :hover{
     background-color: var(--tertiary-color);
     color: var(--background-color);
