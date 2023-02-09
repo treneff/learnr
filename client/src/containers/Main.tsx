@@ -7,7 +7,7 @@ import Course from "../components/course-page/Course";
 import Cohort from "../components/Cohort";
 import Registration from "../components/Registration";
 import FirestoreTest from "../components/FirestoreTest";
-import SideMenu from "../components/header/sideMenu/SideMenu";
+import SideMenu from "../components/header/side-menu/SideMenu";
 import Login from "../components/Login";
 import { AuthProvider } from "../AuthContext";
 import { onAuthStateChanged } from "firebase/auth";
