@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Burger } from './Burger';
+import {Burger} from './Burger';
 import styled from 'styled-components';
 
 const SideMenu = () => {

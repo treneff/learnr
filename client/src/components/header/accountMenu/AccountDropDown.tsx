@@ -58,7 +58,7 @@ const DropDownBox = styled.div`
   color: var(--tertiary-color);
   text-align: left;
   border-radius: 0.25rem;
-  width: 9vw;
+  width: 7vw;
   text-align: center;
 `
 
