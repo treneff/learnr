@@ -1,6 +1,6 @@
 import SideMenu from './side-menu/SideMenu';
 import styled from 'styled-components';
-import colors from '../../Global';
+import colors from '../../GlobalStyles';
 import AccountMenu from './account-menu/AccountMenu';
 
 const Header = () => {

@@ -7,93 +7,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useAuthValue } from '../AuthContext';
-import styled from "styled-components";
-import colors from "../Global";
-
-export const RegistrationContainer = styled.div`
-  position: relative;
-  z-index: 1;
-  max-width: 18rem;
-  margin: 2rem auto;
-`;
-
-export const RegistrationForm = styled.form`
-   position: relative;
-  z-index: 1;
-  background: ${colors.get("backgroundColor")};;
-  max-width: 18rem;
-  margin: 0 auto 6vh;
-  padding: 1.75rem;
-  border-radius: 0.2rem;
-  text-align: center;
-
-
-  .registrationImageContainer {
-    background: ${colors.get("primaryColor")};
-    width: 9rem;
-    height: 9rem;
-    margin: 0 auto 1.5rem;
-    padding: 1.75rem;
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-
-  .registrationImageContainer img {
-    display: block;
-    width: 100%;
-  }
-
-  input {
-    outline: 0;
-    background: #ffffff;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-
-  button {
-    outline: 0;
-    background: ${colors.get("secondaryColor")};
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: #ffffff;
-    font-size: 14px;
-    transition: all 0.3 ease;
-    cursor: pointer;
-  }
-
-  #or {
-    margin-top: 1rem;
-    color: #b3b3b3;
-    font-size: 14px;
-  }
-
-  #google {
-    background: ${colors.get("tertiaryColor")};
-  }
-
-  #haveAnAccount {
-    margin-top: 15px;
-    color: #b3b3b3;
-    font-size: 14px;
-  }
-  #haveAnAccount a {
-    color: #ef3b3a;
-    text-decoration: none;
-  }
-`;
+import { AuthorisationContainer, AuthorisationForm } from "../GlobalStyles";
 
 const Registration: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -101,7 +15,13 @@ const Registration: React.FC = () => {
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [error, setRegistrationError] = useState("");
   const navigate = useNavigate();
-  const {setTimeActive} = useAuthValue()
+  const { setVerificationCountdownActive } = useAuthValue()
+
+
+  //If password and confirm password are not null, check if the password and 
+  //the confirm password are not the same.  If not, set passwordValid to false
+  //and set the registration error state to a message.  If they are, return
+  //password valid (which will be unchanged from the default of true )
 
   const checkPassword = () => {
     let passwordValid = true;
@@ -115,24 +35,35 @@ const Registration: React.FC = () => {
   };
 
   const register = (e: React.FormEvent<HTMLFormElement>) => {
+    //Prevent default click handling.
     e.preventDefault();
+    //Set the registration error to nothing.
     setRegistrationError("");
+    //If password is ok
     if (checkPassword() == true) {
+      //Create a firebase user with the details in state.
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
+          //If there is a current user (ie nothing went wrong creating them).
           if (auth.currentUser) {
+            //Send the current user an email verification message.
             sendEmailVerification(auth.currentUser)
+            //Then start timer and navigate them to the verify email page.
               .then(() => {
-                // setTimeActive(true);
+                setVerificationCountdownActive(true);
                 navigate("/verify-email");
               })
+              //If there was a problem navigating or starting timer.
               .catch((err: Error) => alert(err.message));
           } else {
+            //If there was no current user to send the email to.
             setRegistrationError("Error: User is not defined");
           }
         })
+        //If something went wrong creating a user with email and password.
         .catch((err: Error) => setRegistrationError(err.message));
     }
+    //Clear form.
     setEmail("");
     setPassword("");
     setConfirmationPassword("");
@@ -148,9 +79,8 @@ const Registration: React.FC = () => {
   };
 
   return (
-    <div className="center">
-      <RegistrationContainer>
-        <RegistrationForm onSubmit={register} name="registration_form">
+      <AuthorisationContainer>
+        <AuthorisationForm onSubmit={register} name="registration_form">
           <div className="registrationImageContainer">
             <img src="https://img.icons8.com/external-kosonicon-lineal-color-kosonicon/512/external-education-insurance-kosonicon-lineal-color-kosonicon.png" />
           </div>
@@ -192,9 +122,8 @@ const Registration: React.FC = () => {
             Already have an account?
             <Link to="/login"> Login </Link>
           </p>
-        </RegistrationForm>
-      </RegistrationContainer>
-    </div>
+        </AuthorisationForm>
+      </AuthorisationContainer>
   );
 };
 
