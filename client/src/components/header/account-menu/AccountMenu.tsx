@@ -106,6 +106,7 @@ const DropDownButton = styled.button`
     border-radius: 0.25rem;
     cursor: pointer;
     text-align: center;
+    width: 8vw;
 `
 
 // const ProfileIcon = styled.img``

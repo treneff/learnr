@@ -20,7 +20,7 @@ const Header = () => {
 export default Header;
 
 const HeaderBar = styled.header`
-    background-color: ${colors.get('tertiaryColor')};
+    background-color: var(--tertiary-color);
     height: 10vh;
     width: 100%;
 `;

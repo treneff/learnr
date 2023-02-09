@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // import Login from "../components/Login"
 import Profile from "../components/Profile";
 import Course from "../components/course-page/Course";
-import Cohort from "../components/Cohort";
+import Cohort from "../components/cohort-page/Cohort";
 import Registration from "../components/Registration";
 import FirestoreTest from "../components/FirestoreTest";
 import SideMenu from "../components/header/side-menu/SideMenu";
