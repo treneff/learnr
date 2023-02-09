@@ -1,17 +1,30 @@
 import styled from 'styled-components';
+import DayService from '../../service/DayService';
+import { useEffect, useState } from 'react';
 
-interface IsOpenProps {
+interface WeekProps {
     isOpen: boolean;
+    weekToDisplay: any;
 }
 
-const WeeklyContent: React.FC<IsOpenProps> = ({ isOpen }) => {
+const WeeklyContent: React.FC<WeekProps> = ({ isOpen, weekToDisplay }) => {
+    const [weeklyContent, setWeeklyContent] = useState([]);
+
+    useEffect(() => {
+        DayService.getDaysByWeek(weekToDisplay).then((days) => {setWeeklyContent(days);console.log(days)});
+    }, [weekToDisplay]);
+
+type DailyContentType = {
+    id: number;
+    title: string;
+}
+    const dailyNodes = weeklyContent.map((dailyContent: DailyContentType, index: number) => {
+        return <li key={index}> {dailyContent.title}</li>;
+    });
+
     return (
         <Content style={{ maxHeight: isOpen ? '100%' : 0 }}>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
+            {weeklyContent?dailyNodes:null}
         </Content>
     );
 };
