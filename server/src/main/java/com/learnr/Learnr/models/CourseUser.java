@@ -35,7 +35,7 @@ public abstract class CourseUser {
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value = "course_course_user_reference")
     private Course course;
 
     public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
@@ -114,5 +114,7 @@ public abstract class CourseUser {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+
 }
 

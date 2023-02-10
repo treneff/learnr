@@ -11,19 +11,17 @@ import java.util.List;
 public class Student extends CourseUser {
 
 
-    @JsonBackReference
+    @JsonBackReference(value = "student_completions_reference")
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Completion> completions;
 
-    @JsonBackReference
+    @JsonBackReference(value = "student_submissions_reference")
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
     public Student(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
         super(firstName, lastName, email, phone, dob, bio, course);
     }
-
-
 
     public Student() {
     }
