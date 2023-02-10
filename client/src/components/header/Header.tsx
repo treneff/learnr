@@ -10,9 +10,15 @@ const Header = () => {
 
     return (
         <HeaderBar>
-            <SideMenu></SideMenu>
-            <Logo>Learnr</Logo>
-            <AccountMenu />
+            <HeaderItem>
+                <SideMenu/>
+            </HeaderItem>
+            <HeaderItem>
+                <Logo>Learnr</Logo>
+            </HeaderItem>
+            <HeaderItem>
+                <AccountMenu />
+            </HeaderItem>
         </HeaderBar>
     );
 };
@@ -23,7 +29,14 @@ const HeaderBar = styled.header`
     background-color: var(--tertiary-color);
     height: 10vh;
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 `;
+
+const HeaderItem = styled.div` 
+    padding-left: 15rem;
+    
+`
 
 const Logo = styled.h1`
     color: var(--background-color);

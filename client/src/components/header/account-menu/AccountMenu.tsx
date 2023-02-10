@@ -86,6 +86,8 @@ const AccountMenuStyle = styled.div`
     color: var(--background-color);
     font-size: 1rem;
     margin-right: .8vw;
+    padding-left: 5rem;
+    padding-top: 1rem;
 `
 
 const DropDownButton = styled.button`
