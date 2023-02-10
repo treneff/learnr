@@ -1,16 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import CourseService from '../../service/CourseService';
 import DailyContent from './DailyContent';
 import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
+    const [course, setCourse] = useState();
+    const [openContent, setOpenContent] = useState();
+
+    useEffect(() => {
+        CourseService.getCourses().then((course) => setCourse(course));
+    }, []);
+
+    const getOpenContent =(content:any) =>{
+        setOpenContent(content)
+        return"testing"
+    }
     return (
         <>
             <CourseModuleNav />
             <CourseSection>
-                <WeeklyDropDown />
-                <DailyContent/>
+                {course?<WeeklyDropDown course={course} getOpenContent = {getOpenContent}/>:null}
+                <DailyContent />
             </CourseSection>
         </>
     );
@@ -19,12 +31,9 @@ const Course = () => {
 export default Course;
 
 const CourseSection = styled.section`
-    
     height: 80vh;
     overflow: hidden;
     display: flex;
-    gap:5rem;
+    gap: 5rem;
     justify-content: center;
 `;
-
-

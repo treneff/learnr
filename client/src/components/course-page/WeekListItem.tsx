@@ -4,21 +4,26 @@ import WeeklyContent from './WeeklyContent';
 import styled from 'styled-components';
 interface WeekProps {
     weekNumber: number;
+    course: any;
+    
 }
 
-const WeekListItem: React.FC<WeekProps> = ({ weekNumber }) => {
+const WeekListItem: React.FC<WeekProps> = ({ weekNumber, course}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [weekToDisplay, setWeekToDisplay] = useState<number>(0);
-    const weekListItemClickHandler = () => {
+    const OpenClickHandler = () => {
         setIsOpen(!isOpen);
-        setWeekToDisplay(weekNumber)
+      
     };
-
+    const dailyNodes = course.course[0].days.map((dailyContent: any, index: number) => {
+        if (dailyContent.weekNumber === weekNumber) {
+            return <WeeklyContent isOpen={isOpen} key={index} dailyContent={dailyContent} />;
+        } else return null;
+    });
 
     return (
-        <ListItem onClick={weekListItemClickHandler}>
+        <ListItem onClick={OpenClickHandler}>
             Week: {weekNumber}
-            <WeeklyContent isOpen={isOpen} weekToDisplay={weekToDisplay} />
+            {dailyNodes}
         </ListItem>
     );
 };
