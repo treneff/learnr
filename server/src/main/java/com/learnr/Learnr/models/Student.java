@@ -19,8 +19,8 @@ public class Student extends CourseUser {
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
-    public Student(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
-        super(firstName, lastName, email, phone, dob, bio, course);
+    public Student(String firstName, String lastName, String email, Long phone, String dob, String bio) {
+        super(firstName, lastName, email, phone, dob, bio);
     }
 
     public Student() {

@@ -7,7 +7,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -733,33 +733,33 @@ public class DataLoader implements ApplicationRunner {
         homeworkRepository.save(java_projects_week2);
 
         //Students
-        Student Poppy = new Student("Poppy", "Dalglish", "dp@gmail.fun", 07774564534L, "12/12/1993", "I am a student", softwareDev);
+        Student Poppy = new Student("Poppy", "Dalglish", "dp@gmail.fun", 07774564534L, "12/12/1993", "I am a student");
         studentRepository.save(Poppy);
-        Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student", softwareDev);
+        Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student");
         studentRepository.save(John);
-        Student Mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student", softwareDev);
+        Student Mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student");
         studentRepository.save(Mikhayla);
-        Student Sarah = new Student("Sarah", "Smith", "sarahsmith@gmail.fun", 07776565434L, "01/05/1995", "I am a hardworking student who loves coding.", softwareDev);
+        Student Sarah = new Student("Sarah", "Smith", "sarahsmith@gmail.fun", 07776565434L, "01/05/1995", "I am a hardworking student who loves coding.");
         studentRepository.save(Sarah);
-        Student Michael = new Student("Michael", "Brown", "mbrown@yahoo.fun", 07775674L, "02/08/1997", "I am a creative and enthusiastic student who loves challenges.", softwareDev);
+        Student Michael = new Student("Michael", "Brown", "mbrown@yahoo.fun", 07775674L, "02/08/1997", "I am a creative and enthusiastic student who loves challenges.");
         studentRepository.save(Michael);
-        Student Emily = new Student("Emily", "Jones", "emilyjones@hotmail.fun", 077757434L, "04/07/1994", "I am a determined and goal-oriented student who is passionate about technology.", softwareDev);
+        Student Emily = new Student("Emily", "Jones", "emilyjones@hotmail.fun", 077757434L, "04/07/1994", "I am a determined and goal-oriented student who is passionate about technology.");
         studentRepository.save(Emily);
-        Student Daniel = new Student("Daniel", "Davis", "ddavis@gmail.fun", 74801923L, "06/12/1996", "I am a tech-savvy student who is always eager to learn new things.", softwareDev);
+        Student Daniel = new Student("Daniel", "Davis", "ddavis@gmail.fun", 74801923L, "06/12/1996", "I am a tech-savvy student who is always eager to learn new things.");
         studentRepository.save(Daniel);
-        Student Lauren = new Student("Lauren", "Wilson", "lwilson@gmail.fun", 07775674534L, "08/03/1995", "I am a curious and dedicated student who enjoys problem-solving.", softwareDev);
+        Student Lauren = new Student("Lauren", "Wilson", "lwilson@gmail.fun", 07775674534L, "08/03/1995", "I am a curious and dedicated student who enjoys problem-solving.");
         studentRepository.save(Lauren);
-        Student Anna = new Student("Anna", "Smith", "anna.smith@gmail.fun", 07774574531L, "03/07/1997", "I am a curious learner always seeking new challenges", softwareDev);
+        Student Anna = new Student("Anna", "Smith", "anna.smith@gmail.fun", 07774574531L, "03/07/1997", "I am a curious learner always seeking new challenges");
         studentRepository.save(Anna);
-        Student Jake = new Student("Jake", "Williams", "jake.williams@yahoo.fun", 07774574532L, "05/12/1995", "I am a tech enthusiast who is passionate about programming and solving problems", softwareDev);
+        Student Jake = new Student("Jake", "Williams", "jake.williams@yahoo.fun", 07774574532L, "05/12/1995", "I am a tech enthusiast who is passionate about programming and solving problems");
         studentRepository.save(Jake);
 
         //Teachers and Students
-        Teacher mar = new Teacher("Mar", "Beveridge", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", softwareDev, "Instructor");
+        Teacher mar = new Teacher("Mar", "Beveridge", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", "Instructor");
         teacherRepository.save(mar);
-        Teacher bob = new Teacher("Bob", "Bobson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I am smart person", softwareDev, "King Instructor");
+        Teacher bob = new Teacher("Bob", "Bobson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I am smart person", "King Instructor");
         teacherRepository.save(bob);
-        Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", softwareDev, "Small Instructor");
+        Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", "Small Instructor");
         teacherRepository.save(dick);
 
 
