@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import DayService from '../../service/DayService';
 import styled from 'styled-components';
+import DailyContent from './DailyContent';
 import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
 
@@ -10,11 +10,7 @@ const Course = () => {
             <CourseModuleNav />
             <CourseSection>
                 <WeeklyDropDown />
-                <DailyContent>
-                    <div>Content of the lesson</div>
-                    <div>Lab</div>
-                    <div>Homework</div>
-                </DailyContent>
+                <DailyContent/>
             </CourseSection>
         </>
     );
@@ -23,13 +19,12 @@ const Course = () => {
 export default Course;
 
 const CourseSection = styled.section`
-    border: 5px solid black;
+    
     height: 80vh;
     overflow: hidden;
     display: flex;
+    gap:5rem;
     justify-content: center;
 `;
 
-const DailyContent = styled.div`
-    width: 50vw;
-`;
+
