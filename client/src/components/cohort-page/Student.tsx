@@ -12,7 +12,7 @@ interface StudentProps {
     course: Object,
 }
 
-const Student: React.FC<StudentProps> = ({firstName, lastName, bio}) => {
+const Student: React.FC<StudentProps> = ({firstName, lastName, bio, email}) => {
 
     const [open, setOpen] = useState(false);
 
@@ -24,13 +24,19 @@ const Student: React.FC<StudentProps> = ({firstName, lastName, bio}) => {
         <>
         <StudentBox>
             <h3>{firstName} {lastName}</h3>
-            <p>{bio}</p>
+            <p>photo</p>
             <PopUpButton onClick={togglePopUp}>
                 View Profile
             </PopUpButton>
                 {open && (
                     <UserViewPopUp content={
-                        <p>TEST. This will be more profile information.</p>
+                        <div>
+                            <h4>{firstName} {lastName}</h4>
+                            <p><b>About me</b></p>
+                                {bio}
+                            <p><b>Contact</b></p>
+                                {email}
+                        </div>
                     } handleClose={togglePopUp} />
                     )}
         </StudentBox>
@@ -49,6 +55,10 @@ const StudentBox = styled.div`
         background-color: var(--tertiary-color);
         color: var(--background-color);
     }
+    width: 18vw;
+    text-align: center;
+    padding: 4rem;
+    margin: 2rem;
 `
 
 const PopUpButton = styled.button`
