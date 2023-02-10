@@ -14,5 +14,5 @@ export default WeeklyContent;
 const Content = styled.ul`
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.5s ease-in-out;
 `;

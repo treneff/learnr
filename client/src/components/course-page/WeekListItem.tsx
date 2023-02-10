@@ -5,14 +5,12 @@ import styled from 'styled-components';
 interface WeekProps {
     weekNumber: number;
     course: any;
-    
 }
 
-const WeekListItem: React.FC<WeekProps> = ({ weekNumber, course}) => {
+const WeekListItem: React.FC<WeekProps> = ({ weekNumber, course }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const OpenClickHandler = () => {
         setIsOpen(!isOpen);
-      
     };
     const dailyNodes = course.course[0].days.map((dailyContent: any, index: number) => {
         if (dailyContent.weekNumber === weekNumber) {
@@ -22,8 +20,10 @@ const WeekListItem: React.FC<WeekProps> = ({ weekNumber, course}) => {
 
     return (
         <ListItem onClick={OpenClickHandler}>
-            Week: {weekNumber}
+            <div>Week: {weekNumber}
             {dailyNodes}
+            </div>
+            <div>+</div>
         </ListItem>
     );
 };
@@ -32,5 +32,11 @@ export default WeekListItem;
 
 const ListItem = styled.li`
     background-color: var(--secondary-color);
+    display:flex;
+    justify-content:space-between;
     margin: 5px 0px;
+    padding: 2rem;
+    border-radius: 5px;
+    color:var(--text-color);
+    
 `;

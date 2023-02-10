@@ -13,15 +13,14 @@ const Course = () => {
         CourseService.getCourses().then((course) => setCourse(course));
     }, []);
 
-    const getOpenContent =(content:any) =>{
-        setOpenContent(content)
-        return"testing"
-    }
+    const getOpenContent = (content: any) => {
+        setOpenContent(content);
+    };
     return (
         <>
             <CourseModuleNav />
             <CourseSection>
-                {course?<WeeklyDropDown course={course} getOpenContent = {getOpenContent}/>:null}
+                {course ? <WeeklyDropDown course={course} getOpenContent={getOpenContent} /> : null}
                 <DailyContent />
             </CourseSection>
         </>
@@ -34,6 +33,6 @@ const CourseSection = styled.section`
     height: 80vh;
     overflow: hidden;
     display: flex;
-    gap: 5rem;
-    justify-content: center;
+    gap: 1rem;
+    justify-content: space-around;
 `;

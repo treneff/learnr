@@ -7,7 +7,7 @@ interface CourseProps {
 }
 
 const WeeklyDropDown: React.FC<CourseProps> = (course,getOpenContent) => {
-    getOpenContent(1)
+    
     return (
         <WeeklyList>
             <WeekListItem weekNumber={1} course={course}  />
@@ -22,5 +22,8 @@ const WeeklyDropDown: React.FC<CourseProps> = (course,getOpenContent) => {
 export default WeeklyDropDown;
 
 const WeeklyList = styled.ul`
-    width: 30vw;
+    width: 40vw;
+    background-color:#F5F3F3;
+    padding:2rem;
+    overflow:auto;
 `;
