@@ -53,7 +53,6 @@ const ActualProfile: React.FC = () => {
           phone: phone,
           dateOfBirth: dateOfBirth,
           bio: bio,
-          course: courseID
         }),
         headers: {
             'Content-Type': 'application/json',

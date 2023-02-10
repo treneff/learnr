@@ -33,19 +33,19 @@ public abstract class CourseUser {
     @Column(name = "bio")
     private String bio;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id", nullable = false)
-    @JsonBackReference(value = "course_course_user_reference")
-    private Course course;
+//    @ManyToOne
+//    @JoinColumn(name = "course_id", nullable = false)
+//    @JsonBackReference(value = "course_course_user_reference")
+//    private Course course;
 
-    public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course) {
+    public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.dob = dob;
         this.bio = bio;
-        this.course = course;
+//        this.course = course;
     }
 
     public CourseUser() {
@@ -106,14 +106,14 @@ public abstract class CourseUser {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
-    public Course getCourse() {
-        return this.course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
+//
+//    public Course getCourse() {
+//        return this.course;
+//    }
+//
+//    public void setCourse(Course course) {
+//        this.course = course;
+//    }
 
 
 }

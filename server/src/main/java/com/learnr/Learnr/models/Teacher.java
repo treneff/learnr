@@ -8,8 +8,8 @@ public class Teacher extends CourseUser {
     @Column(name = "job_title")
     private String jobTitle;
 
-    public Teacher(String firstName, String lastName, String email, Long phone, String dob, String bio, Course course, String jobTitle) {
-        super(firstName, lastName, email, phone, dob, bio, course);
+    public Teacher(String firstName, String lastName, String email, Long phone, String dob, String bio, String jobTitle) {
+        super(firstName, lastName, email, phone, dob, bio);
         this.jobTitle = jobTitle;
     }
 

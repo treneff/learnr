@@ -20,18 +20,18 @@ public class Course {
 
 
 //Working as intended
-    @JsonManagedReference(value = "course_days_reference")
+//    @JsonManagedReference(value = "course_days_reference")
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Day> days;
 
-    @JsonManagedReference(value = "course_course_user_reference")
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<CourseUser> courseUsers;
+//    @JsonManagedReference(value = "course_course_user_reference")
+//    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+//    private List<CourseUser> courseUsers;
 
     public Course(String title) {
         this.title = title;
         this.days = new ArrayList<>();
-        this.courseUsers = new ArrayList<>();
+//        this.courseUsers = new ArrayList<>();
     }
 
     public Course() {
@@ -61,11 +61,11 @@ public class Course {
         this.days = this.days;
     }
 
-    public List<CourseUser> getCourseUsers() {
-        return this.courseUsers;
-    }
-
-    public void setCourseUsers(List<CourseUser> courseUsers) {
-        this.courseUsers = courseUsers;
-    }
+//    public List<CourseUser> getCourseUsers() {
+//        return this.courseUsers;
+//    }
+//
+//    public void setCourseUsers(List<CourseUser> courseUsers) {
+//        this.courseUsers = courseUsers;
+//    }
 }

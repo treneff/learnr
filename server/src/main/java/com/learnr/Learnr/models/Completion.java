@@ -20,12 +20,12 @@ public class Completion {
 
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
-    @JsonManagedReference(value = "student_completions_reference")
+//    @JsonManagedReference(value = "student_completions_reference")
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "content_id", nullable = false)
-    @JsonManagedReference(value = "content_completions_reference")
+//    @JsonManagedReference(value = "content_completions_reference")
     private Content content;
 
     public Completion(Content content, Student student) {

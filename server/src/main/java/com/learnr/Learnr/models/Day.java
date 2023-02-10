@@ -30,7 +30,7 @@ public class Day {
     @JsonBackReference(value = "course_days_reference")
     private Course course;
 
-    @JsonManagedReference(value = "content_days_reference")
+//    @JsonManagedReference(value = "content_days_reference")
     @OneToMany (mappedBy = "day", fetch = FetchType.LAZY)
     private List<Content> content;
 
