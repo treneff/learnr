@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import EmailVerification from "../components/EmailVerification";
 import AccountMenu from "../components/header/account-menu/AccountMenu";
+import Dashboard from "../components/dashboard/Dashboard";
 
 const Main: React.FC = () => {
   interface User {
@@ -48,6 +49,7 @@ const Main: React.FC = () => {
           <Route path="/cohort" element={<Cohort />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/verify-email" element={<EmailVerification />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </AuthProvider>
     </main>
