@@ -20,11 +20,11 @@ public class Course {
 
 
 //Working as intended
-    @JsonManagedReference
+    @JsonManagedReference(value = "course_days_reference")
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Day> days;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "course_course_user_reference")
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<CourseUser> courseUsers;
 

@@ -23,14 +23,14 @@ public abstract class Content implements Completable {
 
     @ManyToOne
     @JoinColumn(name = "day_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value = "content_days_reference")
     private Day day;
 
-    @JsonBackReference
+    @JsonBackReference(value = "content_completions_reference")
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Completion> completions;
 
-    @JsonBackReference
+    @JsonBackReference(value = "content_submissions_reference")
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
@@ -90,4 +90,6 @@ public abstract class Content implements Completable {
     public void setSubmissions(List<Submission> submissions) {
         this.submissions = submissions;
     }
+
+
 }
