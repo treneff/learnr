@@ -11,4 +11,6 @@ public interface DayRepository extends JpaRepository<Day, Long> {
 
     List<Day> findDaysByWeekNumber(int week);
 
+    List<Day> findDayByWeekNumberAndDayNumber(int week, int day);
+
 }

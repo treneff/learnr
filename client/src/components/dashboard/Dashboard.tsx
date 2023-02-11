@@ -11,7 +11,7 @@ const Dashboard: React.FC = () => {
     const [dayToDisplay, setDayToDisplay] = useState([]);
 
     useEffect(() => {
-        DayService.getDays()
+        DayService.getDayByWeekAndDayNumber(1, 1)
         .then((days) => setDayToDisplay(days));
 
     }, []);
