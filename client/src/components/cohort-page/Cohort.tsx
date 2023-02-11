@@ -24,6 +24,7 @@ const Cohort = () => {
         email: string;
         phone: Long;
         dob: string;
+        bio: string;
         course: Object;
         jobTitle: string;
     }
@@ -43,7 +44,7 @@ const Cohort = () => {
         <CohortUsers>
         <Subheading>Teachers</Subheading>
             <TeacherContainer>
-                {allTeachers.map((teacher: TeacherType)=>{return <Teacher firstName={teacher.firstName} lastName={teacher.lastName} email={teacher.email} phone={teacher.phone} dob={teacher.dob} course={teacher.course} jobTitle={teacher.jobTitle} />})}
+                {allTeachers.map((teacher: TeacherType)=>{return <Teacher firstName={teacher.firstName} lastName={teacher.lastName} email={teacher.email} phone={teacher.phone} dob={teacher.dob} bio = {teacher.bio} course={teacher.course} jobTitle={teacher.jobTitle} />})}
             </TeacherContainer>
         <Subheading>Students</Subheading>
             <StudentContainer>
@@ -66,13 +67,15 @@ const TeacherContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     font-family: 'american typewriter', 'montserrat', 'impact';
-    overflow: auto;
-
+    flex-direction: row;
+    flex-wrap: wrap;
 `
 const StudentContainer = styled.div`
     display: flex;
     font-family: 'american typewriter', 'montserrat', 'impact';
-    overflow: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 `
 
 const CohortUsers = styled.div`
