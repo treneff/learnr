@@ -15,19 +15,19 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
             dailyContent.dayNumber === openDayNumber
         ) {
             return (
-                <DailyList key={index}>
+                <>
                     <ListItem>
                         {dailyContent.content[0].title}
                         {dailyContent.content[0].detail}
                     </ListItem>
                     <ListItem>Lab</ListItem>
                     <ListItem>Homework</ListItem>
-                </DailyList>
+                </>
             );
         } else return null;
     });
 
-    return <>{dailyContentNodes ? dailyContentNodes : null}</>;
+    return <DailyList>{course ? dailyContentNodes : null}</DailyList>;
 };
 
 export default DailyContent;
