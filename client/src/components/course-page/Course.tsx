@@ -2,26 +2,36 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CourseService from '../../service/CourseService';
 import DailyContent from './DailyContent';
-import CourseModuleNav from './CourseModuleNav';
 import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
     const [course, setCourse] = useState();
     const [openWeekNumber, setOpenWeekNumber] = useState<any>();
-    const [openDayNumber,setOpenDayNumber] = useState<any>();
-
+    const [openDayNumber, setOpenDayNumber] = useState<any>();
 
     useEffect(() => {
         CourseService.getCourses().then((course) => setCourse(course));
     }, []);
 
-
     return (
         <>
-            <CourseModuleNav />
+            <h1>Professional Software Development</h1>
             <CourseSection>
-                {course ? <WeeklyDropDown course={course} setOpenWeekNumber={setOpenWeekNumber} setOpenDayNumber={setOpenDayNumber} /> : null}
-                {course? <DailyContent course = {course} openWeekNumber = {openWeekNumber} openDayNumber ={openDayNumber} />:null}
+                {course ? (
+                    <WeeklyDropDown
+                        course={course}
+                        setOpenWeekNumber={setOpenWeekNumber}
+                        setOpenDayNumber={setOpenDayNumber}
+                        openWeekNumber = {openWeekNumber}
+                    />
+                ) : null}
+                {course ? (
+                    <DailyContent
+                        course={course}
+                        openWeekNumber={openWeekNumber}
+                        openDayNumber={openDayNumber}
+                    />
+                ) : null}
             </CourseSection>
         </>
     );
