@@ -4,9 +4,10 @@ interface WeeklyContentProps {
     isOpen: boolean;
     key: number;
     dailyContent: any;
+    setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>
 }
-const WeeklyContent: React.FC<WeeklyContentProps> = ({ dailyContent, isOpen }) => {
-    return <Content style={{ maxHeight: isOpen ? '100%' : 0 }}>{dailyContent.title}</Content>;
+const WeeklyContent: React.FC<WeeklyContentProps> = ({ dailyContent, isOpen,setOpenDayNumber }) => {
+    return <Content onClick = {() => setOpenDayNumber(dailyContent.dayNumber)}style={{ maxHeight: isOpen ? '100%' : 0 }}>{dailyContent.title}</Content>;
 };
 
 export default WeeklyContent;
