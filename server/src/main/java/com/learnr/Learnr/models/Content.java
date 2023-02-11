@@ -95,5 +95,11 @@ public abstract class Content implements Completable {
         this.submissions = submissions;
     }
 
+    public String getContentType() {
+        return contentType;
+    }
 
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
 }
