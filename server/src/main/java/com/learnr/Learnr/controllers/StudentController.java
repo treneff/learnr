@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
 
@@ -38,5 +39,17 @@ public class StudentController {
         studentRepository.save(student);
         return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/api/students/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Student> updateStudent(@PathVariable("id") Long id, @RequestBody Student student) {
+        Optional<Student> existingStudent = studentRepository.findById(id);
+        if (!existingStudent.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        student.setId(id);
+        studentRepository.save(student);
+        return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
 }
 
