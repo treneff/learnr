@@ -23,7 +23,8 @@ export const AuthorisationContainer = styled.div`
   z-index: 1;
   max-width: 18rem;
   margin: 2rem auto;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 `;
 
 export const AuthorisationForm = styled.form`
@@ -83,11 +84,11 @@ export const AuthorisationForm = styled.form`
   }
 
   button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
+  button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 
   #or {
     margin-top: 1rem;
@@ -115,7 +116,8 @@ export const ProfileContainer = styled.div`
   z-index: 1;
   max-width: 40rem;
   margin: 2rem auto;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 `;
 
 export const ProfileForm = styled.form`
@@ -145,22 +147,22 @@ export const ProfileForm = styled.form`
   }
 
   .form-row {
-  display: flex;
-  justify-content: flex-end;
-  /* padding: 0.4rem; */
-}
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 0.4rem; */
+  }
 
-.form-row > label {
-  padding: 0.5rem 1rem 0.5rem 0;
-  flex: 1;
-}
-.form-row > input {
-  flex: 2;
-}
+  .form-row > label {
+    padding: 0.5rem 1rem 0.5rem 0;
+    flex: 1;
+  }
+  .form-row > input {
+    flex: 2;
+  }
 
-.form-row > textarea {
-  flex: 2;
-}
+  .form-row > textarea {
+    flex: 2;
+  }
 
   input {
     outline: 0;
@@ -195,11 +197,11 @@ export const ProfileForm = styled.form`
   }
 
   button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
+  button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 
   #or {
     margin-top: 1rem;
