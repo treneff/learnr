@@ -7,21 +7,21 @@ import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
     const [course, setCourse] = useState();
-    const [openContent, setOpenContent] = useState();
+    const [openWeekNumber, setOpenWeekNumber] = useState<any>();
+    const [openDayNumber,setOpenDayNumber] = useState<any>();
+
 
     useEffect(() => {
         CourseService.getCourses().then((course) => setCourse(course));
     }, []);
 
-    const getOpenContent = (content: any) => {
-        setOpenContent(content);
-    };
+
     return (
         <>
             <CourseModuleNav />
             <CourseSection>
-                {course ? <WeeklyDropDown course={course} getOpenContent={getOpenContent} /> : null}
-                <DailyContent />
+                {course ? <WeeklyDropDown course={course} setOpenWeekNumber={setOpenWeekNumber} setOpenDayNumber={setOpenDayNumber} /> : null}
+                {course? <DailyContent course = {course} openWeekNumber = {openWeekNumber} openDayNumber ={openDayNumber} />:null}
             </CourseSection>
         </>
     );
