@@ -18,6 +18,9 @@ public abstract class Content implements Completable {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "contentType")
+    private  String contentType;
+
     @Column(name = "detail")
     private String detail;
 
@@ -34,10 +37,11 @@ public abstract class Content implements Completable {
     @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
-    public Content(String title, String detail, Day day) {
+    public Content(String title, String detail, Day day, String contentType) {
         this.title = title;
         this.detail = detail;
         this.day = day;
+        this.contentType = contentType;
     }
 
     public Content() {

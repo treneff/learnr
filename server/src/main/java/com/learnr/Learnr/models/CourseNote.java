@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 @Entity
 public class CourseNote extends Content {
 
-    public CourseNote(String title, String detail, Day day) {
-        super(title, detail, day);
+    public CourseNote(String title, String detail, Day day, String contentType) {
+        super(title, detail, day, contentType);
     }
 
     public CourseNote() {
