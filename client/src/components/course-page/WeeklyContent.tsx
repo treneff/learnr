@@ -1,13 +1,23 @@
 import styled from 'styled-components';
 
 interface WeeklyContentProps {
-    isOpen: boolean;
     key: number;
     dailyContent: any;
-    setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>
+    setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>;
+    openWeekNumber:number;
 }
-const WeeklyContent: React.FC<WeeklyContentProps> = ({ dailyContent, isOpen,setOpenDayNumber }) => {
-    return <Content onClick = {() => setOpenDayNumber(dailyContent.dayNumber)}style={{ maxHeight: isOpen ? '100%' : 0 }}>{dailyContent.title}</Content>;
+const WeeklyContent: React.FC<WeeklyContentProps> = ({
+    dailyContent,
+    setOpenDayNumber,
+    openWeekNumber
+}) => {
+    return (
+        <Content
+            onClick={() => setOpenDayNumber(dailyContent.dayNumber)}
+            style={{ maxHeight: openWeekNumber === dailyContent.weekNumber ? '100%' : '0' }}>
+            {dailyContent.title}
+        </Content>
+    );
 };
 
 export default WeeklyContent;
