@@ -1,6 +1,6 @@
 import SideMenu from './side-menu/SideMenu';
 import styled from 'styled-components';
-import colors from '../../GlobalStyles';
+import { Link } from 'react-router-dom';
 import AccountMenu from './account-menu/AccountMenu';
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
                 <SideMenu/>
             </HeaderItem>
             <HeaderItem>
-                <Logo>Learnr</Logo>
+                <Link to="/"><Logo>Learnr</Logo></Link>
             </HeaderItem>
             <HeaderItem>
                 <AccountMenu />

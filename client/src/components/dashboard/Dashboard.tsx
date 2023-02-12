@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
         <MainTitle>Welcome, user</MainTitle>
         <DashboardItems>
             <DashboardItem>
-            <h3>Todays Lessons</h3>
+            <h2>Todays Lessons</h2>
             {dayToDisplay.map((day: DayType)=>{return <Today dayTitle={day.title} content={day.content} weekNumber={day.weekNumber} dayNumber = {day.dayNumber} />})}
             </DashboardItem>
             <DashboardItem>
@@ -57,5 +57,6 @@ const DashboardItems = styled.div`
 
 const DashboardItem = styled.div`
     padding: 10rem;
+    width: 10vw;
 `
 

@@ -2,7 +2,11 @@ import React from "react";
 
 
 const Tasks: React.FC = () => {
-    return(<>Hi I am your tasks</>)
+    return(<>
+    
+    <h2>Tasks</h2>
+    
+    </>)
 };
 
 export default Tasks;

@@ -19,7 +19,7 @@ const Main: React.FC = () => {
   interface User {
     [key: string]: any;
   }
-
+  
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
   const [verificationCountdownActive, setVerificationCountdownActive] =
     useState(false);
@@ -40,7 +40,8 @@ const Main: React.FC = () => {
         }}
       >
         <Routes>
-          <Route path="/" element={<Login />} />
+          { currentUser? (<Route path="/" element={<Dashboard />} />) : 
+          (<Route path="/" element={<Login />} />)}
           <Route path="/burger" element={<SideMenu />} />
           <Route path="/account-menu" element={<AccountMenu />} />
           <Route path="/testing" element={<FirestoreTest />} />
@@ -49,7 +50,6 @@ const Main: React.FC = () => {
           <Route path="/cohort" element={<Cohort />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/verify-email" element={<EmailVerification />} />
-          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </AuthProvider>
     </main>

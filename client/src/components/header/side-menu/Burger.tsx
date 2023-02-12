@@ -16,7 +16,7 @@ export const Burger = (props: Props) => (
 );
 
 const StyledBurger = styled.button<{open : boolean}>`
-    position: fixed;
+    position: absolute;
     left: 3vw;
     top: 3vw;
     width: 2rem;

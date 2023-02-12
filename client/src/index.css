@@ -4,6 +4,7 @@
     --text-color: #000000;
     --secondary-color: #cc618a;
     --tertiary-color: #102b3f;
+    font-family: 'american typewriter', 'montserrat', 'impact';
 }
 /* global styles */
 .App {
