@@ -19,9 +19,12 @@ public class DayController {
     DayRepository dayRepository;
     @GetMapping(value = "/api/days")
     public ResponseEntity<List<Day>> findDaysByWeek(
-            @RequestParam(name = "week", required = false) String week ) {
-        if (week != null){
+            @RequestParam(name = "week", required = false) String week, @RequestParam(name="day", required = false) String day) {
+        if (week != null & day == null){
             return new ResponseEntity<>(dayRepository.findDaysByWeekNumber(parseInt(week)), HttpStatus.OK);
+        }
+        else if (week != null & day != null){
+            return new ResponseEntity<>(dayRepository.findDayByWeekNumberAndDayNumber(parseInt(week), parseInt(day)), HttpStatus.OK);
         }
         return new ResponseEntity<>(dayRepository.findAll(), HttpStatus.OK);
     }

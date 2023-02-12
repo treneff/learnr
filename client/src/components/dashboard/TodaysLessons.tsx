@@ -31,6 +31,8 @@ const TodaysLessons: React.FC<DayProps> = ({title, content, weekNumber, dayNumbe
 
     return(<>
         <p><b>{title}</b></p>
+        Week: {weekNumber}
+        Day: {dayNumber}
        <p>{content[0].title}</p> 
         <p>{content[0].detail}</p>
     </>)

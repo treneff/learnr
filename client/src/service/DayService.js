@@ -9,6 +9,10 @@ const DayService = {
 
     getDays(){
         return fetch(baseURL).then((res) => res.json());
+    },
+
+    getDayByWeekAndDayNumber(week, day) {
+        return fetch(baseURL + `?week=${week}&day=${day}`).then((res) => res.json());
     }
 
     // addPlayer(player) {
