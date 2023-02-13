@@ -50,7 +50,7 @@ const ActualProfile: React.FC = () => {
 
   //Post New Student
   const addStudent = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    // e.preventDefault();
     return fetch("http://localhost:8080/api/students/", {
       method: "POST",
       body: JSON.stringify({
@@ -74,7 +74,7 @@ const ActualProfile: React.FC = () => {
 
   //Update Student
   const updateStudent = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    // e.preventDefault();
     return fetch(`http://localhost:8080/api/students/${profileContent.id}`, {
       method: "PUT",
       body: JSON.stringify({

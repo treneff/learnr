@@ -18,19 +18,20 @@ public class Completion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
+//    @ManyToOne
+    @Column(name = "student_id")
 //    @JsonManagedReference(value = "student_completions_reference")
-    private Student student;
+//    @JsonBackReference
+    private Long studentId;
 
-    @ManyToOne
-    @JoinColumn(name = "content_id", nullable = false)
+//    @ManyToOne
+    @Column(name = "content_id")
 //    @JsonManagedReference(value = "content_completions_reference")
-    private Content content;
+    private Long contentId;
 
-    public Completion(Content content, Student student) {
-        this.student = student;
-        this.content = content;
+    public Completion(Long contentId, Long studentId) {
+        this.studentId = studentId;
+        this.contentId = contentId;
     }
 
     public Completion() {
@@ -44,19 +45,19 @@ public class Completion {
         this.id = id;
     }
 
-    public Student getStudent() {
-        return this.student;
+    public Long getStudentId() {
+        return this.studentId;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public Content getContent() {
-        return this.content;
+    public Long getContentId() {
+        return this.contentId;
     }
 
-    public void setContent(Content content) {
-        this.content = content;
+    public void setContentId(Long contentId) {
+        this.contentId = contentId;
     }
 }

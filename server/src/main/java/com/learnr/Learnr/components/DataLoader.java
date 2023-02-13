@@ -734,24 +734,34 @@ public class DataLoader implements ApplicationRunner {
 
         //Students
         Student Poppy = new Student("Poppy", "Dalglish", "dp@gmail.fun", 07774564534L, "12/12/1993", "I am a student");
+        Poppy.addCourse(softwareDev);
         studentRepository.save(Poppy);
         Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student");
+        John.addCourse(softwareDev);
         studentRepository.save(John);
         Student Mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student");
+        Mikhayla.addCourse(softwareDev);
         studentRepository.save(Mikhayla);
         Student Sarah = new Student("Sarah", "Smith", "sarahsmith@gmail.fun", 07776565434L, "01/05/1995", "I am a hardworking student who loves coding.");
+        Sarah.addCourse(softwareDev);
         studentRepository.save(Sarah);
         Student Michael = new Student("Michael", "Brown", "mbrown@yahoo.fun", 07775674L, "02/08/1997", "I am a creative and enthusiastic student who loves challenges.");
+        Michael.addCourse(softwareDev);
         studentRepository.save(Michael);
         Student Emily = new Student("Emily", "Jones", "emilyjones@hotmail.fun", 077757434L, "04/07/1994", "I am a determined and goal-oriented student who is passionate about technology.");
+        Emily.addCourse(softwareDev);
         studentRepository.save(Emily);
         Student Daniel = new Student("Daniel", "Davis", "ddavis@gmail.fun", 74801923L, "06/12/1996", "I am a tech-savvy student who is always eager to learn new things.");
+        Daniel.addCourse(softwareDev);
         studentRepository.save(Daniel);
         Student Lauren = new Student("Lauren", "Wilson", "lwilson@gmail.fun", 07775674534L, "08/03/1995", "I am a curious and dedicated student who enjoys problem-solving.");
+        Lauren.addCourse(softwareDev);
         studentRepository.save(Lauren);
         Student Anna = new Student("Anna", "Smith", "anna.smith@gmail.fun", 07774574531L, "03/07/1997", "I am a curious learner always seeking new challenges");
+        Anna.addCourse(softwareDev);
         studentRepository.save(Anna);
         Student Jake = new Student("Jake", "Williams", "jake.williams@yahoo.fun", 07774574532L, "05/12/1995", "I am a tech enthusiast who is passionate about programming and solving problems");
+        Jake.addCourse(softwareDev);
         studentRepository.save(Jake);
 
         //Teachers and Students
@@ -765,7 +775,7 @@ public class DataLoader implements ApplicationRunner {
 
         // Add Completions and Submissions
 
-        Completion completion1 = new Completion(list_and_dictionaries_lab, Poppy);
+        Completion completion1 = new Completion(10L, 1L);
         completionRepository.save(completion1);
 
         Submission submission1 = new Submission(submit_to_github, Poppy, "poppy.github.com", 5, "I dunno how to use github");

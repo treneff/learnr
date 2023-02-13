@@ -1,7 +1,9 @@
 package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,9 +26,15 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Day> days;
 
-//    @JsonManagedReference(value = "course_course_user_reference")
-//    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-//    private List<CourseUser> courseUsers;
+    @ManyToMany
+    @JsonIgnoreProperties({"courses"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "enrolments",
+            joinColumns = {@JoinColumn(name="course_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="user_id", nullable = false, updatable = false)}
+    )
+    private List<CourseUser> courseUsers;
 
     public Course(String title) {
         this.title = title;

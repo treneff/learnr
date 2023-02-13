@@ -12,7 +12,7 @@ public class Student extends CourseUser {
 
 
     @JsonBackReference(value = "student_completions_reference")
-    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "contentId", fetch = FetchType.LAZY)
     private List<Completion> completions;
 
     @JsonBackReference(value = "student_submissions_reference")
@@ -24,5 +24,21 @@ public class Student extends CourseUser {
     }
 
     public Student() {
+    }
+
+    public List<Completion> getCompletions() {
+        return completions;
+    }
+
+    public void setCompletions(List<Completion> completions) {
+        this.completions = completions;
+    }
+
+    public List<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(List<Submission> submissions) {
+        this.submissions = submissions;
     }
 }
