@@ -3,14 +3,15 @@ import { useAuthValue } from "../AuthContext";
 import { Navigate } from "react-router-dom";
 import { ProfileContainer, ProfileForm } from "../GlobalStyles";
 import StudentService from "../service/StudentService";
+import { reload } from "firebase/auth";
 
 const Profile: React.FC = () => {
   const { currentUser } = useAuthValue();
   if (!currentUser) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   } else {
     if (!currentUser.emailVerified) {
-      return <Navigate to="/" replace />;
+      return <Navigate to="/verify-email" replace />;
     } else {
       return <ActualProfile />;
     }
@@ -30,19 +31,19 @@ const ActualProfile: React.FC = () => {
 
   const { currentUser } = useAuthValue();
 
-// const form = (props) => {
+  // const form = (props) => {
 
-// }
+  // }
 
   //Get Student by Email
   useEffect(() => {
     StudentService.getStudentByEmail(currentUser.email).then((profile) => {
       setProfileContent(profile[0]);
-      setFirstName(profile[0].firstName)
-      setLastName(profile[0].lastName)
-      setDateOfBirth(profile[0].dob)
-      setPhoneNumber(profile[0].phone)
-      setBio(profile[0].bio)
+      setFirstName(profile[0].firstName);
+      setLastName(profile[0].lastName);
+      setDateOfBirth(profile[0].dob);
+      setPhoneNumber(profile[0].phone);
+      setBio(profile[0].bio);
       console.log(profileContent);
     });
   }, []);
@@ -63,10 +64,12 @@ const ActualProfile: React.FC = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      console.log(res);
-      return res.json();
-    });
+    })
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then(reload);
   };
 
   //Update Student
@@ -90,7 +93,6 @@ const ActualProfile: React.FC = () => {
       return res.json();
     });
   };
-
 
   return (
     <ProfileContainer>

@@ -14,6 +14,8 @@ import { auth } from "../config/firebase";
 import EmailVerification from "../components/EmailVerification";
 import AccountMenu from "../components/header/account-menu/AccountMenu";
 import Dashboard from "../components/dashboard/Dashboard";
+import { Navigate } from "react-router-dom";
+import PrivateRoute from "../PrivateRoute";
 
 const Main: React.FC = () => {
   interface User {
@@ -40,16 +42,65 @@ const Main: React.FC = () => {
         }}
       >
         <Routes>
-          { currentUser? (<Route path="/" element={<Dashboard />} />) : 
-          (<Route path="/" element={<Login />} />)}
+          <Route path="/testing" element={<FirestoreTest />} />
+          <Route path="/verify-email" element={<EmailVerification />} />
           <Route path="/burger" element={<SideMenu />} />
           <Route path="/account-menu" element={<AccountMenu />} />
-          <Route path="/testing" element={<FirestoreTest />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/course" element={<Course />} />
-          <Route path="/cohort" element={<Cohort />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/verify-email" element={<EmailVerification />} />
+          <Route
+            path="/login"
+            element={
+              !currentUser ? (
+                <Login />
+              ) : !currentUser?.emailVerified ? (
+                <Profile />
+              ) : (
+                <Navigate to="/verify-email" replace />
+              )
+            }
+          />
+          <Route
+            path="/registration"
+            element={
+              !currentUser?.emailVerified ? (
+                <Registration />
+              ) : (
+                <Navigate to="/profile" replace />
+              )
+            }
+          />
+          {/* Verified Users Only */}
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/course"
+            element={
+              <PrivateRoute>
+                <Course />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cohort"
+            element={
+              <PrivateRoute>
+                <Cohort />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </AuthProvider>
     </main>

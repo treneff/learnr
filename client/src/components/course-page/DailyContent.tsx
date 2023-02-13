@@ -5,25 +5,22 @@ interface DailyContentProps {
     openDayNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, openDayNumber }) => {
-    console.log(openWeekNumber);
-    console.log(openDayNumber);
-    console.log(course);
-
-    const dailyContentNodes = course[0].days.map((dailyContent: any, index: number) => {
+    const dailyContentNodes = course[0].days.map((dailyContent: any) => {
         if (
             dailyContent.weekNumber === openWeekNumber &&
             dailyContent.dayNumber === openDayNumber
         ) {
-            return (
-                <>
-                    <ListItem>
-                        {dailyContent.content[0].title}
-                        {dailyContent.content[0].detail}
+            return dailyContent.content.map((content: any, index: number) => {
+                return (
+                    <ListItem key={index}>
+                        {content.title}
+                        <br />
+                        {content.detail}
+                        <br />
+                        {content.contentType}
                     </ListItem>
-                    <ListItem>Lab</ListItem>
-                    <ListItem>Homework</ListItem>
-                </>
-            );
+                );
+            });
         } else return null;
     });
 
@@ -39,6 +36,7 @@ const DailyList = styled.ul`
     justify-content: left;
     background-color: #f5f3f3;
     padding: 2rem;
+    overflow: auto;
 `;
 
 const ListItem = styled.li`
