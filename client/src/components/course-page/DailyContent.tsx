@@ -9,54 +9,53 @@ interface DailyContentProps {
     openDayNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, openDayNumber }) => {
-    const [open, setOpen] = useState<any>(false)
+    const [open, setOpen] = useState<any>(false);
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
     const [completions, setCompletions] = useState([]);
 
-
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
             setUserID(profile[0].id);
-            console.log(profile[0].id)
+            console.log(profile[0].id);
         });
     }, []);
 
     useEffect(() => {
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
             setCompletions(completions);
-            console.log(userID)
-        })
-    }, [userID])
+            console.log(userID);
+        });
+    }, [userID]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
-        CompletionsService.postCompletion(contentID, userID)
-    }
-
+        CompletionsService.postCompletion(contentID, userID);
+    };
 
     // Map through completions to create our list items
     const mapThroughCompletions = (contentId: number) => {
-        return completions.some((completion: any) =>
-            completion.contentId === contentId
-        )
-    }
-
+        return completions.some((completion: any) => completion.contentId === contentId);
+    };
 
     // Map through content to trigger completions function
     const mapThroughDailyContents = (dailyContent: any) => {
         return dailyContent.content.map((content: any, index: number) => {
             return mapThroughCompletions(content.id) ? (
-                <ListItem key={index} style={{ backgroundColor: "red", maxHeight: open ? '100%' : '0' }
-                } onClick={() => setOpen(!open)}>
-                    {content.title}<button onClick={() => postCompletionStatus(content.id, userID)}></button>
-                    < br />
+                <ListItem
+                    key={index}
+                    style={{ backgroundColor: 'red', height: open ? '100%' : '0' }}
+                    onClick={() => setOpen(!open)}>
+                    {content.title}
+                    <button onClick={() => postCompletionStatus(content.id, userID)}></button>
+                    <br />
                     {content.detail}
-                    < br />
+                    <br />
                     {content.contentType}
-                </ListItem >
+                </ListItem>
             ) : (
-                <ListItem key={index} >
-                    {content.title}<button onClick={() => postCompletionStatus(content.id, userID)}></button>
+                <ListItem key={index}>
+                    {content.title}
+                    <button onClick={() => postCompletionStatus(content.id, userID)}></button>
                     <br />
                     {content.detail}
                     <br />
@@ -65,7 +64,6 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
             );
         });
     };
-
 
     // Map through days dailyContentNodes function
     const dailyContentNodes = (course: any) => {
@@ -79,9 +77,9 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
         });
     };
 
-
-
-    return <DailyList>{course && completions && userID ? dailyContentNodes(course) : null}</DailyList>;
+    return (
+        <DailyList>{course && completions && userID ? dailyContentNodes(course) : null}</DailyList>
+    );
 };
 
 export default DailyContent;
@@ -104,8 +102,8 @@ const ListItem = styled.li`
     padding: 2rem;
     border-radius: 5px;
     color: var(--text-color);
-    max-height: 0;
+    height: 0;
     overflow: auto;
-    transition: max-height 0.5s ease-in-out;
+    transition: height 1s ease-in-out;
     /* IF CONTENT ID MATCHES COMPLETION CONTENT ID DISPLAY BACKGROUND COLOR DIFFERENT */
 `;

@@ -32,7 +32,10 @@ const WeekListItem: React.FC<WeekProps> = ({
     });
 
     return (
-        <ListItem onClick={OpenClickHandler}>
+        <ListItem
+            onClick={OpenClickHandler}
+            openWeekNumber={openWeekNumber}
+            weekNumber={weekNumber}>
             <div>
                 Week: {weekNumber}
                 {dailyNodes}
@@ -43,7 +46,7 @@ const WeekListItem: React.FC<WeekProps> = ({
 
 export default WeekListItem;
 
-const ListItem = styled.li`
+const ListItem = styled.li.attrs((props: { openWeekNumber: number; weekNumber: number }) => props)`
     background-color: var(--secondary-color);
     display: flex;
     justify-content: space-between;
@@ -51,5 +54,7 @@ const ListItem = styled.li`
     padding: 2rem;
     border-radius: 5px;
     color: var(--text-color);
-    height:100%;
+    height: ${(props) => (props.openWeekNumber === props.weekNumber ? 20 : 0)}%;
+    transition: height 1s ease-in-out;
+    max-height: content;
 `;
