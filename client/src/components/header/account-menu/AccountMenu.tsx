@@ -43,12 +43,11 @@ const AccountMenu = () => {
     const logout = async (): Promise<void> => {
         try {
           await signOut(auth);
-          navigate("/")
+          window.location.reload();
         } catch (err) {
           console.error(err);
         }
-      };    
-
+      };      
 
 
     //if theyre logged out
