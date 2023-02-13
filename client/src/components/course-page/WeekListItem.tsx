@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import WeeklyContent from './WeeklyContent';
 import styled from 'styled-components';
 interface WeekProps {
@@ -39,7 +37,6 @@ const WeekListItem: React.FC<WeekProps> = ({
                 Week: {weekNumber}
                 {dailyNodes}
             </div>
-            <div>+</div>
         </ListItem>
     );
 };
@@ -54,4 +51,5 @@ const ListItem = styled.li`
     padding: 2rem;
     border-radius: 5px;
     color: var(--text-color);
+    height:100%;
 `;

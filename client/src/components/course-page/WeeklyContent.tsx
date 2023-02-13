@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-
 interface WeeklyContentProps {
-    key: number;
     dailyContent: any;
     setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>;
-    openWeekNumber:number;
+    openWeekNumber: number;
 }
 const WeeklyContent: React.FC<WeeklyContentProps> = ({
     dailyContent,
     setOpenDayNumber,
-    openWeekNumber
+    openWeekNumber,
 }) => {
     return (
         <Content
