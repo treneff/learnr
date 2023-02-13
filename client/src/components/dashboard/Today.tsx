@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import DayService from "../../service/DayService";
+import TodaysContent from "./TodaysContent";
 
 
 interface DayProps {
-    title: string,
+    dayTitle: string,
     weekNumber: Number,
     dayNumber: Number,
     content: Array<ContentType>,
@@ -17,25 +17,26 @@ type ContentType = {
 
 
 type DayType = {
-    title: string;
+    dayTitle: string;
     weekNumber: Number;
     dayNumber: Number;
     course: Object;
     content: Array<ContentType>;
 }
 
-const TodaysLessons: React.FC<DayProps> = ({title, content, weekNumber, dayNumber}) => {
+const Today: React.FC<DayProps> = ({dayTitle, content, weekNumber, dayNumber}) => {
 
     // Need to pull in a day to display through day service fetch on page load
     
 
     return(<>
-        <p><b>{title}</b></p>
+        <p><b>{dayTitle}</b></p>
         Week: {weekNumber}
         Day: {dayNumber}
-       <p>{content[0].title}</p> 
-        <p>{content[0].detail}</p>
+       {content.map((content: ContentType) => {
+        return <TodaysContent title={content.title} detail={content.detail}/>
+       })}
     </>)
 };
 
-export default TodaysLessons;
+export default Today;
