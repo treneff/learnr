@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TodaysContent from "./TodaysContent";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 
 interface DayProps {
@@ -30,9 +32,7 @@ const Today: React.FC<DayProps> = ({dayTitle, content, weekNumber, dayNumber}) =
     
 
     return(<>
-        <p><b>{dayTitle}</b></p>
-        Week: {weekNumber}
-        Day: {dayNumber}
+        <Link to="/course"><DayTitle><b>{dayTitle}</b></DayTitle></Link>
        {content.map((content: ContentType) => {
         return <TodaysContent title={content.title} detail={content.detail}/>
        })}
@@ -40,3 +40,12 @@ const Today: React.FC<DayProps> = ({dayTitle, content, weekNumber, dayNumber}) =
 };
 
 export default Today;
+
+const DayTitle = styled.h3`
+    text-decoration: none;
+    color: var(--text-color);
+    :hover{
+        text-decoration: underline;
+        color: var(--secondary-color);
+    }
+`

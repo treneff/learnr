@@ -21,7 +21,7 @@ const Main: React.FC = () => {
   interface User {
     [key: string]: any;
   }
-
+  
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
   const [verificationCountdownActive, setVerificationCountdownActive] =
     useState(false);
@@ -42,7 +42,6 @@ const Main: React.FC = () => {
         }}
       >
         <Routes>
-          {/* Anyone */}
           <Route path="/testing" element={<FirestoreTest />} />
           <Route path="/verify-email" element={<EmailVerification />} />
           <Route path="/burger" element={<SideMenu />} />

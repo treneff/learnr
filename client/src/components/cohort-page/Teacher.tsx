@@ -65,4 +65,7 @@ const TeacherBox = styled.div`
 const PopUpButton = styled.button`
     opacity: ${open => open? 1: 0};
     z-index: 1;
+    :hover{
+        cursor: pointer;
+    }
 `

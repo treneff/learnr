@@ -2,7 +2,11 @@ import React from "react";
 
 
 const Notes: React.FC = () => {
-    return(<>Hi I am your notes</>)
+    return(<>
+    
+    <h2>Notes</h2>
+    
+    </>)
 };
 
 export default Notes;
