@@ -1,10 +1,9 @@
 const baseURL = `http://localhost:8080/api/days`;
 
 const DayService = {
+    
     getDaysByWeek(week) {
         return fetch(baseURL+`?week=${week}`).then((res) => res.json());
-
-    
     },
 
     getDays(){

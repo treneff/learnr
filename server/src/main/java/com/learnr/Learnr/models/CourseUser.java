@@ -1,9 +1,13 @@
 package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance
@@ -33,10 +37,15 @@ public abstract class CourseUser {
     @Column(name = "bio")
     private String bio;
 
-//    @ManyToOne
-//    @JoinColumn(name = "course_id", nullable = false)
-//    @JsonBackReference(value = "course_course_user_reference")
-//    private Course course;
+    @ManyToMany
+    @JsonIgnoreProperties({"course_users"})
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "enrolments",
+            joinColumns = {@JoinColumn(name="user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="course_id", nullable = false, updatable = false)}
+    )
+    private List<Course> courses;
 
     public CourseUser(String firstName, String lastName, String email, Long phone, String dob, String bio) {
         this.firstName = firstName;
@@ -45,7 +54,7 @@ public abstract class CourseUser {
         this.phone = phone;
         this.dob = dob;
         this.bio = bio;
-//        this.course = course;
+        this.courses = new ArrayList<>();
     }
 
     public CourseUser() {
@@ -116,5 +125,16 @@ public abstract class CourseUser {
 //    }
 
 
+    public List<Course> getCourses() {
+        return this.courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public void addCourse(Course course){
+        this.courses.add(course);
+    }
 }
 

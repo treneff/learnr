@@ -1,30 +1,87 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useAuthValue } from '../../AuthContext';
+import CompletionsService from '../../service/CompletionService';
+import StudentService from '../../service/StudentService';
 interface DailyContentProps {
-    course: any | number;
+    course: any;
     openWeekNumber: React.Dispatch<React.SetStateAction<number>>;
     openDayNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, openDayNumber }) => {
-    const dailyContentNodes = course[0].days.map((dailyContent: any) => {
-        if (
-            dailyContent.weekNumber === openWeekNumber &&
-            dailyContent.dayNumber === openDayNumber
-        ) {
-            return dailyContent.content.map((content: any, index: number) => {
-                return (
-                    <ListItem key={index}>
-                        {content.title}
-                        <br />
-                        {content.detail}
-                        <br />
-                        {content.contentType}
-                    </ListItem>
-                );
-            });
-        } else return null;
-    });
+    const [open, setOpen] = useState<any>(false)
+    const [userID, setUserID] = useState<any>();
+    const { currentUser } = useAuthValue();
+    const [completions, setCompletions] = useState([]);
 
-    return <DailyList>{course ? dailyContentNodes : null}</DailyList>;
+
+    useEffect(() => {
+        StudentService.getStudentByEmail(currentUser.email).then((profile) => {
+            setUserID(profile[0].id);
+            console.log(profile[0].id)
+        });
+    }, []);
+
+    useEffect(() => {
+        CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
+            setCompletions(completions);
+            console.log(userID)
+        })
+    }, [userID])
+
+    const postCompletionStatus = (contentID: number, userID: number) => {
+        CompletionsService.postCompletion(contentID, userID)
+    }
+
+
+    // Map through completions to create our list items
+    const mapThroughCompletions = (contentId: number) => {
+        return completions.some((completion: any) =>
+            completion.contentId === contentId
+        )
+    }
+
+
+    // Map through content to trigger completions function
+    const mapThroughDailyContents = (dailyContent: any) => {
+        return dailyContent.content.map((content: any, index: number) => {
+            return mapThroughCompletions(content.id) ? (
+                <ListItem key={index} style={{ backgroundColor: "red", maxHeight: open ? '100%' : '0' }
+                } onClick={() => setOpen(!open)}>
+                    {content.title}<button onClick={() => postCompletionStatus(content.id, userID)}></button>
+                    < br />
+                    {content.detail}
+                    < br />
+                    {content.contentType}
+                </ListItem >
+            ) : (
+                <ListItem key={index} >
+                    {content.title}<button onClick={() => postCompletionStatus(content.id, userID)}></button>
+                    <br />
+                    {content.detail}
+                    <br />
+                    {content.contentType}
+                </ListItem>
+            );
+        });
+    };
+
+
+    // Map through days dailyContentNodes function
+    const dailyContentNodes = (course: any) => {
+        return course[0].days.map((dailyContent: any) => {
+            if (
+                dailyContent.weekNumber === openWeekNumber &&
+                dailyContent.dayNumber === openDayNumber
+            ) {
+                return mapThroughDailyContents(dailyContent);
+            }
+        });
+    };
+
+
+
+    return <DailyList>{course && completions && userID ? dailyContentNodes(course) : null}</DailyList>;
 };
 
 export default DailyContent;
@@ -47,4 +104,8 @@ const ListItem = styled.li`
     padding: 2rem;
     border-radius: 5px;
     color: var(--text-color);
+    max-height: 0;
+    overflow: auto;
+    transition: max-height 0.5s ease-in-out;
+    /* IF CONTENT ID MATCHES COMPLETION CONTENT ID DISPLAY BACKGROUND COLOR DIFFERENT */
 `;

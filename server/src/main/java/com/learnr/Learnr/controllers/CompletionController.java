@@ -15,8 +15,14 @@ public class CompletionController {
     CompletionRepository completionRepository;
 
     @GetMapping(value = "/api/completions")
-    public ResponseEntity<List<Completion>> getAllCompletions(){
-        return new ResponseEntity<>(completionRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Completion>> getAllCompletions(
+            @RequestParam(name = "student", required = false) Long student_id
+    ) {
+        if (student_id != null) {
+            return new ResponseEntity<>(completionRepository.findCompletionsByStudentId(student_id), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(completionRepository.findAll(), HttpStatus.OK);
+        }
     }
 
     @GetMapping(value = "/api/completions/{id}")
