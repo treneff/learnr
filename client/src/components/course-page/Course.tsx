@@ -7,7 +7,7 @@ import WeeklyDropDown from './WeeklyDropDown';
 const Course = () => {
     const [course, setCourse] = useState();
     const [openWeekNumber, setOpenWeekNumber] = useState<any>();
-    const [openDayNumber, setOpenDayNumber] = useState<any>();
+    const [openDayNumber, setOpenDayNumber] = useState<any>(1);
 
     useEffect(() => {
         CourseService.getCourses().then((course) => setCourse(course));
@@ -22,7 +22,7 @@ const Course = () => {
                         course={course}
                         setOpenWeekNumber={setOpenWeekNumber}
                         setOpenDayNumber={setOpenDayNumber}
-                        openWeekNumber = {openWeekNumber}
+                        openWeekNumber={openWeekNumber}
                     />
                 ) : null}
                 {course ? (

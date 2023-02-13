@@ -4,10 +4,15 @@ interface CourseProps {
     course: any | number;
     setOpenWeekNumber: React.Dispatch<React.SetStateAction<number>>;
     setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>;
-    openWeekNumber:number;
+    openWeekNumber: number;
 }
 
-const WeeklyDropDown: React.FC<CourseProps> = ({ course, setOpenWeekNumber, setOpenDayNumber,openWeekNumber }) => {
+const WeeklyDropDown: React.FC<CourseProps> = ({
+    course,
+    setOpenWeekNumber,
+    setOpenDayNumber,
+    openWeekNumber,
+}) => {
     let currentWeek = 0;
 
     const weeklyNodes = course[0].days.map((weeklyContent: any, index: number) => {
@@ -20,7 +25,7 @@ const WeeklyDropDown: React.FC<CourseProps> = ({ course, setOpenWeekNumber, setO
                     course={course}
                     setOpenWeekNumber={setOpenWeekNumber}
                     setOpenDayNumber={setOpenDayNumber}
-                    openWeekNumber = {openWeekNumber}
+                    openWeekNumber={openWeekNumber}
                 />
             );
         } else return null;
