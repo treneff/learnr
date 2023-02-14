@@ -1,15 +1,20 @@
+import styled from "styled-components";
+
 interface ContentProps {
     title: string;
     detail: string;
 }
 
-const TodaysContent: React.FC<ContentProps> = ({ title, detail }) => {
+const TodaysContent: React.FC<ContentProps> = ({ title }) => {
     return (
         <>
-            <h4>{title}</h4>
-            <p>{detail}</p>
+            <DayContent>{title}</DayContent>
         </>
     );
 };
 
 export default TodaysContent;
+
+const DayContent = styled.p`
+    color: var(--tertiary-color);
+`

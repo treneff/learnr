@@ -183,104 +183,104 @@ public class DataLoader implements ApplicationRunner {
         //CONTENT - ONLY WEEKS 1, 6, 12 Contain Real Titles
 
         //Content Day W1D1
-        CourseNote command_line_basics = new CourseNote("Command Line Basics", "This will be the content of Command Line Basics", W1D1, "courseNote");
+        CourseNote command_line_basics = new CourseNote("Command Line Basics", "When most people use a computer, they interact with it via the graphical user interface (GUI). This typically involves using a mouse to click on icons on the screen. The command line can be a much more efficient way to use a computer.", W1D1, "courseNote");
         courseNoteRepository.save(command_line_basics);
-        CourseNote effective_text_editing = new CourseNote("Effective Text Editing", "This will be the content of Command Line Basics", W1D1, "courseNote");
+        CourseNote effective_text_editing = new CourseNote("Effective Text Editing", "As a developer you are going to spend a large portion of your time in front of a computer typing code and there's no escaping it. Given that computer programs are essentially just text files written in a special syntax be good in an editor.", W1D1, "courseNote");
         courseNoteRepository.save(effective_text_editing);
-        CourseNote git_and_github = new CourseNote("Git and Github", "This will be the content of Git and Github", W1D1, "courseNote");
+        CourseNote git_and_github = new CourseNote("Git and Github", "Git can be initialised on any directory, add a file and commit it to Git. Editing the file for Git to consider it modified, and stage the file to let Git know you want to record the changes in history, then commit the staged changes.", W1D1, "courseNote");
         courseNoteRepository.save(git_and_github);
-        Homework submit_to_github = new Homework("Submit Something to Github", "This will be the content of the Github Homework", W1D1, "homework");
+        Homework submit_to_github = new Homework("Submit Something to Github", "Create a folder in your week_01/day_1 directory. Initialise a git repository in the folder. Create a new file called precourse_recap.py. In the file, create a simple Python program: create variables of different types, call some methods/functions.", W1D1, "homework");
         homeworkRepository.save(submit_to_github);
 
         //Content Day W1D2
-        CourseNote what_is_programming = new CourseNote("What is programming", "This will be the content of what is programming", W1D2, "courseNote");
+        CourseNote what_is_programming = new CourseNote("What is programming", "Let's imagine we live in a world with no programming languages. We have to talk to our computer in machine code. 0010101001010. This would not be fun. It would be hard to write and hard to read. Expressing high level ideas would be almost impossible.", W1D2, "courseNote");
         courseNoteRepository.save(what_is_programming);
-        CourseNote control_flow = new CourseNote("Control Flow / Conditionals", "This will be the content of Command Line Basics", W1D2, "courseNote");
+        CourseNote control_flow = new CourseNote("Control Flow / Conditionals", "Every day we make decisions which effect what we do. If we didn't then we'd do exactly the same thing every day, and life would get really repetitive. Often, these decisions we make in our daily lives are made based on a 'yes' or 'no' question.", W1D2, "courseNote");
         courseNoteRepository.save(control_flow);
-        CourseNote lists = new CourseNote("Lists", "This will be the content of Command Line Basics", W1D2, "courseNote");
+        CourseNote lists = new CourseNote("Lists", "We've been dealing a lot with single objects - a person, a number. Just as with real life, we don't always have one of something. At home we don't just have one piece of food, we have many. So how do we represent this in our code?", W1D2, "courseNote");
         courseNoteRepository.save(lists);
-        CourseNote dictionaries = new CourseNote("Dictionaries", "This will be the content of Git and Github", W1D2, "courseNote");
+        CourseNote dictionaries = new CourseNote("Dictionaries", "We have seen that we can store a collection of objects in a list or tuple object. Let's say we wanted to store the food we are going to have that day. Enter dictionaries. Let's create a file called dictionaries.py.", W1D2, "courseNote");
         courseNoteRepository.save(dictionaries);
-        CourseNote loops = new CourseNote("Loops", "This will be the content of Command Line Basics", W1D2, "courseNote");
+        CourseNote loops = new CourseNote("Loops", "Loops in Python are used to execute a block of code a specified number of times. One of the principles of writing clean code is Don't Repeat Yourself. Writing loops is one way to help us write DRY code, we can tell Python to run it multiple times.", W1D2, "courseNote");
         courseNoteRepository.save(loops);
-        Lab list_and_dictionaries_lab = new Lab("Lists & Dictionaries", "Extensive Js Lab", W1D2, "lab");
+        Lab list_and_dictionaries_lab = new Lab("Lists & Dictionaries", "stops = [ Croy, Cumbernauld, Falkirk High, Linlithgow, Livingston, Haymarket ]. #1. Add Edinburgh Waverley to the end of the list. #2. Add Glasgow Queen St to the start of the list. #3. Add Polmont at the appropriate point.", W1D2, "lab");
         labRepository.save(list_and_dictionaries_lab);
 
         //Content Day W1D3
-        CourseNote functions = new CourseNote("Functions", "This will be the content of what is programming", W1D3, "courseNote" );
+        CourseNote functions = new CourseNote("Functions", "A 'function' is a reusable chunk of code that can be called (invoked) by name to perform a specific task. We can think of it as a little machine that takes in some information and returns something. There are two types of function.", W1D3, "courseNote" );
         courseNoteRepository.save(functions);
-        CourseNote unit_tests = new CourseNote("Unit Tests", "This will be the content of Command Line Basics", W1D3, "courseNote");
+        CourseNote unit_tests = new CourseNote("Unit Tests", "When we write code, how do we know that it works? The only way that we can possibly know if our code works is to test it. Up until this point, we've been testing our code manually. We add a new piece of functionality, then we run the program.", W1D3, "courseNote");
         courseNoteRepository.save(unit_tests);
-        CourseNote intro_to_pair_prog = new CourseNote("Intro to Pair Programming", "This will be the content of Command Line Basics", W1D3,  "courseNote");
+        CourseNote intro_to_pair_prog = new CourseNote("Intro to Pair Programming", "one laptop. one driving and one navigating. driver writes code. navigator reviews code, makes suggestions and focuses on overall direction. continuous review of code. discussion! (programming out loud). driver explains code while writing it.", W1D3,  "courseNote");
         courseNoteRepository.save(intro_to_pair_prog);
-        Lab functions_1 = new Lab("Functions 1", "Extensive Js Lab", W1D3,  "lab" );
+        Lab functions_1 = new Lab("Functions 1", "More practice with functions! Notice that python_functions_practice.py is empty. This is where we will need to write our functions. run_tests.py is the file we will run. You can see that we have 10 failing tests. Let's pass the first one.", W1D3,  "lab" );
         labRepository.save(functions_1);
-        CourseNote loop_to_search_lists = new CourseNote("Loops to Search Lists", "This will be the content of Git and Github", W1D3, "courseNote");
+        CourseNote loop_to_search_lists = new CourseNote("Loops to Search Lists", "Often we will find that we need to find a specific element of a list using a loop. Let's say we wanted to find a chicken object if we're given the name of the chicken. Consider the following. Why would the find_chicken_by_name function not work?", W1D3, "courseNote");
         courseNoteRepository.save(loop_to_search_lists);
-        Homework functions_2 = new Homework("Functions 2", "This will be the content of the Github Homework", W1D3,  "homework");
+        Homework functions_2 = new Homework("Functions 2", "Given the following list of dictionaries, use functions throughout to create a program to manage a task list. As a user, to manage my task list I would like a program that allows me to print a list of uncompleted tasks, print a list of completed tasks.", W1D3,  "homework");
         homeworkRepository.save(functions_2);
 
         //Content Day W1D4
-        CourseNote modules_and_packages = new CourseNote("Modules and Packages", "This will be the content of what is programming", W1D4, "courseNote");
+        CourseNote modules_and_packages = new CourseNote("Modules and Packages", "When we start writing larger programs it gets difficult to read if we have lots of code in the same file. That is where we can start to use modules. Modules help us to organise our code into more manageable chunks. If we write some code...", W1D4, "courseNote");
         courseNoteRepository.save(modules_and_packages);
-        Lab friends = new Lab("Friends", "Extensive Js Lab", W1D4,  "lab");
+        Lab friends = new Lab("Friends", "Up until now every test we have seen, the objects that we used within our tests were instantiated within the test itself. This was working nicely, but we got introduced to more complex data structures, next week we will create our own custom objects.", W1D4,  "lab");
         labRepository.save(friends);
 
         //Content Day W1D5
-        CourseNote pda_induction = new CourseNote("PDA Induction", "This will be the content of what is programming", W1D5, "courseNote");
+        CourseNote pda_induction = new CourseNote("PDA Induction", "PDA is SQA stuff to do to get a qualification", W1D5, "courseNote");
         courseNoteRepository.save(pda_induction);
-        Homework tdd_pet_shop = new Homework("TDD Petshop", "This will be the content of the Github Homework", W1D5,  "homework");
+        Homework tdd_pet_shop = new Homework("TDD Petshop", "For your weekend homework your task is to write functions to be used in a pet shop. We have provided tests for you. Your job is to make those tests pass! Work on one at a time, and when you're ready to move on, unskip the next test, then make it pass.", W1D5,  "homework");
         homeworkRepository.save(tdd_pet_shop);
-        CourseNote w1d5_recap = new CourseNote("PDA Induction", "This will be the content of what is programming", W1D5,  "courseNote");
+        CourseNote w1d5_recap = new CourseNote("PDA Induction", "Tasks will be released every so often and you need to do them plus theres an exam, how exciting", W1D5,  "courseNote");
         courseNoteRepository.save(w1d5_recap);
 
         //Content Day W2D1
-        CourseNote pythonic_loops = new CourseNote("Pythonic Loops", "This will be the content of Command Line Basics", W2D1, "courseNote");
+        CourseNote pythonic_loops = new CourseNote("Python Classes", "Today we are going to see how we can create our own objects, with their own methods. Fundamentally, object-oriented programming sees the world as data, modelled in code by objects. Coupled together with their behaviour - methods.", W2D1, "courseNote");
         courseNoteRepository.save(pythonic_loops);
-        CourseNote data_structures_101 = new CourseNote("Data Structures 101", "This will be the content of Command Line Basics", W2D1, "courseNote");
+        CourseNote data_structures_101 = new CourseNote("Data Structures 101", "So far we've been giving you specifications of things we'd like you to build. However often you'll be faced with a problem and have to figure out a possible solution to it yourself. It can be tempting to just dive in and start coding but no", W2D1, "courseNote");
         courseNoteRepository.save(data_structures_101);
-        Lab functional_python = new Lab("Functional Python", "Extensive Js Lab", W2D1, "lab");
+        Lab functional_python = new Lab("Single Class Lab", "For this part we want you to make a class that represents a CodeClan student. The files for this section can be found in single_class_lab_start_code/student_class. You should write your code in the the src/student.py file. The tests we have provided.", W2D1, "lab");
         labRepository.save(functional_python);
-        Homework python_debugging_techniques = new Homework("Python Debugging Techniques", "This will be the content of the Github Homework", W2D1, "homework");
+        Homework python_debugging_techniques = new Homework("Multiple Classes", "Composition is one of the fundamentals of OOP (Object Oriented Programming). As we've seen, properties of classes can be simple Strings and Integers but they are not limited to this. They can also be Lists or Dictionaries.", W2D1, "homework");
         homeworkRepository.save(python_debugging_techniques);
 
         //Content Day W2D2
-        CourseNote object_orientated_p = new CourseNote("Object-Oriented Programming", "This will be the content of Command Line Basics", W2D2, "courseNote");
+        CourseNote object_orientated_p = new CourseNote("Multiple Classes", "So far, we have started our journey into Object Oriented Programming by writing single classes. But in the real world, things don't exist in isolation - they interact with each other. We're going to investigate how we can develop our programs.", W2D2, "courseNote");
         courseNoteRepository.save(object_orientated_p);
-        CourseNote file_io_mastery = new CourseNote("File I/O Mastery", "This will be the content of Command Line Basics", W2D2, "courseNote");
+        CourseNote file_io_mastery = new CourseNote("Inheritance", "Sometimes we might have a bunch of classes that all share some behaviour. For example, a sparrow can fly, but so can a crow. A car has wheels, but so does a motorbike - they also both help you travel somewhere, and both have an engine that can start.", W2D2, "courseNote");
         courseNoteRepository.save(file_io_mastery);
-        CourseNote advanced_topics_in_python= new CourseNote("Advanced Topics in Python", "This will be the content of Command Line Basics", W2D2, "courseNote");
+        CourseNote advanced_topics_in_python= new CourseNote("Inheritance", "When we looked at inheritance when creating an object we were thinking about what an object is, a Car is a vehicle. As well as thinking about what something IS, we can also think about what something HAS e.g. a car HAS an engine, a car HAS a gearbox.", W2D2, "courseNote");
         courseNoteRepository.save(advanced_topics_in_python);
-        Lab web_scraping_with_python = new Lab("Web Scraping with Python", "Extensive Js Lab", W2D2, "lab");
+        Lab web_scraping_with_python = new Lab("Bus Stop Lab", "Your task is to model a Bus which can pick up and drop off Passengers. Step 1: Create a Bus class. The Bus should have a route number and a destination. The Bus should have a drive method that returns a string (e.g. Brum brum).", W2D2, "lab");
         labRepository.save(web_scraping_with_python);
 
         //Content Day W2D3
-        CourseNote data_analysis_with_pandas = new CourseNote("Data Analysis with Pandas", "This will be the content of Command Line Basics", W2D3, "courseNote");
+        CourseNote data_analysis_with_pandas = new CourseNote("List Comprehension", "List comprehensions allow us to build lists in a way that is concise, elegant, and Pythonic. Let's imagine we have a list of numbers, and we want a list of the even numbers multiplied by themselves. We need the square of each even item in the list.", W2D3, "courseNote");
         courseNoteRepository.save(data_analysis_with_pandas);
-        CourseNote machine_learning_with_python = new CourseNote("Machine Learning with Python", "This will be the content of Command Line Basics", W2D3, "courseNote");
+        CourseNote machine_learning_with_python = new CourseNote("Pub/Coffee Shop Testing", "When we write our code we want to make sure it works as we expected. Maybe this sounds obvious. So let's make an ever bigger claim. We can craft better code if it's tested. We haven't really touched on the craft of writing code yet.", W2D3, "courseNote");
         courseNoteRepository.save(machine_learning_with_python);
-        Lab numpy_array_operations = new Lab("Numpy Array Operations", "Extensive Js Lab", W2D3, "lab");
+        Lab numpy_array_operations = new Lab("Coffee Shop Testing Lab", "The task for this lab is to plan and create an object oriented model of a Coffe Shop, with Drinks and Customers! You should write tests for all your classes and methods. Make sure that you create a separate file for each class.", W2D3, "lab");
         labRepository.save(numpy_array_operations);
-        Homework matplotlib_visualization = new Homework("Matplotlib Visualization", "This will be the content of the Github Homework", W2D3, "homework");
+        Homework matplotlib_visualization = new Homework("Lab Continued", "Continue working on the lab at home", W2D3, "homework");
         homeworkRepository.save(matplotlib_visualization);
 
         //Content Day W2D4
-        CourseNote text_processing_with_python = new CourseNote("Text Processing with Python", "This will be the content of Command Line Basics", W2D4, "courseNote");
+        CourseNote text_processing_with_python = new CourseNote("Git Branches", "Branching is a feature available in most modern version control systems. Branching in other VCSs can be an expensive operation in both time and disk space. In Git, branches are a part of your everyday development process. Git branches are effective.", W2D4, "courseNote");
         courseNoteRepository.save(text_processing_with_python);
-        CourseNote web_development_with_django = new CourseNote("Web Development with Django", "This will be the content of Command Line Basics", W2D4,  "courseNote");
+        CourseNote web_development_with_django = new CourseNote("Test Driven Development", "TDD stands for Test-Driven Development. At its simplest, it is just writing tests first, then writing the code to make them pass. If we want to be precise about it, TDD lets us design our application and think about what functions we need to write.", W2D4,  "courseNote");
         courseNoteRepository.save(web_development_with_django);
-        Lab multithreading_in_python = new Lab("Multithreading in Python", "Extensive Js Lab", W2D4,  "lab");
+        Lab multithreading_in_python = new Lab("Fizz Buzz Lab", "You are being asked to practice TDD to write a function called fizz_buzz. That function will take in an Integer and return Fizz if the number is divisible by 3. Return Buzz if the number is divisible by 5 (e.g. fizz_buzz(5) == Buzz)", W2D4,  "lab");
         labRepository.save(multithreading_in_python);
-        Homework exploring_python_libraries = new Homework("Exploring Python Libraries", "This will be the content of the Github Homework", W2D4,  "homework");
-        homeworkRepository.save(exploring_python_libraries);
+//        Homework exploring_python_libraries = new Homework("Exploring Python Libraries", "This will be the content of the Github Homework", W2D4,  "homework");
+//        homeworkRepository.save(exploring_python_libraries);
 
         //Content Day W2D5
-        CourseNote pda_w2_d5_homework = new CourseNote("PDA W2D5 Homework", "This will be the content of what is programming", W2D5,  "homework");
+        CourseNote pda_w2_d5_homework = new CourseNote("CodeClan Caraoke", "You have been approached to build software for a Karaoke bar. Specifically, they want you to build a software for checking guests in and out, plus handling songs. Your program should be test driven and should be able to: Create rooms, songs and guests.", W2D5,  "homework");
         courseNoteRepository.save(pda_w2_d5_homework);
-        Homework weekend_flask_homework = new Homework("Weekend Homework - Building REST APIs with Flask", "This will be the content of the Github Homework", W2D5, "homework");
+        Homework weekend_flask_homework = new Homework("Weekend Homework PDA", "Remember to submit the corresponding PDA exercises.", W2D5, "homework");
         homeworkRepository.save(weekend_flask_homework);
-        CourseNote w2d5_recap = new CourseNote("Week 2 Recap", "This will be the content of what is programming", W2D5, "courseNote");
-        courseNoteRepository.save(w2d5_recap);
+//        CourseNote w2d5_recap = new CourseNote("Week 2 Recap", "This will be the content of what is programming", W2D5, "courseNote");
+//        courseNoteRepository.save(w2d5_recap);
 
         //Content Day W3D1
         CourseNote realtime_data_streaming = new CourseNote("Real-Time Data Streaming", "This will be the content of Command Line Basics", W3D1,   "courseNote");
