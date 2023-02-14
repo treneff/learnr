@@ -41,9 +41,10 @@ const AccountMenu = () => {
     }
 
     const logout = async (): Promise<void> => {
+        console.log("logout click")
         try {
           await signOut(auth);
-          navigate("/")
+          navigate("/login")
         } catch (err) {
           console.error(err);
         }
