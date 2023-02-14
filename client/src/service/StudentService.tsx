@@ -5,7 +5,7 @@ const StudentService = {
         return fetch(baseURL).then((res) => res.json());
     },
 
-    getStudentByEmail(email) {
+    getStudentByEmail(email:string) {
         return fetch(baseURL + "?email=" + email).then((res) => res.json());
     },
     };

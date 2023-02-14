@@ -2,7 +2,7 @@ const baseURL = `http://localhost:8080/api/days`;
 
 const DayService = {
     
-    getDaysByWeek(week) {
+    getDaysByWeek(week:number) {
         return fetch(baseURL+`?week=${week}`).then((res) => res.json());
     },
 
@@ -10,7 +10,7 @@ const DayService = {
         return fetch(baseURL).then((res) => res.json());
     },
 
-    getDayByWeekAndDayNumber(week, day) {
+    getDayByWeekAndDayNumber(week:number, day:number) {
         return fetch(baseURL + `?week=${week}&day=${day}`).then((res) => res.json());
     }
 
