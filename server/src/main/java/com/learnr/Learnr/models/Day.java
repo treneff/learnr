@@ -1,8 +1,6 @@
 package com.learnr.Learnr.models;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +22,11 @@ public class Day {
     @Column(name = "day")
     private int dayNumber;
 
-    //Working as intended
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     @JsonBackReference(value = "course_days_reference")
     private Course course;
 
-//    @JsonManagedReference(value = "content_days_reference")
     @OneToMany (mappedBy = "day", fetch = FetchType.LAZY)
     private List<Content> content;
 

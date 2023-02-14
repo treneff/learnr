@@ -1,7 +1,6 @@
 package com.learnr.Learnr.controllers;
 
 import com.learnr.Learnr.models.Course;
-import com.learnr.Learnr.models.Student;
 import com.learnr.Learnr.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

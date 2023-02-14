@@ -1,6 +1,5 @@
 package com.learnr.Learnr.controllers;
 
-import com.learnr.Learnr.models.Day;
 import com.learnr.Learnr.models.Student;
 import com.learnr.Learnr.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-import static java.lang.Integer.parseInt;
 
 @RestController
 public class StudentController {
