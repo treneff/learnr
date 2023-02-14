@@ -5,9 +5,10 @@ interface DayContentProps {
     content:any;
     postCompletionStatus: any;
     userID: any;
+    completion:boolean
 }
 
-const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID}) => {
+const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID,completion}) => {
     return (
         <Content
             style={{
@@ -15,7 +16,7 @@ const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCom
                 opacity: openTopicNumber === content.id ? '1' : '0',
             }}>
             {content.detail}
-            <button onClick={() => postCompletionStatus(content.id, userID)}></button>
+            {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null}
         </Content>
     );
 };
@@ -27,4 +28,8 @@ const Content = styled.ul`
     opacity: 0;
     overflow: hidden;
     transition: max-height 1.2s, opacity 2s ease-in-out;
+    display:flex;
+    justify-content:space-between;
+    flex-direction:column;
+    height:100%;
 `;

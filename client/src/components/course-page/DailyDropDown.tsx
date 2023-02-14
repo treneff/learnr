@@ -14,7 +14,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
     const [completions, setCompletions] = useState([]);
-
+    const [colorChangeListener, setColorChangeListener] = useState<number>(0)
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
             setUserID(profile[0].id);
@@ -26,13 +26,12 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
             setCompletions(completions);
         });
-    }, [userID]);
+    }, [userID,colorChangeListener]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);
         // This is definitely wrong but it works, try and refactor
-        setUserID(userID - 1);
-        setUserID(userID + 1);
+        setColorChangeListener(colorChangeListener+1);
     };
 
     // Map through completions to create our list items
@@ -79,7 +78,7 @@ const DailyList = styled.ul`
     display: flex;
     flex-direction: column;
     justify-content: left;
-    background-color: #f5f3f3;
+    background-color: var(--background-color);
     padding: 2rem;
     overflow: auto;
 `;

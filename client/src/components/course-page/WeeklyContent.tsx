@@ -3,11 +3,13 @@ interface WeeklyContentProps {
     dailyContent: any;
     setOpenDayNumber: React.Dispatch<React.SetStateAction<number>>;
     openWeekNumber: number;
+    counter:number;
 }
 const WeeklyContent: React.FC<WeeklyContentProps> = ({
     dailyContent,
     setOpenDayNumber,
     openWeekNumber,
+    counter
 }) => {
     return (
         <Content
@@ -16,7 +18,7 @@ const WeeklyContent: React.FC<WeeklyContentProps> = ({
                 maxHeight: openWeekNumber === dailyContent.weekNumber ? '100%' : '0',
                 opacity: openWeekNumber === dailyContent.weekNumber ? '1' : '0',
             }}>
-            {dailyContent.title}
+            Day {counter}: {dailyContent.title}
         </Content>
     );
 };
