@@ -46,9 +46,6 @@ const Dashboard: React.FC = () => {
             <h2>Todays Lessons</h2>
             {dayToDisplay.map((day: DayType)=>{return <Today dayTitle={day.title} content={day.content} weekNumber={day.weekNumber} dayNumber = {day.dayNumber} />})}
             </DashboardItem>
-            {/* <DashboardItem>
-            {dayToDisplay.map((day: DayType)=>{return <Tasks content={day.content} userID={user.id} />})}
-            </DashboardItem> */}
             <DashboardItem>
                 <Announcements />
             </DashboardItem>

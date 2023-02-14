@@ -34,9 +34,11 @@ const Today: React.FC<DayProps> = ({ dayTitle, content, weekNumber, dayNumber })
                     <b>{dayTitle}</b>
                 </DayTitle>
             </Link>
+            <ContentContainer>
             {content.map((content: ContentType) => {
                 return <TodaysContent title={content.title} detail={content.detail} />;
             })}
+            </ContentContainer>
         </>
     );
 };
@@ -51,3 +53,9 @@ const DayTitle = styled.h3`
         color: var(--secondary-color);
     }
 `;
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+`
