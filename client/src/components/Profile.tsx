@@ -5,22 +5,22 @@ import { ProfileContainer, ProfileForm } from "../GlobalStyles";
 import StudentService from "../service/StudentService";
 import { reload } from "firebase/auth";
 
+// const Profile: React.FC = () => {
+//   const { currentUser } = useAuthValue();
+//   if (!currentUser) {
+//     return <Navigate to="/login" replace />;
+//   } else {
+//     if (!currentUser.emailVerified) {
+//       return <Navigate to="/verify-email" replace />;
+//     } else {
+//       return <ActualProfile />;
+//     }
+//   }
+// };
+
+// export default Profile;
+
 const Profile: React.FC = () => {
-  const { currentUser } = useAuthValue();
-  if (!currentUser) {
-    return <Navigate to="/login" replace />;
-  } else {
-    if (!currentUser.emailVerified) {
-      return <Navigate to="/verify-email" replace />;
-    } else {
-      return <ActualProfile />;
-    }
-  }
-};
-
-export default Profile;
-
-const ActualProfile: React.FC = () => {
   const [profileContent, setProfileContent] = useState<any>();
 
   const [firstName, setFirstName] = useState("");
@@ -255,3 +255,6 @@ const ActualProfile: React.FC = () => {
     </ProfileContainer>
   );
 };
+
+
+export default Profile

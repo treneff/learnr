@@ -21,7 +21,7 @@ const Main: React.FC = () => {
   interface User {
     [key: string]: any;
   }
-  
+
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
   const [verificationCountdownActive, setVerificationCountdownActive] =
     useState(false);
@@ -44,9 +44,7 @@ const Main: React.FC = () => {
         <Routes>
           <Route path="/testing" element={<FirestoreTest />} />
           <Route path="/verify-email" element={<EmailVerification />} />
-          <Route path="/burger" element={<SideMenu />} />
-          <Route path="/account-menu" element={<AccountMenu />} />
-          <Route
+          {/* <Route
             path="/login"
             element={
               !currentUser ? (
@@ -67,25 +65,30 @@ const Main: React.FC = () => {
                 <Navigate to="/profile" replace />
               )
             }
-          />
+          /> */}
           {/* Verified Users Only */}
-          <Route
-            path="/profile"
-            element={
-              <PrivateRoute>
-                <Profile />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/course"
-            element={
-              <PrivateRoute>
-                <Course />
-              </PrivateRoute>
-            }
-          />
-          <Route
+
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+
+
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+
+          <Route path="/course" element={<PrivateRoute />}>
+            <Route path="/course" element={<Course />} />
+          </Route>
+
+          <Route path="/cohort" element={<PrivateRoute />}>
+            <Route path="/cohort" element={<Cohort />} />
+          </Route>
+
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="/" element={<Dashboard />} />
+          </Route>
+
+          {/* <Route
             path="/cohort"
             element={
               <PrivateRoute>
@@ -100,7 +103,7 @@ const Main: React.FC = () => {
                 <Dashboard />
               </PrivateRoute>
             }
-          />
+          /> */}
         </Routes>
       </AuthProvider>
     </main>

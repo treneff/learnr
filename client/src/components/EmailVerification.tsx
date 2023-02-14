@@ -30,7 +30,7 @@ const EmailVerification: React.FC = () => {
           });
       }
     }, 1000);
-  }, [navigate, currentUser]);
+  }, [currentUser]);
 
   //This useEffect allows only one email to be sent every 30 secs
   useEffect(() => {

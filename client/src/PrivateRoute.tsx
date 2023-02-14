@@ -1,19 +1,18 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuthValue } from './AuthContext';
 import React from 'react';
 
-interface PrivateRouteProps {
-  children: React.ReactNode;
-}
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
-  const { currentUser } = useAuthValue();
+const PrivateRoute: React.FC = () => {
+  const { currentUser } =  useAuthValue();
 
-  if (!currentUser?.emailVerified) {
-    return <Navigate to="/login" replace />;
-  }
+  // if (!currentUser) {
+  //   return <Navigate to="/registration"  />;
+  // } else {
+  //   return <Outlet />
+  // }
 
-  return <>{children}</>;
+  return ( currentUser ? <Outlet /> : null )
 };
 
 export default PrivateRoute;
