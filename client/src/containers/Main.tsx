@@ -14,7 +14,6 @@ import EmailVerification from "../components/EmailVerification";
 import AccountMenu from "../components/header/account-menu/AccountMenu";
 import Dashboard from "../components/dashboard/Dashboard";
 import { Navigate } from "react-router-dom";
-import PrivateRoute from "../PrivateRoute";
 import StudentService from "../service/StudentService";
 
 const Main: React.FC = () => {
@@ -118,14 +117,10 @@ const Main: React.FC = () => {
           <Route
             path="/registration"
             element={
-              currentUser ? (
-                !currentUser.emailVerified ? (
-                  <Registration />
-                ) : (
-                  <Navigate to="/" replace />
-                )
+              !currentUser || !currentUser?.emailVerified ? (
+                <Registration />
               ) : (
-                <Navigate to="/login" replace />
+                <Navigate to="/" replace />
               )
             }
           />
