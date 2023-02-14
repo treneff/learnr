@@ -18,14 +18,18 @@ const WeekListItem: React.FC<WeekProps> = ({
     const OpenClickHandler = () => {
         setOpenWeekNumber(weekNumber);
     };
+    let counter = 0;
     const dailyNodes = course[0].days.map((dailyContent: any, index: number) => {
         if (dailyContent.weekNumber === weekNumber) {
+            counter += 1;
+
             return (
                 <WeeklyContent
                     key={index}
                     dailyContent={dailyContent}
                     setOpenDayNumber={setOpenDayNumber}
                     openWeekNumber={openWeekNumber}
+                    counter={counter}
                 />
             );
         } else return null;
@@ -36,10 +40,8 @@ const WeekListItem: React.FC<WeekProps> = ({
             onClick={OpenClickHandler}
             openWeekNumber={openWeekNumber}
             weekNumber={weekNumber}>
-            <ul>
-                Week: {weekNumber}
-                {dailyNodes}
-            </ul>
+            Week: {weekNumber}
+            <ul>{dailyNodes}</ul>
         </ListItem>
     );
 };
@@ -47,9 +49,12 @@ const WeekListItem: React.FC<WeekProps> = ({
 export default WeekListItem;
 
 const ListItem = styled.li.attrs((props: { openWeekNumber: number; weekNumber: number }) => props)`
-    background-color: var(--secondary-color);
+    background-color: #f1f1ff;
+    border: #808080 solid 5px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    /* align-items:center; */
     margin: 5px 0px;
     padding: 2rem;
     border-radius: 5px;

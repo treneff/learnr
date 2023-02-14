@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import DayContent from './DayContent';
+import DoneIcon from '@mui/icons-material/Done';
+
 
 interface DayProps {
     content: any;
@@ -22,15 +24,16 @@ const DayListItem: React.FC<DayProps> = ({
         <ListItem
             openTopicNumber={openTopicNumber}
             content={content}
-            style={completion ? { backgroundColor: 'red' } : {}}
+            style={completion ? { border: '#018001 solid 5px' } : {}}
             onClick={() => {
                 setOpenTopicNumber(content.id);
             }}>
-            <div>
+            <TitleDiv>
                 {content.title}
-            </div>
+                {completion?<DoneIcon style={{ color: "#018001" }}/>:null}
+            </TitleDiv>
 
-            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID}/>
+            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion}/>
         </ListItem>
     );
 };
@@ -38,16 +41,24 @@ const DayListItem: React.FC<DayProps> = ({
 export default DayListItem;
 
 const ListItem = styled.li.attrs((props: { openTopicNumber: number; content: any }) => props)`
-    background-color: var(--secondary-color);
+    background-color:#F1F1FF;
     flex-direction: column;
     display: flex;
-    justify-content: space-between;
+    gap:1rem;
     margin: 5px 0px;
     padding: 2rem;
     border-radius: 5px;
-    color: var(--text-color);
+    color: var(---color);
     height: ${(props) => (props.openTopicNumber === props.content.id ? 15 : 0)}%;
     transition: height 1s ease-in-out;
     max-height: content;
+    border:gray solid 5px;
     /* IF CONTENT ID MATCHES COMPLETION CONTENT ID DISPLAY BACKGROUND COLOR DIFFERENT */
 `;
+
+
+const TitleDiv = styled.div`
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+`
