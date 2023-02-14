@@ -7,6 +7,7 @@ import DayService from "../../service/DayService";
 import { useAuthValue } from "../../AuthContext";
 import StudentService from "../../service/StudentService";
 import CompletionsService from "../../service/CompletionService";
+import UsefulLinks from "./UsefulLinks";
 
 
 const Dashboard: React.FC = () => {
@@ -47,9 +48,9 @@ const Dashboard: React.FC = () => {
             <DashboardItem>
             {dayToDisplay.map((day: DayType)=>{return <Tasks content={day.content} userID={user.id} />})}
             </DashboardItem>
-            {/* <DashboardItem>
-                <Notes />
-            </DashboardItem> */}
+            <DashboardItem>
+                <UsefulLinks />
+            </DashboardItem>
         </DashboardItems>
     </>)
 };
