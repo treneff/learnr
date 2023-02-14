@@ -15,22 +15,22 @@ const Course = () => {
 
     return (
         <>
-            <h1>Professional Software Development</h1>
+            <HeaderCourse>Professional Software Development</HeaderCourse>
             <CourseSection>
                 {course ? (
-                    <WeeklyDropDown
-                        course={course}
-                        setOpenWeekNumber={setOpenWeekNumber}
-                        setOpenDayNumber={setOpenDayNumber}
-                        openWeekNumber={openWeekNumber}
-                    />
-                ) : null}
-                {course ? (
-                    <DailyDropDown
-                        course={course}
-                        openWeekNumber={openWeekNumber}
-                        openDayNumber={openDayNumber}
-                    />
+                    <>
+                        <WeeklyDropDown
+                            course={course}
+                            setOpenWeekNumber={setOpenWeekNumber}
+                            setOpenDayNumber={setOpenDayNumber}
+                            openWeekNumber={openWeekNumber}
+                        />
+                        <DailyDropDown
+                            course={course}
+                            openWeekNumber={openWeekNumber}
+                            openDayNumber={openDayNumber}
+                        />
+                    </>
                 ) : null}
             </CourseSection>
         </>
@@ -45,4 +45,9 @@ const CourseSection = styled.section`
     display: flex;
     gap: 1rem;
     justify-content: space-around;
+`;
+
+const HeaderCourse = styled.h1`
+    text-align: center;
+    padding:1rem;
 `;
