@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { useAuthValue } from '../../AuthContext';
 import CompletionsService from '../../service/CompletionService';
 import StudentService from '../../service/StudentService';
-interface DailyContentProps {
+import DayListItem from './DayListItem';
+interface DailyDropDownProps {
     course: any;
     openWeekNumber: React.Dispatch<React.SetStateAction<number>>;
     openDayNumber: React.Dispatch<React.SetStateAction<number>>;
 }
-const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, openDayNumber }) => {
-    const [open, setOpen] = useState<any>(false);
+const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, openDayNumber }) => {
+    const [openTopicNumber, setOpenTopicNumber] = useState<number>();
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
     const [completions, setCompletions] = useState([]);
@@ -19,12 +20,11 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
             setUserID(profile[0].id);
             console.log(profile[0].id);
         });
-    }, []);
+    });
 
     useEffect(() => {
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
             setCompletions(completions);
-            console.log(userID);
         });
     }, [userID]);
 
@@ -40,27 +40,16 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
     // Map through content to trigger completions function
     const mapThroughDailyContents = (dailyContent: any) => {
         return dailyContent.content.map((content: any, index: number) => {
-            return mapThroughCompletions(content.id) ? (
-                <ListItem
+            return (
+                <DayListItem
                     key={index}
-                    style={{ backgroundColor: 'red', height: open ? '100%' : '0' }}
-                    onClick={() => setOpen(!open)}>
-                    {content.title}
-                    <button onClick={() => postCompletionStatus(content.id, userID)}></button>
-                    <br />
-                    {content.detail}
-                    <br />
-                    {content.contentType}
-                </ListItem>
-            ) : (
-                <ListItem key={index}>
-                    {content.title}
-                    <button onClick={() => postCompletionStatus(content.id, userID)}></button>
-                    <br />
-                    {content.detail}
-                    <br />
-                    {content.contentType}
-                </ListItem>
+                    completion={mapThroughCompletions(content.id) ? true : false}
+                    content={content}
+                    userID={userID}
+                    setOpenTopicNumber={setOpenTopicNumber}
+                    openTopicNumber={openTopicNumber}
+                    postCompletionStatus={postCompletionStatus}
+                />
             );
         });
     };
@@ -77,12 +66,10 @@ const DailyContent: React.FC<DailyContentProps> = ({ course, openWeekNumber, ope
         });
     };
 
-    return (
-        <DailyList>{course && completions && userID ? dailyContentNodes(course) : null}</DailyList>
-    );
+    return <DailyList>{course ? dailyContentNodes(course) : null}</DailyList>;
 };
 
-export default DailyContent;
+export default DailyDropDown;
 
 const DailyList = styled.ul`
     width: 40vw;
@@ -92,18 +79,4 @@ const DailyList = styled.ul`
     background-color: #f5f3f3;
     padding: 2rem;
     overflow: auto;
-`;
-
-const ListItem = styled.li`
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0px;
-    padding: 2rem;
-    border-radius: 5px;
-    color: var(--text-color);
-    height: 0;
-    overflow: auto;
-    transition: height 1s ease-in-out;
-    /* IF CONTENT ID MATCHES COMPLETION CONTENT ID DISPLAY BACKGROUND COLOR DIFFERENT */
 `;
