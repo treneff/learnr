@@ -28,10 +28,9 @@ const DayListItem: React.FC<DayProps> = ({
             }}>
             <div>
                 {content.title}
-                <button onClick={() => postCompletionStatus(content.id, userID)}></button>
             </div>
 
-            <DayContent openTopicNumber={openTopicNumber} content={content} />
+            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID}/>
         </ListItem>
     );
 };
