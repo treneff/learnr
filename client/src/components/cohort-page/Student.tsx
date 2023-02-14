@@ -24,7 +24,6 @@ const Student: React.FC<StudentProps> = ({firstName, lastName, bio, email}) => {
         <>
         <StudentBox>
             <h3>{firstName} {lastName}</h3>
-            <p>photo</p>
             <PopUpButton onClick={togglePopUp}>
                 View Profile
             </PopUpButton>
