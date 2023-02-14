@@ -1,7 +1,4 @@
 package com.learnr.Learnr.models;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,12 +11,10 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
-//    @JsonManagedReference(value = "student_submissions_reference")
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "content_id", nullable = false)
-//    @JsonManagedReference(value = "content_submissions_reference")
     private Content content;
 
     @Column(name = "url")

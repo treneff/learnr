@@ -1,7 +1,6 @@
 package com.learnr.Learnr.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.learnr.Learnr.interfaces.Completable;
 
 import javax.persistence.*;

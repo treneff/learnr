@@ -1,8 +1,6 @@
 package com.learnr.Learnr.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -13,7 +11,6 @@ import java.util.List;
 @Inheritance
 @Table(name = "course_users")
 public abstract class CourseUser {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -115,15 +112,6 @@ public abstract class CourseUser {
     public void setBio(String bio) {
         this.bio = bio;
     }
-//
-//    public Course getCourse() {
-//        return this.course;
-//    }
-//
-//    public void setCourse(Course course) {
-//        this.course = course;
-//    }
-
 
     public List<Course> getCourses() {
         return this.courses;
