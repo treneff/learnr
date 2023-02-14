@@ -9,6 +9,7 @@ const CompletionsService = {
     getCompletionsByStudentId(id) {
         return fetch(baseURL + "?student=" + id).then((res) => res.json());
     },
+    
     postCompletion(contentId, studentId) {
         // e.preventDefault();
         return fetch(baseURL, {

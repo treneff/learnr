@@ -30,6 +30,9 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);
+        // This is definitely wrong but it works, try and refactor
+        setUserID(userID - 1);
+        setUserID(userID + 1);
     };
 
     // Map through completions to create our list items

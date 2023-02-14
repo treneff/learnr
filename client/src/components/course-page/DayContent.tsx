@@ -3,9 +3,11 @@ import styled from 'styled-components';
 interface DayContentProps {
     openTopicNumber: number|undefined;
     content:any;
+    postCompletionStatus: any;
+    userID: any;
 }
 
-const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content}) => {
+const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID}) => {
     return (
         <Content
             style={{
@@ -13,6 +15,7 @@ const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content}) => {
                 opacity: openTopicNumber === content.id ? '1' : '0',
             }}>
             {content.detail}
+            <button onClick={() => postCompletionStatus(content.id, userID)}></button>
         </Content>
     );
 };
