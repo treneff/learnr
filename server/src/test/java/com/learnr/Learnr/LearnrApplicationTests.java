@@ -53,7 +53,6 @@ class LearnrApplicationTests {
 		assertEquals(1,found.size());
 		assertEquals("Sarah", found.get(0).getFirstName());
 		assertEquals("Smith", found.get(0).getLastName());
-
 	}
 
 }
