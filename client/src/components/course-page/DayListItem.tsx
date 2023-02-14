@@ -49,7 +49,7 @@ const ListItem = styled.li.attrs((props: { openTopicNumber: number; content: any
     padding: 2rem;
     border-radius: 5px;
     color: var(---color);
-    height: ${(props) => (props.openTopicNumber === props.content.id ? 15 : 0)}%;
+    height: ${(props) => (props.openTopicNumber === props.content.id ? 20 : 0)}%;
     transition: height 1s ease-in-out;
     max-height: content;
     border:gray solid 5px;
