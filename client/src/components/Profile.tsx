@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthValue } from "../AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { ProfileContainer, ProfileForm } from "../GlobalStyles";
 import StudentService from "../service/StudentService";
 import { reload } from "firebase/auth";
@@ -31,6 +31,8 @@ const Profile: React.FC = () => {
 
   const { currentUser } = useAuthValue();
 
+  const navigate = useNavigate();
+
   // const form = (props) => {
 
   // }
@@ -50,6 +52,7 @@ const Profile: React.FC = () => {
 
   //Post New Student
   const addStudent = (e: React.FormEvent<HTMLFormElement>) => {
+    navigate("/")
     // e.preventDefault();
     return fetch("http://localhost:8080/api/students/", {
       method: "POST",
@@ -74,6 +77,7 @@ const Profile: React.FC = () => {
 
   //Update Student
   const updateStudent = (e: React.FormEvent<HTMLFormElement>) => {
+    navigate("/")
     // e.preventDefault();
     return fetch(`http://localhost:8080/api/students/${profileContent.id}`, {
       method: "PUT",
@@ -92,6 +96,8 @@ const Profile: React.FC = () => {
       console.log(res);
       return res.json();
     });
+    
+    
   };
 
   return (
