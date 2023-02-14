@@ -36,10 +36,10 @@ const WeekListItem: React.FC<WeekProps> = ({
             onClick={OpenClickHandler}
             openWeekNumber={openWeekNumber}
             weekNumber={weekNumber}>
-            <div>
+            <ul>
                 Week: {weekNumber}
                 {dailyNodes}
-            </div>
+            </ul>
         </ListItem>
     );
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CourseService from '../../service/CourseService';
-import DailyContent from './DailyContent';
+import DailyDropDown from './DailyDropDown';
 import WeeklyDropDown from './WeeklyDropDown';
 
 const Course = () => {
@@ -26,7 +26,7 @@ const Course = () => {
                     />
                 ) : null}
                 {course ? (
-                    <DailyContent
+                    <DailyDropDown
                         course={course}
                         openWeekNumber={openWeekNumber}
                         openDayNumber={openDayNumber}
