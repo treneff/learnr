@@ -10,7 +10,7 @@ const PrivateRoute: React.FC = () => {
       Loading...
     </div>
   }
-  return loggedIn ? <Outlet /> : <Navigate to='/sign-in' />
+  return loggedIn ? <Outlet /> : <Navigate to='/login' />
 };
 
 export default PrivateRoute;

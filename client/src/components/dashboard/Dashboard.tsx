@@ -8,6 +8,7 @@ import { useAuthValue } from "../../AuthContext";
 import StudentService from "../../service/StudentService";
 import CompletionsService from "../../service/CompletionService";
 import UsefulLinks from "./UsefulLinks";
+import Announcements from "./Announcements";
 
 
 const Dashboard: React.FC = () => {
@@ -45,8 +46,11 @@ const Dashboard: React.FC = () => {
             <h2>Todays Lessons</h2>
             {dayToDisplay.map((day: DayType)=>{return <Today dayTitle={day.title} content={day.content} weekNumber={day.weekNumber} dayNumber = {day.dayNumber} />})}
             </DashboardItem>
-            <DashboardItem>
+            {/* <DashboardItem>
             {dayToDisplay.map((day: DayType)=>{return <Tasks content={day.content} userID={user.id} />})}
+            </DashboardItem> */}
+            <DashboardItem>
+                <Announcements />
             </DashboardItem>
             <DashboardItem>
                 <UsefulLinks />
@@ -61,6 +65,7 @@ const MainTitle = styled.h1`
     text-align: center;
     color: var(--tertiary-color);
     font-family: 'american typewriter', 'montserrat', 'impact';
+    padding: 2rem;
 `
 
 const DashboardItems = styled.div`
