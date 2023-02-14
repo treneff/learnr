@@ -26,7 +26,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
             setCompletions(completions);
         });
-    }, [userID,colorChangeListener]);
+    }, [userID, colorChangeListener]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);

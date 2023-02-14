@@ -15,8 +15,8 @@ const SideMenu = () => {
                     <Link to='/profile' onClick={() => close()}><StyledSideLink>Profile</StyledSideLink></Link>
                     <Link to='/course' onClick={() => close()}><StyledSideLink>Course</StyledSideLink></Link>
                     <Link to='/cohort' onClick={() => close()}><StyledSideLink>Cohort</StyledSideLink></Link>
-                    <Link to='/registration' onClick={() => close()}><StyledSideLink>Registration</StyledSideLink></Link>
-                    <Link to='/testing' onClick={() => close()}><StyledSideLink>Firestore Testing</StyledSideLink></Link>
+                    {/* <Link to='/registration' onClick={() => close()}><StyledSideLink>Registration</StyledSideLink></Link>
+                    <Link to='/testing' onClick={() => close()}><StyledSideLink>Firestore Testing</StyledSideLink></Link> */}
                 </StyledSideMenu>
                 <Burger open={open} setOpen = {setOpen} />
         </>
