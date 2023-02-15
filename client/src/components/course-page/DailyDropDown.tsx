@@ -17,6 +17,8 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
     const [completions, setCompletions] = useState([]);
     const [submissions, setSubmissions] = useState([]);
     const [colorChangeListener, setColorChangeListener] = useState<number>(0)
+    const [submissionColorChangeListener, setSubmissionColorChangeListener] = useState<number>(0)
+
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
             setUserID(profile[0].id);
@@ -30,12 +32,11 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         });
     }, [userID, colorChangeListener]);
 
-
     useEffect(() => {
         SubmissionsService.getSubmissionsByStudentId(userID).then((submissions) => {
-            setCompletions(completions);
+            setSubmissions(submissions);
         });
-    }, [userID, colorChangeListener]);
+    }, [userID, submissionColorChangeListener]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);
@@ -43,9 +44,18 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         setColorChangeListener(colorChangeListener+1);
     };
 
+    const postSubmissionStatus = (contentId:number, userID:number, url:string, difficulty_level:number, comment:string) => {
+        SubmissionsService.postSubmission(contentId, userID, url, difficulty_level, comment);
+        setSubmissionColorChangeListener(colorChangeListener+1);
+    };
+
     // Map through completions to create our list items
     const mapThroughCompletions = (contentId: number) => {
         return completions.some((completion: any) => completion.contentId === contentId);
+    };
+
+    const mapThroughSubmissions = (contentId: number) => {
+        return submissions.some((submission: any) => submission.contentId === contentId);
     };
 
     // Map through content to trigger completions function
@@ -60,6 +70,8 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
                     setOpenTopicNumber={setOpenTopicNumber}
                     openTopicNumber={openTopicNumber}
                     postCompletionStatus={postCompletionStatus}
+                    submission={mapThroughSubmissions(content.id) ? true : false}
+                    postSubmissionStatus = {postSubmissionStatus}
                 />
             );
         });

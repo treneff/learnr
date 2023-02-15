@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 interface DayContentProps {
     openTopicNumber: number|undefined;
     content:any;
     postCompletionStatus: any;
     userID: any;
-    completion:boolean
+    completion:boolean;
+    submission: boolean;
+    postSubmissionStatus: any;
 }
 
-const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID,completion}) => {
+const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID,completion, postSubmissionStatus, submission}) => {
+    
+    const [open, setOpen] = useState(false);
+
+    const togglePopUp = () => {
+        setOpen(!open);
+    }
+    
     return (
         <Content
             style={{
@@ -16,7 +25,10 @@ const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCom
                 opacity: openTopicNumber === content.id ? '1' : '0',
             }}>
             {content.detail}
-            {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null}
+            {/* {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null} */}
+            {content.contentType == "homework" ?  <button onClick={togglePopUp}>
+                Submit
+            </button>  : !completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null}
         </Content>
     );
 };

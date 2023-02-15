@@ -11,6 +11,8 @@ interface DayProps {
     userID: number;
     postCompletionStatus: any;
     completion: boolean;
+    submission: boolean;
+    postSubmissionStatus: any;
 }
 const DayListItem: React.FC<DayProps> = ({
     completion,
@@ -19,6 +21,8 @@ const DayListItem: React.FC<DayProps> = ({
     openTopicNumber,
     postCompletionStatus,
     userID,
+    submission,
+    postSubmissionStatus
 }) => {
     return (
         <ListItem
@@ -33,7 +37,7 @@ const DayListItem: React.FC<DayProps> = ({
                 {completion?<DoneIcon style={{ color: "#018001" }}/>:null}
             </TitleDiv>
 
-            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion}/>
+            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion} postSubmissionStatus={postSubmissionStatus} submission={submission}/>
         </ListItem>
     );
 };
