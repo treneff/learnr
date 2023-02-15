@@ -18,14 +18,6 @@ const Login: React.FC = () => {
   const { setVerificationCountdownActive } = useAuthValue();
   const navigate = useNavigate();
 
-  // console.log(auth?.currentUser?.email);
-  console.log(auth?.currentUser);
-
-  // //Getting the JWT
-  // const token2 = auth?.currentUser?.getIdToken(true).then(function (token) {
-  //   console.log(token);
-  // });
-
   const signIn = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -95,19 +87,6 @@ const Login: React.FC = () => {
         </p>
       </AuthorisationForm>
     </AuthorisationContainer>
-    // <div>
-    //   <input
-    //     placeholder="Email..."
-    //     onChange={(event) => setEmail(event.target.value)}
-    //   />
-    //   <input
-    //     placeholder="Password..."
-    //     onChange={(event) => setPassword(event.target.value)}
-    //   />
-    //   <button onClick={signIn}>Sign In</button>
-    //   <button onClick={signInWithGoogle}>Sign In with Google</button>
-    //   <button onClick={logout}>Logout</button>
-    // </div>
   );
 };
 
