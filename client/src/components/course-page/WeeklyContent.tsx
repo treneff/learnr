@@ -30,4 +30,8 @@ const Content = styled.ul`
     opacity: 0;
     overflow:auto;
     transition: max-height 1.2s, opacity 2s ease-in-out;
+    &:hover{
+        text-decoration:underline;
+        cursor: pointer;
+    }
 `;

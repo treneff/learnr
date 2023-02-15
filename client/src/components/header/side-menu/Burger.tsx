@@ -14,7 +14,6 @@ export const Burger = (props: Props) => (
 );
 
 const StyledBurger = styled.button<{ open: boolean }>`
-    width: 2rem;
     height: 2rem;
     margin-left:2rem;
     background: transparent;

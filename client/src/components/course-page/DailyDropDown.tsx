@@ -16,8 +16,8 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
     const [openTopicNumber, setOpenTopicNumber] = useState<number>();
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
-    const [completions, setCompletions] = useState([]);
-    const [submissions, setSubmissions] = useState([]);
+    const [completions, setCompletions] = useState<any>();
+    const [submissions, setSubmissions] = useState<any>();
 
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
@@ -89,7 +89,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         });
     };
 
-    return <DailyList>{course ? dailyContentNodes(course) : null}</DailyList>;
+    return <DailyList>{course&&userID&&submissions&&completions ? dailyContentNodes(course) : null}</DailyList>;
 };
 
 export default DailyDropDown;

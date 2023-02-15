@@ -54,7 +54,6 @@ const ListItem = styled.li.attrs((props: { openWeekNumber: number; weekNumber: n
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    /* align-items:center; */
     margin: 5px 0px;
     padding: 2rem;
     border-radius: 5px;
@@ -62,4 +61,8 @@ const ListItem = styled.li.attrs((props: { openWeekNumber: number; weekNumber: n
     height: ${(props) => (props.openWeekNumber === props.weekNumber ? 20 : 0)}%;
     transition: height 1s ease-in-out;
     max-height: content;
+    overflow:hidden;
+    &:hover{
+        cursor: pointer;
+    }
 `;
