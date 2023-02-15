@@ -9,14 +9,14 @@ const Header = () => {
     //     and sidemenu button opener on the left side
 
     return (
-        <HeaderBar>
-            <HeaderItem>
+        <HeaderBar data-testid="header">
+            <HeaderItem data-testid='header-item-1'>
                 <SideMenu/>
             </HeaderItem>
-            <HeaderItem>
+            <HeaderItem data-testid='header-item-2'>
                 <Link to="/"><Logo>Learnr</Logo></Link>
             </HeaderItem>
-            <HeaderItem>
+            <HeaderItem data-testid='header-item-3'>
                 <AccountMenu />
             </HeaderItem>
         </HeaderBar>
