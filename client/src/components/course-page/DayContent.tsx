@@ -65,7 +65,7 @@ export default DayContent;
 const Content = styled.ul`
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
+  overflow:auto;
   transition: max-height 1.2s, opacity 2s ease-in-out;
   display: flex;
   justify-content: space-between;

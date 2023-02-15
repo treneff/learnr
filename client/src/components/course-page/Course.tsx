@@ -8,10 +8,11 @@ const Course = () => {
     const [course, setCourse] = useState();
     const [openWeekNumber, setOpenWeekNumber] = useState<any>();
     const [openDayNumber, setOpenDayNumber] = useState<any>(1);
+    const [colorChangeListener, setColorChangeListener] = useState<number>(0)
 
     useEffect(() => {
         CourseService.getCourses().then((course) => setCourse(course));
-    }, []);
+    }, [colorChangeListener]);
 
     return (
         <>
@@ -29,6 +30,8 @@ const Course = () => {
                             course={course}
                             openWeekNumber={openWeekNumber}
                             openDayNumber={openDayNumber}
+                            setColorChangeListener = {setColorChangeListener}
+                            colorChangeListener = {colorChangeListener}
                         />
                     </>
                 ) : null}
