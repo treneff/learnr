@@ -1,5 +1,6 @@
 package com.learnr.Learnr.controllers;
 
+import com.learnr.Learnr.models.Completion;
 import com.learnr.Learnr.models.Submission;
 import com.learnr.Learnr.repositories.SubmissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,16 @@ public class SubmissionController {
     @Autowired
     SubmissionRepository submissionRepository;
 
+
     @GetMapping(value = "/api/submissions")
-    public ResponseEntity<List<Submission>> getAllSubmissions(){
-        return new ResponseEntity<>(submissionRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Submission>> getAllSubmissions(
+            @RequestParam(name = "student", required = false) Long student_id
+    ) {
+        if (student_id != null) {
+            return new ResponseEntity<>(submissionRepository.findSubmissionsByStudentId(student_id), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(submissionRepository.findAll(), HttpStatus.OK);
+        }
     }
 
     @GetMapping(value = "/api/submissions/{id}")
