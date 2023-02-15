@@ -2,6 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import DayContent from './DayContent';
 import DoneIcon from '@mui/icons-material/Done';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import SchoolIcon from '@mui/icons-material/School';
+import ScienceIcon from '@mui/icons-material/Science';
+
+const iconsToDisplay = new Map<String, JSX.Element>([
+   [ "courseNote", <SchoolIcon />],
+   [ "homework", <HomeWorkIcon />],
+   [ "lab", <ScienceIcon />]
+]);
 
 
 interface DayProps {
@@ -33,7 +42,11 @@ const DayListItem: React.FC<DayProps> = ({
                 setOpenTopicNumber(content.id);
             }}>
             <TitleDiv>
-                {content.title}
+
+                    <InnerTitleDiv>
+                        {iconsToDisplay.get(content.contentType)}
+                        {content.title}
+                    </InnerTitleDiv>
                 {completion || submission  ?<DoneIcon style={{ color: "#018001" }}/>:null}
             </TitleDiv>
 
@@ -65,4 +78,11 @@ const TitleDiv = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
+`
+
+const InnerTitleDiv = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
 `

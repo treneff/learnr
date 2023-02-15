@@ -24,12 +24,9 @@ const Teacher: React.FC<TeacherProps> = ({firstName, lastName, email, jobTitle, 
     
     return(
         <>
-        <TeacherBox>
+        <TeacherBox onClick={togglePopUp}>
             <h3>{firstName} {lastName}</h3>
             <p>{jobTitle}</p>
-            <PopUpButton onClick={togglePopUp}>
-                View Profile
-            </PopUpButton>
                 {open && (
                     <UserViewPopUp content={
                         <div>
@@ -49,23 +46,16 @@ const Teacher: React.FC<TeacherProps> = ({firstName, lastName, email, jobTitle, 
 export default Teacher;
 
 const TeacherBox = styled.div`
-    padding: 5rem;
-    border: solid 3px var(--tertiary-color);
-    margin: 5px;
-    width: 18vw;
+    border: solid 3px var(--secondary-color);
+    border-radius:5px;
     text-align: center;
-    padding: 4rem;
-    margin: 2rem;
-    :hover{
-        border: solid 3px var(--secondary-color);
-        background-color: var(--tertiary-color);
-        color: var(--background-color);
-    }
-`
-const PopUpButton = styled.button`
-    opacity: ${open => open? 1: 0};
-    z-index: 1;
-    :hover{
-        cursor: pointer;
+    padding:2rem 0 2rem 0;
+    margin:2rem 0 2rem 0;
+    min-width:300px;
+
+    &:hover{
+        background-color: var(--secondary-color);
+        color:var(--text-color);
+        cursor:pointer;
     }
 `

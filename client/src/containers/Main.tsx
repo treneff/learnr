@@ -12,6 +12,7 @@ import { auth } from '../config/firebase';
 import EmailVerification from '../components/EmailVerification';
 import Dashboard from '../components/dashboard/Dashboard';
 import PrivateRoute from '../PrivateRoute';
+import styled from 'styled-components';
 
 const Main: React.FC = () => {
     interface User {
@@ -28,7 +29,7 @@ const Main: React.FC = () => {
     }, []);
 
     return (
-        <main data-testid="main">
+        <MainContainer data-testid='main'>
             <AuthProvider
                 value={{
                     currentUser,
@@ -59,8 +60,13 @@ const Main: React.FC = () => {
                     </Route>
                 </Routes>
             </AuthProvider>
-        </main>
+        </MainContainer>
     );
 };
 
 export default Main;
+
+const MainContainer = styled.main`
+    height: 90vh;
+    overflow:auto;
+`;
