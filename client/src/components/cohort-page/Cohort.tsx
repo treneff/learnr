@@ -6,16 +6,12 @@ import Teacher from './Teacher';
 import Student from './Student';
 
 const Cohort = () => {
-
     const [allStudents, setAllStudents] = useState([]);
     const [allTeachers, setAllTeachers] = useState([]);
 
-
     useEffect(() => {
-        StudentService.getStudents()
-        .then((students) => setAllStudents(students));
-        TeacherService.getTeachers()
-        .then((teachers) => setAllTeachers(teachers));
+        StudentService.getStudents().then((students) => setAllStudents(students));
+        TeacherService.getTeachers().then((teachers) => setAllTeachers(teachers));
     }, []);
 
     type TeacherType = {
@@ -27,7 +23,7 @@ const Cohort = () => {
         bio: string;
         course: Object;
         jobTitle: string;
-    }
+    };
 
     type StudentType = {
         firstName: string;
@@ -37,48 +33,72 @@ const Cohort = () => {
         dob: string;
         bio: string;
         course: Object;
-    }
-
+    };
 
     return (
-        <CohortUsers>
-        <Subheading>Teachers</Subheading>
+        <section>
+            <CohortTitle>Your Cohort</CohortTitle>
+            <Subheading>Teachers</Subheading>
             <TeacherContainer>
-                {allTeachers.map((teacher: TeacherType)=>{return <Teacher firstName={teacher.firstName} lastName={teacher.lastName} email={teacher.email} phone={teacher.phone} dob={teacher.dob} bio = {teacher.bio} course={teacher.course} jobTitle={teacher.jobTitle} />})}
+                {allTeachers.map((teacher: TeacherType) => {
+                    return (
+                        <Teacher
+                            firstName={teacher.firstName}
+                            lastName={teacher.lastName}
+                            email={teacher.email}
+                            phone={teacher.phone}
+                            dob={teacher.dob}
+                            bio={teacher.bio}
+                            course={teacher.course}
+                            jobTitle={teacher.jobTitle}
+                        />
+                    );
+                })}
             </TeacherContainer>
-        <Subheading>Students</Subheading>
+            <Subheading>Students</Subheading>
             <StudentContainer>
-            {allStudents.map((student: StudentType)=>{return <Student firstName={student.firstName} lastName={student.lastName} email={student.email} phone={student.phone} dob={student.dob} bio={student.bio} course={student.course}/>})}  
+                {allStudents.map((student: StudentType) => {
+                    return (
+                        <Student
+                            firstName={student.firstName}
+                            lastName={student.lastName}
+                            email={student.email}
+                            phone={student.phone}
+                            dob={student.dob}
+                            bio={student.bio}
+                            course={student.course}
+                        />
+                    );
+                })}
             </StudentContainer>
-        </CohortUsers>
-    )
+        </section>
+    );
 };
 
 export default Cohort;
 
-const Subheading = styled.h3`
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'american typewriter', 'montserrat', 'impact';
-    color: var(--tertiary-color);
+const CohortTitle = styled.h1`
+    text-align:center;
+    margin-bottom:2rem;
 `
+const Subheading = styled.h2`
+    text-align: center;
+    color: var(--tertiary-color);
+`;
 
 const TeacherContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
-    font-family: 'american typewriter', 'montserrat', 'impact';
-    flex-direction: row;
+    gap: 2rem;
     flex-wrap: wrap;
-`
+    flex-direction: row;
+`;
 const StudentContainer = styled.div`
     display: flex;
-    font-family: 'american typewriter', 'montserrat', 'impact';
     flex-direction: row;
+    gap: 2rem;
     flex-wrap: wrap;
     justify-content: space-evenly;
-`
+`;
 
-const CohortUsers = styled.div`
-    overflow-y: scroll;
-    z-index: 0;
-`
+
