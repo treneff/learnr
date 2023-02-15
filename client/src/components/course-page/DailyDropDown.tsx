@@ -9,15 +9,15 @@ interface DailyDropDownProps {
     course: any;
     openWeekNumber: React.Dispatch<React.SetStateAction<number>>;
     openDayNumber: React.Dispatch<React.SetStateAction<number>>;
+    setColorChangeListener: React.Dispatch<React.SetStateAction<number>>;
+    colorChangeListener: number
 }
-const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, openDayNumber }) => {
+const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, openDayNumber, setColorChangeListener, colorChangeListener}) => {
     const [openTopicNumber, setOpenTopicNumber] = useState<number>();
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
     const [completions, setCompletions] = useState([]);
     const [submissions, setSubmissions] = useState([]);
-    const [colorChangeListener, setColorChangeListener] = useState<number>(0)
-    const [submissionColorChangeListener, setSubmissionColorChangeListener] = useState<number>(0)
 
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
@@ -30,23 +30,23 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
             setCompletions(completions);
         });
-    }, [userID, colorChangeListener]);
+    }, [userID,colorChangeListener]);
 
     useEffect(() => {
         SubmissionsService.getSubmissionsByStudentId(userID).then((submissions) => {
             setSubmissions(submissions);
         });
-    }, [userID, colorChangeListener]);
+    }, [userID,colorChangeListener]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);
         // This is definitely wrong but it works, try and refactor
-        setColorChangeListener(colorChangeListener+1);
+        setColorChangeListener(colorChangeListener+=1);
     };
 
     const postSubmissionStatus = (contentId:number, userID:number, url:string, difficulty_level:number, comment:string) => {
         SubmissionsService.postSubmission(contentId, userID, url, difficulty_level, comment);
-        setSubmissionColorChangeListener(submissionColorChangeListener+1);
+        setColorChangeListener(colorChangeListener+=1);
     };
 
     // Map through completions to create our list items
