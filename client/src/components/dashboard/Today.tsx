@@ -57,5 +57,4 @@ const DayTitle = styled.h3`
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 `
