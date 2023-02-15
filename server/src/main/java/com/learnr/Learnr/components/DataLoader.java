@@ -733,13 +733,13 @@ public class DataLoader implements ApplicationRunner {
         homeworkRepository.save(java_projects_week2);
 
         //Students
-        Student Poppy = new Student("Poppy", "Dalglish", "dp@gmail.fun", 07774564534L, "12/12/1993", "I am a student");
+        Student Poppy = new Student("Poppy", "Dalglish", "pd@gmail.fun", 07774564534L, "12/12/1993", "I am a student");
         Poppy.addCourse(softwareDev);
         studentRepository.save(Poppy);
-        Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am an old student");
+        Student John = new Student("John", "Johnson", "johnson@john.fun", 07774554534L, "12/12/1923", "I am a curious student");
         John.addCourse(softwareDev);
         studentRepository.save(John);
-        Student Mikhayla = new Student("Mikhayla", "Dunno", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student");
+        Student Mikhayla = new Student("Gary", "Brown", "email@gmail.fun", 74801923L, "12/12/1991", "I am a codeclan student");
         Mikhayla.addCourse(softwareDev);
         studentRepository.save(Mikhayla);
         Student Sarah = new Student("Sarah", "Smith", "sarahsmith@gmail.fun", 07776565434L, "01/05/1995", "I am a hardworking student who loves coding.");
@@ -765,11 +765,11 @@ public class DataLoader implements ApplicationRunner {
         studentRepository.save(Jake);
 
         //Teachers and Students
-        Teacher mar = new Teacher("Mar", "Beveridge", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", "Instructor");
+        Teacher mar = new Teacher("Jane", "Smith", "mar@codeclan.com", 066L, "8/12/1994", "I like teaching code", "Instructor");
         teacherRepository.save(mar);
-        Teacher bob = new Teacher("Bob", "Bobson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I am smart person", "King Instructor");
+        Teacher bob = new Teacher("Robert", "Johnson", "bobson@codeclan.com", 28594039L, "8/12/2018", "I have plenty of industry experience", "Senior Instructor");
         teacherRepository.save(bob);
-        Teacher dick = new Teacher("Dick", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "My name is Dick Dickson and I teach coding", "Small Instructor");
+        Teacher dick = new Teacher("Richard", "Dickson", "dick.dickson@gmail.fun", 91348930L, "06/02/2023", "I love to teach coding", "Assistant Instructor");
         teacherRepository.save(dick);
 
 
