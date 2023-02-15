@@ -207,3 +207,38 @@ export const ProfileForm = styled.form`
         text-decoration: none;
     }
 `;
+
+export const PopUp = styled.div`
+  position: relative;
+  width: 35%;
+  height: auto;
+  max-height: 70vh;
+  margin: 0 auto; 
+  margin-top: calc(100vh - 85vh - 20px);
+  background-color: var(--background-color);
+  color: var(--tertiary-color);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
+
+export const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--tertiary-color);
+  background-color: rgba(0, 0, 0, 0.75);
+`;
+
+export const CloseX = styled.span`
+  content: "x";
+  cursor: pointer;
+  position: relative;
+  color: var(--secondary-color);
+`;

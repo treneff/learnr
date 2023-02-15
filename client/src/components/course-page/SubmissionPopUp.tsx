@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { AuthorisationContainer, AuthorisationForm } from "../../GlobalStyles";
+import { PopupOverlay, PopUp, CloseX } from "../../GlobalStyles";
 
 interface SubmissionProps {
   userID: number;
@@ -15,7 +15,6 @@ const SubmissionPopUp: React.FC<SubmissionProps> = ({
   postSubmissionStatus,
   handleClose,
 }) => {
-
   const [url, setURL] = useState("");
   const [difficultyLevel, setDifficultyLevel] = useState("");
   const [comment, setComment] = useState("");
@@ -25,102 +24,134 @@ const SubmissionPopUp: React.FC<SubmissionProps> = ({
   }
 
   const handleSubmit = (event: any) => {
-    event.preventDefault()
+    event.preventDefault();
     postSubmissionStatus(content.id, userID, url, difficultyLevel, comment);
-    handleClose()
-    // window.location.reload()
-  }
+    handleClose();
+  };
 
   return (
-    <Overlay>
+    <PopupOverlay>
       <PopUp>
         <CloseX onClick={handleClose}>X</CloseX>
-        <h4> Submit for Homework: </h4>
-        <h3>{content.title} </h3>
-        <form onSubmit={handleSubmit} name="submission_form">
-          <input
-            type="url"
-            placeholder="Github Repo"
-            required
-            onChange={(e) => setURL(e.target.value)}
-          />
+        <FormContainer>
+          <h3> Submit for Homework: </h3>
+          <h2>{content.title} </h2>
+          <br />
+          <form onSubmit={handleSubmit} name="submission_form">
+            <ul className="form-wrapper">
+              <p> Url of your GitHub Repo</p>
+              <li className="form-row">
+                <br></br>
+                <input
+                  type="url"
+                  placeholder="eg. https://github.com/codeclan/e61_classnotes"
+                  required
+                  onChange={(e) => setURL(e.target.value)}
+                />
+              </li>
+              <br />
 
-          <input
-            type="radio"
-            name="difficulty"
-            onChange={(event) => handleChange(event.target as HTMLInputElement)}
-            value="1"
-          />
-          <input
-            type="radio"
-            name="difficulty"
-            onChange={(event) => handleChange(event.target as HTMLInputElement)}
-            value="2"
-          />
-          <input
-            type="radio"
-            name="difficulty"
-            onChange={(event) => handleChange(event.target as HTMLInputElement)}
-            value="3"
-          />
-          <input
-            type="radio"
-            name="difficulty"
-            onChange={(event) => handleChange(event.target as HTMLInputElement)}
-            value="4"
-          />
-          <input
-            type="radio"
-            name="difficulty"
-            onChange={(event) => handleChange(event.target as HTMLInputElement)}
-            value="5"
-          />
-
-          <textarea
-            required
-            placeholder="Comment"
-            onChange={(e) => setComment(e.target.value)}
-          />
-
-          <button type="submit">Submit</button>
-        </form>
+              <p> HOW CHALLENGING did you find the homework assignment?</p>
+              <li className="form-row">
+                <label htmlFor="difficulty1">1</label>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  onChange={(event) =>
+                    handleChange(event.target as HTMLInputElement)
+                  }
+                  value="1"
+                />
+                <label htmlFor="difficulty2">2</label>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  onChange={(event) =>
+                    handleChange(event.target as HTMLInputElement)
+                  }
+                  value="2"
+                />
+                <label htmlFor="difficulty3">3</label>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  onChange={(event) =>
+                    handleChange(event.target as HTMLInputElement)
+                  }
+                  value="3"
+                />
+                <label htmlFor="difficulty4">4</label>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  onChange={(event) =>
+                    handleChange(event.target as HTMLInputElement)
+                  }
+                  value="4"
+                />
+                <label htmlFor="difficulty5">5</label>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  onChange={(event) =>
+                    handleChange(event.target as HTMLInputElement)
+                  }
+                  value="5"
+                />
+              </li>
+              <br />
+              <p>What would you like to recap?</p>
+              <li className="form-row">
+                <textarea
+                  required
+                  placeholder="Comment"
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </li>
+              <li className="form-row">
+                <button type="submit">Submit</button>
+              </li>
+            </ul>
+          </form>
+        </FormContainer>
       </PopUp>
-    </Overlay>
+    </PopupOverlay>
   );
 };
 
 export default SubmissionPopUp;
 
-const PopUp = styled.div`
-  background-color: var(--tertiary-color);
-  color: var(--tertiary-color);
-  position: absolute;
-  transform: translateY(-50%);
-  margin-left: -150px;
-  width: 30vw;
-  height: 30vh;
-  left: 50%;
-  top: 50%;
-  background-color: var(--background-color);
-  padding: 40px;
-  justify-content: center;
-  text-align: center;
-`;
+const FormContainer = styled.div`
+  .form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.4rem;
+  }
 
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--tertiary-color);
-  background-color: rgba(0, 0, 0, 0.75);
-`;
+  .form-row > input {
+    flex: 2;
+  }
 
-const CloseX = styled.span`
-  content: "x";
-  cursor: pointer;
-  position: relative;
-  color: var(--secondary-color);
+  .form-row > input,
+  .form-row > button {
+    padding: 0.5rem;
+  }
+
+  .form-row > button {
+    background: var(--tertiary-color);
+    color: var(--background-color);
+    border: 0;
+    transition-duration: 0.4s;
+    margin: 1rem;
+    width: 100%;
+  }
+
+  .form-row > button:hover {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+  }
+
+  .form-row > textarea {
+    flex: 1;
+  }
 `;
