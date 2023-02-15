@@ -38,7 +38,7 @@ const DayContent: React.FC<DayContentProps> = ({
       {content.contentType === "homework" ? (
         !submission ? (
           <>
-            <button onClick={togglePopUp}>Submit</button>
+            <CompletionButon onClick={togglePopUp}>Submit</CompletionButon>
             {open && (
               <SubmissionPopUp
                 userID={userID}
@@ -51,9 +51,9 @@ const DayContent: React.FC<DayContentProps> = ({
         ) : null
       ) : (
         !completion && (
-          <button onClick={() => postCompletionStatus(content.id, userID)}>
-            Complete
-          </button>
+          <CompletionButon onClick={() => postCompletionStatus(content.id, userID)}>
+            Mark as completed
+          </CompletionButon>
         )
       )}
     </Content>
@@ -72,3 +72,9 @@ const Content = styled.ul`
   flex-direction: column;
   height: 100%;
 `;
+
+const CompletionButon = styled.button`
+  :hover{
+    cursor: pointer;
+  }
+`
