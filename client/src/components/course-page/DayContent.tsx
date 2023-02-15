@@ -21,12 +21,10 @@ const DayContent: React.FC<DayContentProps> = ({
   postSubmissionStatus,
   submission,
 }) => {
-
   const [open, setOpen] = useState(false);
 
   const togglePopUp = () => {
     setOpen(!open);
-    
   };
 
   return (
@@ -37,19 +35,20 @@ const DayContent: React.FC<DayContentProps> = ({
       }}
     >
       {content.detail}
-      {/* {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null} */}
       {content.contentType === "homework" ? (
-        <>
-          <button onClick={togglePopUp}>Submit</button>
-          {open && (
-            <SubmissionPopUp
-              userID={userID}
-              content={content}
-              postSubmissionStatus={postSubmissionStatus}
-              handleClose={togglePopUp}
-            />
-          )}
-        </>
+        !submission ? (
+          <>
+            <button onClick={togglePopUp}>Submit</button>
+            {open && (
+              <SubmissionPopUp
+                userID={userID}
+                content={content}
+                postSubmissionStatus={postSubmissionStatus}
+                handleClose={togglePopUp}
+              />
+            )}
+          </>
+        ) : null
       ) : (
         !completion && (
           <button onClick={() => postCompletionStatus(content.id, userID)}>

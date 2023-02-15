@@ -36,7 +36,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
         SubmissionsService.getSubmissionsByStudentId(userID).then((submissions) => {
             setSubmissions(submissions);
         });
-    }, [userID, submissionColorChangeListener]);
+    }, [userID, colorChangeListener]);
 
     const postCompletionStatus = (contentID: number, userID: number) => {
         CompletionsService.postCompletion(contentID, userID);
@@ -46,7 +46,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
 
     const postSubmissionStatus = (contentId:number, userID:number, url:string, difficulty_level:number, comment:string) => {
         SubmissionsService.postSubmission(contentId, userID, url, difficulty_level, comment);
-        setSubmissionColorChangeListener(colorChangeListener+1);
+        setSubmissionColorChangeListener(submissionColorChangeListener+1);
     };
 
     // Map through completions to create our list items

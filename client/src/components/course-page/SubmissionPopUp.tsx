@@ -24,8 +24,11 @@ const SubmissionPopUp: React.FC<SubmissionProps> = ({
     setDifficultyLevel(selection.value);
   }
 
-  function handleSubmit() {
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
     postSubmissionStatus(content.id, userID, url, difficultyLevel, comment);
+    handleClose()
+    // window.location.reload()
   }
 
   return (
@@ -76,7 +79,7 @@ const SubmissionPopUp: React.FC<SubmissionProps> = ({
           <textarea
             required
             placeholder="Comment"
-            onChange={(e) => setDifficultyLevel(e.target.value)}
+            onChange={(e) => setComment(e.target.value)}
           />
 
           <button type="submit">Submit</button>

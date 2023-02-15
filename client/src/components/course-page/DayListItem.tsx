@@ -28,13 +28,13 @@ const DayListItem: React.FC<DayProps> = ({
         <ListItem
             openTopicNumber={openTopicNumber}
             content={content}
-            style={completion ? { border: '#018001 solid 5px' } : {}}
+            style={completion || submission ? { border: '#018001 solid 5px' } : {}}
             onClick={() => {
                 setOpenTopicNumber(content.id);
             }}>
             <TitleDiv>
                 {content.title}
-                {completion?<DoneIcon style={{ color: "#018001" }}/>:null}
+                {completion || submission  ?<DoneIcon style={{ color: "#018001" }}/>:null}
             </TitleDiv>
 
             <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion} postSubmissionStatus={postSubmissionStatus} submission={submission}/>
