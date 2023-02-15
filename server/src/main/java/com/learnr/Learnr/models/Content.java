@@ -33,7 +33,7 @@ public abstract class Content implements Completable {
     private List<Completion> completions;
 
     @JsonBackReference(value = "content_submissions_reference")
-    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "contentId", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
     public Content(String title, String detail, Day day, String contentType) {

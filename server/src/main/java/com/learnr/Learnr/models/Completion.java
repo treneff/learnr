@@ -1,7 +1,5 @@
 package com.learnr.Learnr.models;
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "completions")
@@ -14,7 +12,6 @@ public class Completion {
     @Column(name = "student_id")
     private Long studentId;
 
-//    @ManyToOne
     @Column(name = "content_id")
     private Long contentId;
 

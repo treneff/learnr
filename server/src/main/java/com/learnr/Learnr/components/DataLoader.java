@@ -778,7 +778,7 @@ public class DataLoader implements ApplicationRunner {
         Completion completion1 = new Completion(10L, 1L);
         completionRepository.save(completion1);
 
-        Submission submission1 = new Submission(submit_to_github, Poppy, "poppy.github.com", 5, "I dunno how to use github");
+        Submission submission1 = new Submission(4L, 1L, "poppy.github.com", 5, "I dunno how to use github");
         submissionRepository.save(submission1);
 
     }

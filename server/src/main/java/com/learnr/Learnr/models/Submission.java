@@ -9,13 +9,11 @@ public class Submission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @Column(name = "student_id")
+    private Long studentId;
 
-    @ManyToOne
-    @JoinColumn(name = "content_id", nullable = false)
-    private Content content;
+    @Column(name = "content_id")
+    private Long contentId;
 
     @Column(name = "url")
     private String url;
@@ -27,9 +25,9 @@ public class Submission {
     private String comment;
 
 
-    public Submission(Content content, Student student, String url, int difficultyLevel, String comment) {
-        this.student = student;
-        this.content = content;
+    public Submission(Long contentId, Long studentId, String url, int difficultyLevel, String comment) {
+        this.studentId = studentId;
+        this.contentId = contentId;
         this.url = url;
         this.difficultyLevel = difficultyLevel;
         this.comment = comment;
@@ -39,31 +37,31 @@ public class Submission {
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Student getStudent() {
-        return this.student;
+    public Long getStudentId() {
+        return studentId;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public Content getContent() {
-        return this.content;
+    public Long getContentId() {
+        return contentId;
     }
 
-    public void setContent(Content content) {
-        this.content = content;
+    public void setContentId(Long contentId) {
+        this.contentId = contentId;
     }
 
     public String getUrl() {
-        return this.url;
+        return url;
     }
 
     public void setUrl(String url) {
@@ -71,7 +69,7 @@ public class Submission {
     }
 
     public int getDifficultyLevel() {
-        return this.difficultyLevel;
+        return difficultyLevel;
     }
 
     public void setDifficultyLevel(int difficultyLevel) {
@@ -79,10 +77,16 @@ public class Submission {
     }
 
     public String getComment() {
-        return this.comment;
+        return comment;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
     }
+
 }
+
+
+
+
+

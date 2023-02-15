@@ -20,6 +20,8 @@ interface DayProps {
     userID: number;
     postCompletionStatus: any;
     completion: boolean;
+    submission: boolean;
+    postSubmissionStatus: any;
 }
 const DayListItem: React.FC<DayProps> = ({
     completion,
@@ -28,24 +30,27 @@ const DayListItem: React.FC<DayProps> = ({
     openTopicNumber,
     postCompletionStatus,
     userID,
+    submission,
+    postSubmissionStatus
 }) => {
     return (
         <ListItem
             openTopicNumber={openTopicNumber}
             content={content}
-            style={completion ? { border: '#018001 solid 5px' } : {}}
+            style={completion || submission ? { border: '#018001 solid 5px' } : {}}
             onClick={() => {
                 setOpenTopicNumber(content.id);
             }}>
             <TitleDiv>
+
                     <InnerTitleDiv>
                         {iconsToDisplay.get(content.contentType)}
                         {content.title}
                     </InnerTitleDiv>
-                {completion?<DoneIcon style={{ color: "#018001" }}/>:null}
+                {completion || submission  ?<DoneIcon style={{ color: "#018001" }}/>:null}
             </TitleDiv>
 
-            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion}/>
+            <DayContent openTopicNumber={openTopicNumber} content={content} postCompletionStatus={postCompletionStatus} userID={userID} completion={completion} postSubmissionStatus={postSubmissionStatus} submission={submission}/>
         </ListItem>
     );
 };

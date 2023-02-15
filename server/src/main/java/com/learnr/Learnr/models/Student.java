@@ -14,7 +14,7 @@ public class Student extends CourseUser {
     private List<Completion> completions;
 
     @JsonBackReference(value = "student_submissions_reference")
-    @OneToMany(mappedBy = "content", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "contentId", fetch = FetchType.LAZY)
     private List<Submission> submissions;
 
     public Student(String firstName, String lastName, String email, Long phone, String dob, String bio) {
