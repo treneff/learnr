@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useAuthValue } from '../../AuthContext';
 import CompletionsService from '../../service/CompletionService';
 import StudentService from '../../service/StudentService';
+import SubmissionsService from '../../service/SubmissionService';
 import DayListItem from './DayListItem';
 interface DailyDropDownProps {
     course: any;
@@ -14,6 +15,7 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
     const [userID, setUserID] = useState<any>();
     const { currentUser } = useAuthValue();
     const [completions, setCompletions] = useState([]);
+    const [submissions, setSubmissions] = useState([]);
     const [colorChangeListener, setColorChangeListener] = useState<number>(0)
     useEffect(() => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
@@ -24,6 +26,13 @@ const DailyDropDown: React.FC<DailyDropDownProps> = ({ course, openWeekNumber, o
 
     useEffect(() => {
         CompletionsService.getCompletionsByStudentId(userID).then((completions) => {
+            setCompletions(completions);
+        });
+    }, [userID, colorChangeListener]);
+
+
+    useEffect(() => {
+        SubmissionsService.getSubmissionsByStudentId(userID).then((submissions) => {
             setCompletions(completions);
         });
     }, [userID, colorChangeListener]);
