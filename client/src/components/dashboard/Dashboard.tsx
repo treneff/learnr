@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Notes from "./Notes";
-import Today from "./Today";
-import Tasks from "./Tasks";
-import styled from "styled-components";
-import DayService from "../../service/DayService";
-import { useAuthValue } from "../../AuthContext";
-import StudentService from "../../service/StudentService";
-import CompletionsService from "../../service/CompletionService";
-import UsefulLinks from "./UsefulLinks";
-import Announcements from "./Announcements";
+import React, { useEffect, useState } from 'react';
 
+import Today from './Today';
+import styled from 'styled-components';
+import DayService from '../../service/DayService';
+import { useAuthValue } from '../../AuthContext';
+import StudentService from '../../service/StudentService';
+import UsefulLinks from './UsefulLinks';
+import Announcements from './Announcements';
 
 const Dashboard: React.FC = () => {
-
     const [dayToDisplay, setDayToDisplay] = useState([]);
     const { currentUser } = useAuthValue();
     const [user, setUser] = useState<any>();
@@ -21,14 +17,11 @@ const Dashboard: React.FC = () => {
         StudentService.getStudentByEmail(currentUser.email).then((profile) => {
             setUser(profile[0]);
         });
-    }, []);
+    });
 
     useEffect(() => {
-        DayService.getDayByWeekAndDayNumber(1, 1)
-        .then((days) => setDayToDisplay(days));
+        DayService.getDayByWeekAndDayNumber(1, 1).then((days) => setDayToDisplay(days));
     }, [user]);
-
-    
 
     type DayType = {
         title: string;
@@ -36,24 +29,38 @@ const Dashboard: React.FC = () => {
         dayNumber: Number;
         course: Object;
         content: Array<any>;
-    }
+    };
 
-    return(<>
-
-    {user ? <MainTitle>Welcome, {user.firstName}</MainTitle> : <MainTitle>Welcome</MainTitle>}
-        <DashboardItems>
-            <DashboardItem>
-            <h2>Todays Lessons</h2>
-            {dayToDisplay.map((day: DayType)=>{return <Today dayTitle={day.title} content={day.content} weekNumber={day.weekNumber} dayNumber = {day.dayNumber} />})}
-            </DashboardItem>
-            <DashboardItem>
-                <Announcements />
-            </DashboardItem>
-            <DashboardItem>
-                <UsefulLinks />
-            </DashboardItem>
-        </DashboardItems>
-    </>)
+    return (
+        <>
+            {user ? (
+                <MainTitle>Welcome to your Dashboard, {user.firstName}</MainTitle>
+            ) : (
+                <MainTitle>Welcome to your Dashboard</MainTitle>
+            )}
+            <DashboardItems>
+                <DashboardItem>
+                    <h2>Todays Lessons</h2>
+                    {dayToDisplay.map((day: DayType) => {
+                        return (
+                            <Today
+                                dayTitle={day.title}
+                                content={day.content}
+                                weekNumber={day.weekNumber}
+                                dayNumber={day.dayNumber}
+                            />
+                        );
+                    })}
+                </DashboardItem>
+                <DashboardItem>
+                    <Announcements />
+                </DashboardItem>
+                <DashboardItem>
+                    <UsefulLinks />
+                </DashboardItem>
+            </DashboardItems>
+        </>
+    );
 };
 
 export default Dashboard;
@@ -61,25 +68,29 @@ export default Dashboard;
 const MainTitle = styled.h1`
     text-align: center;
     color: var(--tertiary-color);
-    font-family: 'american typewriter', 'montserrat', 'impact';
-    padding: 2rem;
-`
+    padding:2rem;
+`;
 
-const DashboardItems = styled.div`
+const DashboardItems = styled.section`
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
-`
+    text-align: center;
+    min-width: 300px;
+    align-items: flex-start;
+    padding-top:3rem;
+    gap:3rem;
+    background-color: #f5f3f3;
+    @media (max-width: 414px) {
+        flex-direction: column;
+    }
+`;
 
 const DashboardItem = styled.div`
-    padding: 3rem;
-    width: 10vw;
-    width: 25vw;
+    width: 100%;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    background-color: #f5f3f3;
+    justify-content: center;
+    align-items:center;
     overflow: auto;
-    margin: 2rem;
-`
-
+`;
