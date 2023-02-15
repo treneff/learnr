@@ -1,47 +1,75 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import SubmissionPopUp from "./SubmissionPopUp";
+
 interface DayContentProps {
-    openTopicNumber: number|undefined;
-    content:any;
-    postCompletionStatus: any;
-    userID: any;
-    completion:boolean;
-    submission: boolean;
-    postSubmissionStatus: any;
+  openTopicNumber: number | undefined;
+  content: any;
+  postCompletionStatus: any;
+  userID: any;
+  completion: boolean;
+  submission: boolean;
+  postSubmissionStatus: any;
 }
 
-const DayContent:React.FC<DayContentProps> = ({openTopicNumber, content, postCompletionStatus, userID,completion, postSubmissionStatus, submission}) => {
-    
-    const [open, setOpen] = useState(false);
+const DayContent: React.FC<DayContentProps> = ({
+  openTopicNumber,
+  content,
+  postCompletionStatus,
+  userID,
+  completion,
+  postSubmissionStatus,
+  submission,
+}) => {
 
-    const togglePopUp = () => {
-        setOpen(!open);
-    }
+  const [open, setOpen] = useState(false);
+
+  const togglePopUp = () => {
+    setOpen(!open);
     
-    return (
-        <Content
-            style={{
-                maxHeight: openTopicNumber === content.id ? '100%' : '0',
-                opacity: openTopicNumber === content.id ? '1' : '0',
-            }}>
-            {content.detail}
-            {/* {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null} */}
-            {content.contentType == "homework" ?  <button onClick={togglePopUp}>
-                Submit
-            </button>  : !completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null}
-        </Content>
-    );
+  };
+
+  return (
+    <Content
+      style={{
+        maxHeight: openTopicNumber === content.id ? "100%" : "0",
+        opacity: openTopicNumber === content.id ? "1" : "0",
+      }}
+    >
+      {content.detail}
+      {/* {!completion?<button onClick={() => postCompletionStatus(content.id, userID)}>Complete</button>:null} */}
+      {content.contentType === "homework" ? (
+        <>
+          <button onClick={togglePopUp}>Submit</button>
+          {open && (
+            <SubmissionPopUp
+              userID={userID}
+              content={content}
+              postSubmissionStatus={postSubmissionStatus}
+              handleClose={togglePopUp}
+            />
+          )}
+        </>
+      ) : (
+        !completion && (
+          <button onClick={() => postCompletionStatus(content.id, userID)}>
+            Complete
+          </button>
+        )
+      )}
+    </Content>
+  );
 };
 
 export default DayContent;
 
 const Content = styled.ul`
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 1.2s, opacity 2s ease-in-out;
-    display:flex;
-    justify-content:space-between;
-    flex-direction:column;
-    height:100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 1.2s, opacity 2s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 `;
