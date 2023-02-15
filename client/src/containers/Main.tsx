@@ -28,7 +28,7 @@ const Main: React.FC = () => {
     }, []);
 
     return (
-        <main>
+        <main data-testid="main">
             <AuthProvider
                 value={{
                     currentUser,
