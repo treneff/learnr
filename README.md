@@ -7,9 +7,8 @@ Developed in the span of 2 weeks as a team of 3 people with the goal of creating
 * [Technologies](#technologies)
 * [Installation](#installation)
 
-<br>
-<video src="https://user-images.githubusercontent.com/65739239/220149792-aa35b7d4-262c-4122-b120-106623b8b4a4.mov" width="1507">
-<img width="1507" alt="Screenshot 2023-01-12 at 13 24 35" src="https://user-images.githubusercontent.com/65739239/212085524-8d416d73-96a0-4e55-9bdd-f621a24dd8b4.png">
+
+
 
 ## Technologies
 
@@ -65,3 +64,5 @@ If that does not fix it:
 ```
 npm audit fix —force
 ```
+<br>
+<video src="https://user-images.githubusercontent.com/65739239/220149792-aa35b7d4-262c-4122-b120-106623b8b4a4.mov" width="1507">
