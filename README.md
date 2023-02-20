@@ -6,6 +6,7 @@ Developed in the span of 2 weeks as a team of 3 people with the goal of creating
 
 * [Technologies](#technologies)
 * [Installation](#installation)
+* [Demo](#demo)
 
 
 
@@ -65,4 +66,6 @@ If that does not fix it:
 npm audit fix —force
 ```
 <br>
+
+##Demo
 <video src="https://user-images.githubusercontent.com/65739239/220149792-aa35b7d4-262c-4122-b120-106623b8b4a4.mov" width="1507">
